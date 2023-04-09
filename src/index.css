@@ -21,4 +21,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: theme("colors.backgroundColor");
   font-family: 'DM Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #212020;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
 }

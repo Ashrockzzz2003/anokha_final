@@ -32,24 +32,14 @@ export const useAuth = () => {
             }
 
             const responseData = await response.json();
-            //console.log(responseData)
-            //console.log(responseData.SECRET_TOKEN)
             
-
-
             setToken(responseData.SECRET_TOKEN);
             setEmail(userEmail);
-            setData({
-                "userEmail": responseData.userEmail,
-                "fullName": responseData.fullName,
-                "isAmritaCBE": responseData.isAmritaCBE,
-                "collegeName": responseData.collegeName
-            })
             setIsLoggedIn(1);
-
-            window.location.href = "/";
+            getUserData();
 
             console.log(isLoggedIn, token, email);
+            window.location.href = "/";
 
         } catch (error) {
             console.error(error);
@@ -59,7 +49,7 @@ export const useAuth = () => {
 
     const getUserData = async () => {
         try {
-            const response = await fetch(USER_API_URL + `/${localStorage.getItem("email")}`, {
+            const response = await fetch(USER_API_URL, {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`,
@@ -73,8 +63,11 @@ export const useAuth = () => {
             setData({
                 "userEmail": responseData.userEmail,
                 "fullName": responseData.fullName,
+                "currentStatus": responseData.currentStatus,
+                "activePassport": responseData.activePassport,
                 "isAmritaCBE": responseData.isAmritaCBE,
                 "collegeId": responseData.collegeId,
+                "passportId": responseData.passportId,
             });
 
             console.log(data);
