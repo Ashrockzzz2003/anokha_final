@@ -1,6 +1,7 @@
 import * as React from 'react';
 import logo from "../components/utils/anokha_2023_white.png";
 import "../components/styles/home.css"
+import "../components/styles/background.css"
 import eventide from "../components/utils/eventide.png";
 import ab1 from "../components/utils/cbe campus.svg";
 import { Typography } from '@material-tailwind/react';
@@ -81,6 +82,9 @@ const Home = () => {
                 </div>
             </div>
 
+            <div className="background-container">
+            <div class="gradient"></div>
+            <div class="gradient gradient-right"></div>
             <div id="aboutamrita" className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16">
                 <table className='w-full' data-aos="fade-up-right">
                     <tbody>
@@ -111,6 +115,7 @@ const Home = () => {
                         Anokha, the national engineering techfest of Amrita School of Engineering, Coimbatore, is a 3-day congregation of some of the brightest minds in India. Founded in 2010, Anokha has grown by leaps and bounds and has progressed to become one of the most popular and top techfests in India. Having successfully completed eight editions, Anokha has had an average annual participation of over 10,000 of the best undergraduate engineering students from top-ranking engineering institutions in India like IITs, BITS, NITs and IIITs participating as well as partner universities in USA and Europe like University of New Mexico, EVRY France and Uppsala University-Sweden.
                     </Typography>
                 </div>
+            </div>
             </div>
 
             <div id="c20g20" className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
@@ -145,6 +150,9 @@ const Home = () => {
                 </div>
             </div>
 
+            <div className="background-container">
+            <div class="gradient"></div>
+            <div class="gradient gradient-right"></div>
             <div id="eventide" className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16">
                 <table className='w-full' data-aos="fade-up-right">
                     <tbody>
@@ -175,6 +183,7 @@ const Home = () => {
                         Anokha, the national engineering techfest of Amrita School of Engineering, Coimbatore, is a 3-day congregation of some of the brightest minds in India. Founded in 2010, Anokha has grown by leaps and bounds and has progressed to become one of the most popular and top techfests in India. Having successfully completed eight editions, Anokha has had an average annual participation of over 10,000 of the best undergraduate engineering students from top-ranking engineering institutions in India like IITs, BITS, NITs and IIITs participating as well as partner universities in USA and Europe like University of New Mexico, EVRY France and Uppsala University-Sweden.
                     </Typography>
                 </div>
+            </div>
             </div>
 
             <div id="techfair" className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-evenly bg-babyPowder mb-0 pb-32 pt-32 px-16">
@@ -208,12 +217,17 @@ const Home = () => {
                     </Typography>
                 </div>
             </div>
+            
+            <div className="background-container">
+            <div class="gradient"></div>
+            <div class="gradient gradient-right"></div>
             <div className='container w-full ml-auto mr-auto mt-24'>
                 <Typography variant="h1" className="mb-16 text-khaki text-center font-title">
                     Gallery
                 </Typography>
                 <Carousel id="gallery" />
             </div>
+        </div>
         </div>
     );
 }
