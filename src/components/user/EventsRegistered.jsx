@@ -1,28 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Card from "../events/Cards";
 
-const API_URL = "http://52.66.236.118:3000/userWeb/events/all";
-
 const EventsRegistered = () => {
-  const [events, setEvents] = useState([]);
-
-  const fetchUserData = () => {
-    fetch(`${API_URL}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setEvents(data);
-      });
-  };
-
-  useEffect(() => {
-    fetchUserData();
-  }, []);
+  const tempData = useState(localStorage.getItem("userEvents"));
+  const [data] = useState(JSON.parse(tempData[0]));
 
   return (
     <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-4">
-      {events.map((event) => (
+      {data.map((event) => (
         <Card
           key={event.eventId}
           title={event.eventName}

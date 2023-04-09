@@ -50,7 +50,7 @@ export default function Login() {
             <span></span>
           </div>
         </div>
-        <div className="lg:inline-block bg-babyPowder w-fit md:h-[100vh] flex justify-center lg:w-1/2 ">
+        <div className="lg:inline-block bg-babyPowder w-full md:h-[100vh] flex justify-center lg:w-1/2 ">
           <div className="px-20 py-32 items-center bg-babyPowder">
             <img
               src={anokha_circle}

@@ -13,7 +13,7 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { SHA256 } from "crypto-js";
+// import { SHA256 } from "crypto-js";
 
 function CollegeList() {
   /*
@@ -159,7 +159,7 @@ export default function Register() {
                   Select Your College
                 </label>
                 <div className="text-center">
-                <CollegeList />
+                  <CollegeList />
                 </div>
               </div>
             ) : null}
@@ -243,19 +243,19 @@ export default function Register() {
               )}
             </div>
             <div className="flex flex-col mt-4">
-    <label className="text-lg text-center font-medium">OTP</label>
-    <input
-      type="text"
-      value={otp}
-      onChange={(e) => setOtp(e.target.value)}
-      className={
-        "w-3/5 ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
-        (otp ? " border-gray-400" : " border-gray-700")
-      }
-      text-center placeholder="Enter OTP"
-      disabled={!otp}
-    />
-  </div>
+              <label className="text-lg text-center font-medium">OTP</label>
+              <input
+                type="text"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                className={
+                  "w-3/5 ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                  (otp ? " border-gray-400" : " border-gray-700")
+                }
+                text-center placeholder="Enter OTP"
+                disabled={!otp}
+              />
+            </div>
             <div className="mt-8 w-3/5 ml-auto mr-auto flex flex-col gap-y-4">
               <button
                 type="submit"

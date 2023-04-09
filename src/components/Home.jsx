@@ -124,8 +124,8 @@ const Home = () => {
       </div>
 
       <div className="background-container">
-        <div class="gradient"></div>
-        <div class="gradient gradient-right"></div>
+        <div className="gradient"></div>
+        <div className="gradient gradient-right"></div>
         <div
           id="aboutamrita"
           className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16"
@@ -246,8 +246,8 @@ const Home = () => {
       </div>
 
       <div className="background-container">
-        <div class="gradient"></div>
-        <div class="gradient gradient-right"></div>
+        <div className="gradient"></div>
+        <div className="gradient gradient-right"></div>
         <div
           id="eventide"
           className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16"
@@ -372,8 +372,8 @@ const Home = () => {
       </div>
 
       <div className="background-container">
-        <div class="gradient"></div>
-        <div class="gradient gradient-right"></div>
+        <div className="gradient"></div>
+        <div className="gradient gradient-right"></div>
         <div className="container w-full lg:h-[100vh] overflow-y-auto  no-scrollbar ml-auto mr-auto mt-24">
           <Typography
             variant="h1"
@@ -381,8 +381,8 @@ const Home = () => {
           >
             GALLERY
           </Typography>
-          <div class="gallery">
-            <div class="gallery-item">
+          <div className="gallery">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/hound-english/n02089973_3147.jpg"
@@ -390,7 +390,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/poodle-toy/n02113624_1582.jpg"
@@ -398,7 +398,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/pug/n02110958_13794.jpg"
@@ -406,7 +406,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/terrier-australian/n02096294_5504.jpg"
@@ -414,7 +414,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/kelpie/n02105412_1222.jpg"
@@ -422,7 +422,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/doberman/n02107142_1193.jpg"
@@ -430,7 +430,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/terrier-russell/iguet4.jpeg"
@@ -438,7 +438,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/newfoundland/n02111277_5292.jpg"
@@ -446,7 +446,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/borzoi/n02090622_266.jpg"
@@ -454,7 +454,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/newfoundland/n02111277_11806.jpg"
@@ -462,7 +462,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/poodle-miniature/n02113712_3293.jpg"
@@ -470,7 +470,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/pembroke/n02113023_4881.jpg"
@@ -478,7 +478,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/poodle-standard/n02113799_4946.jpg"
@@ -486,7 +486,7 @@ const Home = () => {
                 />
               </figure>
             </div>
-            <div class="gallery-item">
+            <div className="gallery-item">
               <figure>
                 <img
                   src="https://images.dog.ceo/breeds/schnauzer-giant/n02097130_4050.jpg"

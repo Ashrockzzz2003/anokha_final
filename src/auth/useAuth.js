@@ -4,11 +4,13 @@ export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useLocalStorage("isLoggedIn", 0);
     const [token, setToken] = useLocalStorage("token", null);
     const [email, setEmail] = useLocalStorage("email", null);
-    const [data, setData] = useLocalStorage("userData", null);
+    const [userData, setUserData] = useLocalStorage("userData", null);
+    const [userEvents, setUserEvents] = useLocalStorage("userEvents", null);
 
     const LOGIN_API_URL = "http://52.66.236.118:3000/userWeb/login";
     const USER_API_URL = "http://52.66.236.118:3000/userWeb/getUser";
-    // const REGISTER_API_URL = "http://52.66.236.118:3000/userWeb/registerUser";
+    const USER_EVENTS_API_URL = "http://52.66.236.118:3000/userWeb/events/myRegistered";
+    const USER_EDIT_API_URL = "http://52.66.236.118:3000/userWeb/editUser";
 
     const signIn = async (data) => {
         try {
@@ -36,9 +38,27 @@ export const useAuth = () => {
             setToken(responseData.SECRET_TOKEN);
             setEmail(userEmail);
             setIsLoggedIn(1);
-            getUserData();
+            
+            // Fetch User Data
+            const userResponse = await fetch(USER_API_URL, {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${responseData.SECRET_TOKEN}`,
+                },
+            });
 
-            console.log(isLoggedIn, token, email);
+            setUserData(await userResponse.json());
+
+            // Fetch events reg by user
+
+            const eventsResponse = await fetch(USER_EVENTS_API_URL, {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${responseData.SECRET_TOKEN}`,
+                },
+            });
+
+            setUserEvents(await eventsResponse.json());
             window.location.href = "/";
 
         } catch (error) {
@@ -47,43 +67,47 @@ export const useAuth = () => {
         }
     };
 
-    const getUserData = async () => {
-        try {
-            const response = await fetch(USER_API_URL, {
-                method: "GET",
-                headers: {
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`,
-                },
-            });
+    const editProfile = async (data) => {
+        const fullName = data.fullName;
+        const password = data.password;
 
-            console.log(response)
+        const response = await fetch(USER_EDIT_API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`,
+            },
+            body: JSON.stringify({
+                "fullName": fullName,
+                "password": password,
+            }),
+        });
 
-            const responseData = await response.json();
-
-            setData({
-                "userEmail": responseData.userEmail,
-                "fullName": responseData.fullName,
-                "currentStatus": responseData.currentStatus,
-                "activePassport": responseData.activePassport,
-                "isAmritaCBE": responseData.isAmritaCBE,
-                "collegeId": responseData.collegeId,
-                "passportId": responseData.passportId,
-            });
-
-            console.log(data);
-
-        } catch (error) {
-            console.error(error);
-            alert("Something went wrong. Please try again later.");
+        if (response.status !== 200) {
+            alert("Session Expired. Logging you out. Try again.");
+            signOut();
+            window.location.href = "/";
+            return;
         }
-    };
+
+        // Update User Data Locally
+        const userResponse = await fetch(USER_API_URL, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`,
+            },
+        });
+
+        setUserData(await userResponse.json());
+        window.location.href = "/";
+    }
 
     const signOut = () => {
         localStorage.clear();
         window.location.href = "/";
     };
 
-    return { signIn, signOut, getUserData };
+    return { signIn, signOut, editProfile };
 
 };
 

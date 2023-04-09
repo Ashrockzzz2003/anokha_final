@@ -59,9 +59,7 @@ function App() {
         <Route path='/profile/edit' element={
           <RequireAuth>
             <>
-              <NavigationBar />
               <EditProfile />
-              <Footer />
             </>
           </RequireAuth>
         } />
