@@ -15,7 +15,7 @@ export default function ConfirmPayment({ membercount, amount, buttonLabel }) {
     const handleOpen = () => {
         const auth = JSON.parse(localStorage.getItem('isLoggedIn'));
 
-        if(0) {
+        if(!auth) {
             alert("Login Required to view this. Redirecting to Login Page");
             return window.location.href = "/login";
         }
