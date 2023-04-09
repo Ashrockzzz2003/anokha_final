@@ -355,7 +355,7 @@ const Home = () => {
             variant="h1"
             className="mb-2 text-backgroundColor font-title text-center lg:text-left"
           >
-            TechFair
+            TECHFAIR
           </Typography>
           <Typography className="text-lg font-normal text-backgroundColor text-center lg:text-justify">
             Anokha, the national engineering techfest of Amrita School of

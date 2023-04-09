@@ -31,13 +31,13 @@
 
 @media screen and (max-width: 500px) {
     .gallery {
-        column-count: 2;
+        column-count: 3;
     }
 }
 
 @media screen and (min-width: 501px) and (max-width: 700px) {
     .gallery {
-        column-count: 2;
+        column-count: 3;
     }
 }
 
