@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    overflow: hidden;
+}
+
 @keyframes rotate {
     0% {
         transform: rotate(0deg);

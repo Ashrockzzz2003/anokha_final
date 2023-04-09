@@ -12,7 +12,7 @@ import eventide from "./utils/eventide.png";
 export default function Footer() {
     return (
         <footer id="footer">
-            <div className="h-auto bg-white">
+            <div className="h-auto w-full bg-white">
                 <div className="inline-block">
                     <div className="flex gap-x-3 pt-24 pl-36">
                         <a
@@ -47,8 +47,8 @@ export default function Footer() {
                         </a>
                     </div>
 
-                    <div id="contact" className="pl-36 pt-16 overflow-hidden">
-                        <div className="text-6xl">Contact Us</div>
+                    <div id="contact" className="pl-36 pt-12">
+                        <div className="text-5xl overflow-hidden">Contact Us</div>
                         <div className="pt-4 pl-4">
                             <div className="py-2 text-lg">email@email1.com</div>
                             <div className="py-2 text-lg">email@email2.com</div>
@@ -92,7 +92,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="inline-block px-36">
+                <div className="inline-block">
                     <img src={eventide} alt="Eventide" width={250} style={{ float: 'right' }} />
                 </div>
                 <div className="flex justify-evenly py-4 ">
