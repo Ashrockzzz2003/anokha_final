@@ -32,8 +32,8 @@ export const useAuth = () => {
             }
 
             const responseData = await response.json();
-            console.log(responseData)
-            console.log(responseData.SECRET_TOKEN)
+            //console.log(responseData)
+            //console.log(responseData.SECRET_TOKEN)
             
 
 
