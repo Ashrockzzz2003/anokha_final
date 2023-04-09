@@ -8,7 +8,7 @@ export default function Footer() {
         <footer id="footer">
             <div className="h-auto bg-white">
                 <div className="inline-block">
-                    <div className="flex gap-x-3 pt-24 pl-36">
+                    <div className="flex justify-center lg:justify-start gap-x-3 pt-24 pl-36">
                         <a
                             href="https://www.instagram.com/anokhatechfest/"
                             target="_blank"
