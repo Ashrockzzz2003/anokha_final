@@ -125,7 +125,7 @@ const NavigationBar = () => {
 
     const navList = (
         <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row items-center lg:gap-6">
-            <Link to="/#about" smooth={true}>
+            <Link to="about" smooth={true}>
                 <Button
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
@@ -135,7 +135,7 @@ const NavigationBar = () => {
                     </Typography>
                 </Button>
             </Link>
-            <Link to="/#eventide" smooth={true}>
+            <Link to="eventide" smooth={true}>
                 <Button
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
@@ -145,7 +145,7 @@ const NavigationBar = () => {
                     </Typography>
                 </Button>
             </Link>
-            <Link to="/#techfair" smooth={true}>
+            <Link to="techfair" smooth={true}>
                 <Button
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
@@ -155,7 +155,7 @@ const NavigationBar = () => {
                     </Typography>
                 </Button>
             </Link>
-            <Link to="/#gallery" smooth={true}>
+            <Link to="gallery" smooth={true}>
                 <Button
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
@@ -165,7 +165,7 @@ const NavigationBar = () => {
                     </Typography>
                 </Button>
             </Link>
-            <Link to="/#footer" smooth={true}>
+            <Link to="footer" smooth={true}>
                 <Button
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"

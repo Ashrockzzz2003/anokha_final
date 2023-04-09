@@ -15,21 +15,10 @@ import Footer from './components/Footer';
 function App() {
   return (
     <BrowserRouter>
-      <NavigationBar />
-      <br />
-      <br />
-      <br />
-      <br />
       <Routes>
-        <Route path="/" element={
-          <Home />
-        } />
-        <Route path="/events" element={
-          <Events />
-        } />
-        <Route path="/events/:eventID/about" element={
-          <EventLanding />
-        } />
+        <Route path="/" element={<Home />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/events/:eventID/about" element={<EventLanding />} />
         <Route path='/login' element={
           <NoAuth>
             <Login />
@@ -42,16 +31,19 @@ function App() {
         } />
         <Route path='/profile' element={
           <RequireAuth>
+            <NavigationBar />
             <Profile />
+            <Footer />
           </RequireAuth>
         } />
         <Route path='/profile/edit' element={
           <RequireAuth>
+            <NavigationBar />
             <EditProfile />
+            <Footer />
           </RequireAuth>
         } />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }
