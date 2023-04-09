@@ -2,6 +2,7 @@ import { Typography } from "@material-tailwind/react";
 import React from "react";
 import ConfirmPayment from "../user/ConfirmPayment";
 import eventide from "../utils/eventide.png";
+import RegisterMembers from "../events/RegisterMembers";
 
 const EventLanding = () => {
   const data = {
@@ -12,6 +13,8 @@ const EventLanding = () => {
     "email": "vira_manohar_legend@cb.students.amrita.edu",
   }
 
+  const isGroupEvent = false;
+  
   /*
         "eventId": 1,
         "eventName": "EVENT0",
@@ -36,9 +39,15 @@ const EventLanding = () => {
     <div className="w-full block items-center justify-center lg:flex lg:justify-center pb-32 pt-32">
       <div className="w-auto lg:pr-12">
         <img src={eventide} className="w-72 rounded-lg ml-auto mr-auto" alt="Event Pix" />
+        {isGroupEvent ?
+         <div className="mt-4 w-fit ml-auto mr-auto">
+          <RegisterMembers membercount={4} amount={500} buttonLabel={"Register with Members"} />
+        </div>
+        :
         <div className="mt-4 w-fit ml-auto mr-auto">
           <ConfirmPayment orderID={data.orderID} amount={data.amount} eventName={data.eventName} fullName={data.fullName} email={data.email} buttonLabel={"Register"} />
         </div>
+        }
       </div>
       <div className="m-16 mt-24 lg:pl-24 lg:ml-16 lg:w-1/2">
         <Typography variant="h1" className="mb-4 text-khaki text-left">
