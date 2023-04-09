@@ -71,6 +71,8 @@ export const useAuth = () => {
         const fullName = data.fullName;
         const password = data.password;
 
+        console.log(fullName, password);
+
         const response = await fetch(USER_EDIT_API_URL, {
             method: "POST",
             headers: {
@@ -83,7 +85,7 @@ export const useAuth = () => {
             }),
         });
 
-        if (response.status !== 200) {
+        if (response.status === 401) {
             alert("Session Expired. Logging you out. Try again.");
             signOut();
             window.location.href = "/";
