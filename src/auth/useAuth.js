@@ -32,14 +32,18 @@ export const useAuth = () => {
             }
 
             const responseData = await response.json();
+            //console.log(responseData)
+            //console.log(responseData.SECRET_TOKEN)
+            
 
-            setToken(responseData.userData.SECRET_TOKEN);
+
+            setToken(responseData.SECRET_TOKEN);
             setEmail(userEmail);
             setData({
-                "userEmail": responseData.userData.userEmail,
-                "fullName": responseData.userData.fullName,
-                "isAmritaCBE": responseData.userData.isAmritaCBE,
-                "collegeName": responseData.userData.collegeName
+                "userEmail": responseData.userEmail,
+                "fullName": responseData.fullName,
+                "isAmritaCBE": responseData.isAmritaCBE,
+                "collegeName": responseData.collegeName
             })
             setIsLoggedIn(1);
 
