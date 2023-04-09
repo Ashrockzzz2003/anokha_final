@@ -10,7 +10,7 @@ import {
     Typography,
 } from "@material-tailwind/react";
 
-export default function ConfirmPayment({ membercount, buttonLabel }) {
+export default function ConfirmPayment({ membercount, amount, buttonLabel }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
         const auth = JSON.parse(localStorage.getItem('isLoggedIn'));
@@ -26,8 +26,7 @@ export default function ConfirmPayment({ membercount, buttonLabel }) {
         // send team members to backend
     };
 
-    const numOrders = 4; // number of orders to render
-    const orders = [...Array(numOrders).keys()]; // generate an array of order numbers
+    const orders = [...Array(membercount).keys()]; // generate an array of order numbers
 
     
     const orderElements = orders.map(orderNum => (
@@ -48,8 +47,8 @@ export default function ConfirmPayment({ membercount, buttonLabel }) {
                         <form className="mt-8 mb-2 w-3/5 ml-auto mr-auto max-w-screen-lg">
                             <div className="mb-4 flex text-center flex-col gap-2">
                                 {orderElements}
-                                <label>Pincode</label>
-                                <Input size="lg" label="Pincode" type={"number"} maxLength="6" required />
+                                <label htmlFor="amount">Amount</label>
+                                <Input size="lg" label="Amount" id="amount" type={"number"} value={amount} disabled />
                             </div>
                         </form>
                     </DialogBody>
