@@ -1,0 +1,38 @@
+.glassmorphism-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.glassmorphism-dropdown {
+  margin: 2px;
+}
+
+.glassmorphism-dropdown label {
+  display: none;
+}
+
+.glassmorphism-dropdown select {
+  width: 120px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.37),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  color: #333;
+  font-size: 14px;
+  padding: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.glassmorphism-dropdown select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(31, 38, 135, 0.37),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}

@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    transition: all .2s ease-in;
+}
+
+.home {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card {
+
+    padding: 4px;
+    height: auto;
+    width: 250px;
+    position: relative;
+    top: 30px;
+    transition: transform .6s;
+}
+
+.card:nth-child(1) {
+    transform: translateY(0px) rotate(-42deg);
+    left: 87px;
+    top: 52px;
+}
+
+.card:nth-child(2) {
+    transform: translateY(0px) rotate(0deg);
+    left: 42px;
+    top: 38px;
+}
+
+.card:nth-child(3) {
+    transform: translateY(0px) rotate(26deg);
+    left: 7px;
+    top: 26px;
+}
+
+.card:nth-child(4) {
+    transform: translateY(0px) rotate(26deg);
+    left: -24px;
+    top: 24px;
+}
+
+.card:nth-child(5) {
+    right: 54px;
+    top: 28px;
+    transform: translateY(0px) rotate(42deg);
+}
+
+.card:nth-child(6) {
+    transform: translateY(0px) rotate(26deg);
+    right: 82px;
+    top: 44px;
+}
+
+.card:nth-child(7) {
+    transform: translateY(0px) rotate(35deg);
+    right: 117px;
+    top: 67px;
+}
+
+.card:nth-child(1):hover {
+    z-index: 2;
+    transform: translate(-20px) rotate(0deg) scale(1.2);
+}
+
+.card:nth-child(2):hover {
+    z-index: 2;
+    transform: translateY(-20px) rotate(0deg) scale(1.2);
+}
+
+.card:nth-child(3):hover {
+    z-index: 2;
+    transform: translate(1px, -20px) rotate(0deg) scale(1.2);
+}
+
+.card:nth-child(4):hover {
+    z-index: 2;
+    transform: translateY(-20px) rotate(0deg) scale(1.2);
+}
+
+.card:nth-child(5):hover {
+    z-index: 2;
+    transform: translate(1px, -20px) rotate(0deg) scale(1.2);
+}
+
+.card:nth-child(6):hover {
+    z-index: 2;
+    transform: translateY(-20px) rotate(0deg) scale(1.2);
+}
+
+.card:nth-child(7):hover {
+    z-index: 2;
+    transform: translate(1px, -20px) rotate(0deg) scale(1.2);
+}
+
+@media (max-width: theme("screens.md")) {
+    .card {
+        height: 160px;
+        width: 150px;
+    }
+
+    .home {
+        overflow: hidden;
+    }
+
+    table,
+    tbody {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: theme("screens.lg")) {
+    .card {
+        height: 160px;
+        width: 150px;
+    }
+
+    .home {
+        overflow: hidden;
+    }
+
+    table,
+    tbody {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .wrap {
+        transform: translateX(-24px);
+    }
+}
+
+tr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 48px;
+}

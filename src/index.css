@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+@layer base {
+  @font-face {
+      font-family: TitleFont;
+      src: url(/src/fonts/BaseNeueTrial-Regular.otf);
+  }
+}
+
+* {
+  transition: all 0.2s ease-in;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: theme("colors.backgroundColor");
+  font-family: 'DM Sans', sans-serif;
+}
