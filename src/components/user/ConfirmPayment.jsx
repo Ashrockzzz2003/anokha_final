@@ -31,11 +31,11 @@ export default function ConfirmPayment({ orderID, amount, eventName, fullName, e
                 <Button className="filled text-backgroundColor bg-khaki justify-center w-full text-lg" onClick={handleOpen} variant="filled">
                     {buttonLabel}
                 </Button>
-                <Dialog open={open} size={"xl"} handler={handleOpen} className="bg-babyPowder">
+                <Dialog open={open} size={"md"} handler={handleOpen} className="bg-babyPowder">
                     <DialogHeader>Payment Details</DialogHeader>
                     <DialogBody divider>
-                        <form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96">
-                            <div className="mb-4 flex flex-col gap-2">
+                        <form className="mt-8 mb-2 w-3/5 ml-auto mr-auto max-w-screen-lg">
+                            <div className="mb-4 flex text-center flex-col gap-2">
                                 <label>Order ID</label>
                                 <Input size="lg" label="OrderID" value={orderID} disabled />
                                 <label>Amount</label>
