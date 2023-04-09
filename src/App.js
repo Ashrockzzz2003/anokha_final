@@ -16,9 +16,27 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/events/:eventID/about" element={<EventLanding />} />
+        <Route path="/" element={
+          <>
+            <NavigationBar />
+            <Home />
+            <Footer />
+          </>
+        } />
+        <Route path="/events" element={
+          <>
+            <NavigationBar />
+            <Events />
+            <Footer />
+          </>
+        } />
+        <Route path="/events/:eventID/about" element={
+          <>
+            <NavigationBar />
+            <EventLanding />
+            <Footer />
+          </>
+        } />
         <Route path='/login' element={
           <NoAuth>
             <Login />
@@ -31,16 +49,20 @@ function App() {
         } />
         <Route path='/profile' element={
           <RequireAuth>
-            <NavigationBar />
-            <Profile />
-            <Footer />
+            <>
+              <NavigationBar />
+              <Profile />
+              <Footer />
+            </>
           </RequireAuth>
         } />
         <Route path='/profile/edit' element={
           <RequireAuth>
-            <NavigationBar />
-            <EditProfile />
-            <Footer />
+            <>
+              <NavigationBar />
+              <EditProfile />
+              <Footer />
+            </>
           </RequireAuth>
         } />
       </Routes>
