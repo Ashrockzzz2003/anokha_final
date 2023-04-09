@@ -1,6 +1,7 @@
 import * as React from "react";
 import { RiFacebookFill, RiInstagramFill, RiLinkedinFill, RiTwitterFill, RiYoutubeFill } from 'react-icons/ri'
 import { Link } from "react-scroll";
+import eventide from "./utils/eventide.png";
 
 export default function Footer() {
     return (
@@ -93,7 +94,7 @@ export default function Footer() {
                     <span>Made with &#10084; by WMD</span>
                     <span>Terms and Conditions</span>
                 </div>
-
+            </div>
         </footer>
     );
 };
