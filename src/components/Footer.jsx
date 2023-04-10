@@ -2,6 +2,7 @@ import * as React from "react";
 import { RiFacebookFill, RiInstagramFill, RiLinkedinFill, RiTwitterFill, RiYoutubeFill } from 'react-icons/ri'
 import { Link } from "react-scroll";
 import eventide from "./utils/eventide.png";
+import footerImage from "./utils/anokha_2023_black_small.png";
 
 export default function Footer() {
     return (
@@ -42,13 +43,6 @@ export default function Footer() {
                         </a>
                     </div>
 
-                    <div id="contact" className="flex flex-col items-center lg:items-start lg:justify-start pt-16 overflow-hidden">
-                        <div className="text-6xl text-center md:text-left">Contact Us</div>
-                        <div className="pt-4 pl-4">
-                            <div className="py-2 text-lg text-center md:text-left">email@email1.com</div>
-                            <div className="py-2 text-lg text-center md:text-left">email@email2.com</div>
-                        </div>
-                    </div>
                     <div className="flex justify-center lg:justify-start w-full pt-16">
                         <div id="backlinks" className="grid grid-cols-2 gap-4 text-center md:text-left text-2xl">
                             <a href="/">Home</a>
@@ -88,13 +82,11 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="lg:pr-36 flex justify-center py-4 lg:py-36">
-                    <img src={eventide} alt="Eventide" width={250} style={{minWidth: "200px"}} />
+                    <img src={footerImage} alt="Eventide" className="h-40"/>
                 </div>
                 </div>
-                <div className="flex justify-evenly py-4 ">
-                    <span>Copyright</span>
+                <div className="flex justify-evenly py-4">
                     <span>Made with &#10084; by WMD</span>
-                    <span>Terms and Conditions</span>
                 </div>
             </div>
         </footer>

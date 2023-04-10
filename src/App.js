@@ -15,13 +15,10 @@ import VerifyOTP from './components/user/VerifyOTP';
 import ConfirmPaymentPage from './components/user/ConfirmPaymentPage.jsx';
 import { useAuth } from './auth/useAuth';
 import { PaymentStatus } from './components/user/PaymentStatus';
+import PayURedirect from './components/user/PayURedirect';
+import { useEffect } from 'react';
 
 function App() {
-
-  const { fetchEvents } = useAuth();
-  if (localStorage.getItem("events") === null) {
-    fetchEvents();
-  }
 
   return (
     <BrowserRouter>
@@ -40,7 +37,7 @@ function App() {
             <Footer />
           </>
         } />
-        <Route path="/events/:eventId/about" element={
+        {/* <Route path="/events/:eventId/about" element={
           <>
             <NavigationBar />
             <EventLanding />
@@ -76,6 +73,9 @@ function App() {
             <ConfirmPaymentPage />
           </RequireAuth>
         } />
+        <Route path='/payURedirect' element={
+          <PayURedirect />
+        } />
         <Route path="/payment/:statusId" element={
           <PaymentStatus />
         } />
@@ -85,7 +85,7 @@ function App() {
               <EditProfile />
             </>
           </RequireAuth>
-        } />
+        } /> */}
       </Routes>
     </BrowserRouter>
   );

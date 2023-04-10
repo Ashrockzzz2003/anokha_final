@@ -1,9 +1,10 @@
 import * as React from "react";
-import logo from "../components/utils/anokha_2023_white.png";
+import iete from "../components/utils/iete.jpeg";
+import icici from "../components/utils/icici.png";
+import clab from "../components/utils/clab.webp";
 import "../components/styles/home.css";
 import "../components/styles/gallery.css";
 import "../components/styles/background.css";
-import eventide from "../components/utils/eventide.png";
 import ab1 from "../components/utils/cbe campus.svg";
 import { Typography } from "@material-tailwind/react";
 import anokha_text from "../components/utils/anokha_text.svg";
@@ -39,23 +40,6 @@ const Home = () => {
             className="h-[60vh] ml-auto mr-auto"
           />
         </div>
-        {/* <Marquee
-          pauseOnHover="true"
-          gradient="false"
-          gradientColor="[0, 0, 0]"
-          speed={60}
-          className="bg-marqeeOrange"
-        >
-          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
-          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
-          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
-          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
-          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
-          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
-          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
-          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
-          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
-        </Marquee> */}
       </div>
 
       <div data-aos="fade-up" className="pb-10">
@@ -69,9 +53,9 @@ const Home = () => {
           speed={40}
           className="mb-8"
         >
-          <img src={logo} alt="Anokha Logo" className="h-32 ml-auto mr-auto" />
-          <img src={logo} alt="Anokha Logo" className="h-32 ml-auto mr-auto" />
-          <img src={logo} alt="Anokha Logo" className="h-32 ml-auto mr-auto" />
+          <img src={icici} alt="Anokha Logo" className="h-32 ml-auto mr-auto" />
+          <img src={clab} alt="Anokha Logo" className="h-32 ml-auto mr-auto" />
+          <img src={iete} alt="Anokha Logo" className="h-32 ml-auto mr-auto" />
         </Marquee>
       </div>
 
@@ -89,16 +73,16 @@ const Home = () => {
                     alt="Eventide"
                     src={require("./utils/AHK/1.jpg")}
                   ></img>
-                  <img className="card" alt="Eventide" src={eventide}></img>
-                  <img className="card" alt="Eventide" src={eventide}></img>
+                  <img className="card" alt="Eventide" src={require("./utils/AHK/2.jpg")} ></img>
+                  <img className="card" alt="Eventide" src={require("./utils/AHK/5.jpg")} ></img>
                 </div>
               </td>
             </tr>
             <tr>
               <td>
                 <div className="wrap">
-                  <img className="card" alt="Eventide" src={eventide}></img>
-                  <img className="card" alt="Eventide" src={eventide}></img>
+                  <img className="card" alt="Eventide" src={require("./utils/AHK/8.jpg")} ></img>
+                  <img className="card" alt="Eventide" src={require("./utils/AHK/9.jpg")} ></img>
                 </div>
               </td>
             </tr>
@@ -168,7 +152,6 @@ const Home = () => {
                       alt="Eventide"
                       src={require("./utils/AHK/AM 4.jpg")}
                     ></img>
-                    <img className="card" alt="Eventide" src={eventide}></img>
                   </div>
                 </td>
               </tr>
@@ -185,17 +168,7 @@ const Home = () => {
               ABOUT AMRITA
             </Typography>
             <Typography className="text-lime-50 text-xl text-center lg:text-justify">
-              Anokha, the national engineering techfest of Amrita School of
-              Engineering, Coimbatore, is a 3-day congregation of some of the
-              brightest minds in India. Founded in 2010, Anokha has grown by
-              leaps and bounds and has progressed to become one of the most
-              popular and top techfests in India. Having successfully completed
-              eight editions, Anokha has had an average annual participation of
-              over 10,000 of the best undergraduate engineering students from
-              top-ranking engineering institutions in India like IITs, BITS,
-              NITs and IIITs participating as well as partner universities in
-              USA and Europe like University of New Mexico, EVRY France and
-              Uppsala University-Sweden.
+            Amrita Vishwa Vidyapeetham University's Coimbatore campus is a picturesque and serene educational institution located in the foothills of the Western Ghats. With state-of-the-art facilities and a commitment to academic excellence, the university offers a wide range of undergraduate and postgraduate programs in various fields, including engineering, management, medicine, arts, and sciences. The campus boasts of world-class research facilities and is known for its focus on innovation and entrepreneurship. Apart from academics, the university emphasizes the importance of extracurricular activities and encourages students to participate in cultural events, sports, and community service. The campus provides a holistic and enriching learning environment that fosters the intellectual and personal growth of its students, making it a top choice for students from all over India and around the world. 
             </Typography>
           </div>
         </div>
@@ -230,17 +203,7 @@ const Home = () => {
             Civil 20 India
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
-            Anokha, the national engineering techfest of Amrita School of
-            Engineering, Coimbatore, is a 3-day congregation of some of the
-            brightest minds in India. Founded in 2010, Anokha has grown by leaps
-            and bounds and has progressed to become one of the most popular and
-            top techfests in India. Having successfully completed eight
-            editions, Anokha has had an average annual participation of over
-            10,000 of the best undergraduate engineering students from
-            top-ranking engineering institutions in India like IITs, BITS, NITs
-            and IIITs participating as well as partner universities in USA and
-            Europe like University of New Mexico, EVRY France and Uppsala
-            University-Sweden.
+          Anokha 2023 techfest is proud to be recognized as a side event of the prestigious Civil20 (C20) official engagement group of G20 with various workshops, innovation showcase & techfair aligning to the various working groups of C20, which are hosted by Amrita University with world-renowned humanitarian leader, Sri Mata Amritanandamayi Devi (AMMA) as Chancellor of the university
           </Typography>
         </div>
       </div>
@@ -304,17 +267,10 @@ const Home = () => {
               EVENTIDE
             </Typography>
             <Typography className="font-normal text-babyPowder text-xl text-center lg:text-justify">
-              Anokha, the national engineering techfest of Amrita School of
-              Engineering, Coimbatore, is a 3-day congregation of some of the
-              brightest minds in India. Founded in 2010, Anokha has grown by
-              leaps and bounds and has progressed to become one of the most
-              popular and top techfests in India. Having successfully completed
-              eight editions, Anokha has had an average annual participation of
-              over 10,000 of the best undergraduate engineering students from
-              top-ranking engineering institutions in India like IITs, BITS,
-              NITs and IIITs participating as well as partner universities in
-              USA and Europe like University of New Mexico, EVRY France and
-              Uppsala University-Sweden.
+              "All work and no play makes Jack a dull boy.", a proverb says. At Anokha, we understand this very well. Eventide, the cultural component of Anokha, has brought joy to thousands over the past decade through explosive performances from talented and captivating artists. The performances leave our audience in awe, showcasing the beauty and diversity of human expression through art.
+              Some talented and passionate artists who have previously graced the stage include percussionist Sivamani; playback singers Vijay Prakash, Karthik, Benny Dayal, Haricharan, Rahul Nambiar, Alaap Raju, Shaktisree Gopalan, Sunitha Sarathy, Ranjani-Gayatri, and Nikita Gandhi.
+              Eventide has become a platform for the celebration of India's rich cultural heritage, featuring performers from all over the country, representing a diverse range of genres. Between soulful classical music, scintillating film numbers and explosive percussion, we've explored every genre you can name.
+              It's been an incredible experience to witness the talent and dedication of the performers, who have brought their cultures and traditions to life through their art, leaving a lasting impression on the audience.
             </Typography>
           </div>
         </div>
@@ -329,17 +285,17 @@ const Home = () => {
             <tr>
               <td>
                 <div className="wrap">
-                  <img className="card v2" alt="Eventide" src={eventide}></img>
-                  <img className="card v2" alt="Eventide" src={eventide}></img>
-                  <img className="card v2" alt="Eventide" src={eventide}></img>
+                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/4.png"></img>
+                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/6.png"></img>
+                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/7.png"></img>
                 </div>
               </td>
             </tr>
             <tr>
               <td>
                 <div className="wrap">
-                  <img className="card v2" alt="Eventide" src={eventide}></img>
-                  <img className="card v2" alt="Eventide" src={eventide}></img>
+                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/8.png"></img>
+                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/9.png"></img>
                 </div>
               </td>
             </tr>
@@ -384,72 +340,82 @@ const Home = () => {
           <div className="gallery">
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/1.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/3.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/4.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/5.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/6.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/7.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/8.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/9.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/10.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/11.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/12.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/13.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/14.png" />
+              </figure>
+            </div>
+            <div className="gallery-item">
+              <figure>
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/17.png" />
+              </figure>
+            </div>
+            <div className="gallery-item">
+              <figure>
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/18.png" />
               </figure>
             </div>
           </div>
