@@ -1,8 +1,8 @@
 import { Typography } from "@material-tailwind/react";
 import React from "react";
-import ConfirmPayment from "../user/ConfirmPayment";
 import eventide from "../utils/eventide.png";
 import RegisterMembers from "../events/RegisterMembers";
+import ConfirmPaymentPage from "../user/ConfirmPaymentPage,jsx";
 
 const EventLanding = () => {
   const data = {
@@ -45,7 +45,7 @@ const EventLanding = () => {
         </div>
         :
         <div className="mt-4 w-fit ml-auto mr-auto">
-          <ConfirmPayment orderID={data.orderID} amount={data.amount} eventName={data.eventName} fullName={data.fullName} email={data.email} buttonLabel={"Register"} />
+          <ConfirmPaymentPage orderID={data.orderID} amount={data.amount} eventName={data.eventName} fullName={data.fullName} email={data.email} buttonLabel={"Register"} />
         </div>
         }
       </div>
