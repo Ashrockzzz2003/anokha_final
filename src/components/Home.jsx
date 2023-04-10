@@ -2,6 +2,7 @@ import * as React from "react";
 import logo from "../components/utils/anokha_2023_white.png";
 import "../components/styles/home.css";
 import "../components/styles/gallery.css";
+import "../components/styles/background.css";
 import eventide from "../components/utils/eventide.png";
 import ab1 from "../components/utils/cbe campus.svg";
 import { Typography } from "@material-tailwind/react";
@@ -105,7 +106,7 @@ const Home = () => {
             variant="h1"
             className="mb-2 text-black font-title text-center lg:text-left"
           >
-            ABOUT
+            ABOUT ANOKHA
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
             Anokha, the national engineering techfest of Amrita School of
@@ -124,6 +125,8 @@ const Home = () => {
       </div>
 
       <div className="background-container">
+        <div className="gradient"></div>
+        <div className="gradient gradient-right"></div>
         <div
           id="aboutamrita"
           className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16"
@@ -173,7 +176,7 @@ const Home = () => {
               variant="h1"
               className="mb-2 text-lime-50 font-title text-center lg:text-left"
             >
-              ABOUT Amrita
+              ABOUT AMRITA
             </Typography>
             <Typography className="text-lime-50 text-xl text-center lg:text-justify">
               Anokha, the national engineering techfest of Amrita School of
@@ -198,7 +201,16 @@ const Home = () => {
       >
         <table className="w-full" data-aos="fade-up-right">
           <tbody>
-          <iframe width="560" height="320" src="https://www.youtube.com/embed/qJVUux1rAfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className="rounded-lg"></iframe>
+            <iframe
+              width="560"
+              height="320"
+              src="https://www.youtube.com/embed/qJVUux1rAfI"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              className="rounded-lg"
+            ></iframe>
           </tbody>
         </table>
         <div
@@ -209,7 +221,7 @@ const Home = () => {
             variant="h1"
             className="mb-2 text-black font-title text-center lg:text-left"
           >
-            C20 G20
+            Civil 20 India
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
             Anokha, the national engineering techfest of Amrita School of
@@ -366,114 +378,72 @@ const Home = () => {
           <div className="gallery">
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/hound-english/n02089973_3147.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/poodle-toy/n02113624_1582.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/pug/n02110958_13794.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/terrier-australian/n02096294_5504.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/kelpie/n02105412_1222.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/doberman/n02107142_1193.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/terrier-russell/iguet4.jpeg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/newfoundland/n02111277_5292.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/borzoi/n02090622_266.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/newfoundland/n02111277_11806.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/poodle-miniature/n02113712_3293.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/pembroke/n02113023_4881.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/poodle-standard/n02113799_4946.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img
-                  src="https://images.dog.ceo/breeds/schnauzer-giant/n02097130_4050.jpg"
-                  alt="dog"
-                />
+                <img src="https://anokha-image.securehuman.workers.dev/0:/home/2.png" />
               </figure>
             </div>
           </div>
