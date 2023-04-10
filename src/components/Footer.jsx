@@ -6,10 +6,10 @@ import eventide from "./utils/eventide.png";
 export default function Footer() {
     return (
         <footer id="footer">
-            <div className="h-auto bg-white">
-                <div className="lg:flex block">
-                <div className="inline-block">
-                    <div className="flex justify-center lg:justify-start gap-x-3 pt-24 pl-36">
+            <div className="h-full bg-white">
+                <div className="lg:flex justify-evenly">
+                <div className="lg:inline-block">
+                    <div className="flex justify-center lg:justify-evenly gap-x-3 pt-24">
                         <a
                             href="https://www.instagram.com/anokhatechfest/"
                             target="_blank"
@@ -42,15 +42,15 @@ export default function Footer() {
                         </a>
                     </div>
 
-                    <div id="contact" className="pl-36 pt-16 overflow-hidden">
-                        <div className="text-6xl">Contact Us</div>
+                    <div id="contact" className="flex flex-col items-center lg:items-start lg:justify-start pt-16 overflow-hidden">
+                        <div className="text-6xl text-center md:text-left">Contact Us</div>
                         <div className="pt-4 pl-4">
-                            <div className="py-2 text-lg">email@email1.com</div>
-                            <div className="py-2 text-lg">email@email2.com</div>
+                            <div className="py-2 text-lg text-center md:text-left">email@email1.com</div>
+                            <div className="py-2 text-lg text-center md:text-left">email@email2.com</div>
                         </div>
                     </div>
-                    <div className="pl-36 w-[70vw] pt-16">
-                        <div id="backlinks" className="grid grid-cols-2 gap-4 text-2xl">
+                    <div className="flex justify-center lg:justify-start w-full pt-16">
+                        <div id="backlinks" className="grid grid-cols-2 gap-4 text-center md:text-left text-2xl">
                             <a href="/">Home</a>
                             <Link smooth={true} className="hover:cursor-pointer" to="about">
                                 About
@@ -87,8 +87,8 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="lg:px-36 md:py-36">
-                    <img src={eventide} alt="Eventide" width={250} style={{ float: 'right' }} />
+                <div className="lg:pr-36 flex justify-center py-4 lg:py-36">
+                    <img src={eventide} alt="Eventide" width={250} style={{minWidth: "200px"}} />
                 </div>
                 </div>
                 <div className="flex justify-evenly py-4 ">
