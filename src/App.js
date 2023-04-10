@@ -12,6 +12,7 @@ import NoAuth from './auth/NoAuth';
 import Register from './components/user/Register';
 import Footer from './components/Footer';
 import VerifyOTP from './components/user/VerifyOTP';
+import ConfirmPaymentPage from './components/user/ConfirmPaymentPage,jsx';
 
 function App() {
   return (
@@ -60,6 +61,11 @@ function App() {
               <Profile />
               <Footer />
             </>
+          </RequireAuth>
+        } />
+        <Route path="/events/confirmPayment" element={
+          <RequireAuth>
+            <ConfirmPaymentPage />
           </RequireAuth>
         } />
         <Route path='/profile/edit' element={
