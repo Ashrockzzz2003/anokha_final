@@ -42,7 +42,7 @@ export default function Footer() {
                             <RiYoutubeFill size={50} />
                         </a>
                     </div>
-]
+
                     <div className="flex justify-center lg:justify-start w-full pt-16">
                         <div id="backlinks" className="grid grid-cols-2 gap-4 text-center md:text-left text-2xl">
                             <a href="/">Home</a>
