@@ -11,6 +11,7 @@ import EditProfile from './components/user/EditProfile';
 import NoAuth from './auth/NoAuth';
 import Register from './components/user/Register';
 import Footer from './components/Footer';
+import VerifyOTP from './components/user/VerifyOTP';
 
 function App() {
   return (
@@ -45,6 +46,11 @@ function App() {
         <Route path='/register' element={
           <NoAuth>
             <Register />
+          </NoAuth>
+        } />
+        <Route path='/register/verifyOtp' element={
+          <NoAuth>
+            <VerifyOTP />
           </NoAuth>
         } />
         <Route path='/profile' element={

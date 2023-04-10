@@ -6,11 +6,14 @@ export const useAuth = () => {
     const [email, setEmail] = useLocalStorage("email", null);
     const [userData, setUserData] = useLocalStorage("userData", null);
     const [userEvents, setUserEvents] = useLocalStorage("userEvents", null);
+    const [registerData, setRegisterData] = useLocalStorage("registerData", null);
 
     const LOGIN_API_URL = "http://52.66.236.118:3000/userWeb/login";
     const USER_API_URL = "http://52.66.236.118:3000/userWeb/getUser";
     const USER_EVENTS_API_URL = "http://52.66.236.118:3000/userWeb/events/myRegistered";
     const USER_EDIT_API_URL = "http://52.66.236.118:3000/userWeb/editUser";
+    const USER_RESGISTER_URL = "http://52.66.236.118:3000/userWeb/registerUser";
+    const USER_OTP_URL = "http://52.66.236.118:3000/userWeb/verifyOTP";
 
     const signIn = async (data) => {
         try {
@@ -26,7 +29,12 @@ export const useAuth = () => {
                     "userEmail": userEmail,
                     "password": password,
                 }),
+            }).catch((error) => {
+                console.error(error);
+                alert("Something went wrong. Please try again later.");
             });
+
+            console.log(response)
 
             if (response.status === 404) {
                 alert("Invalid Credentials. Try again");
@@ -34,11 +42,11 @@ export const useAuth = () => {
             }
 
             const responseData = await response.json();
-            
+
             setToken(responseData.SECRET_TOKEN);
             setEmail(userEmail);
             setIsLoggedIn(1);
-            
+
             // Fetch User Data
             const userResponse = await fetch(USER_API_URL, {
                 method: "GET",
@@ -71,19 +79,20 @@ export const useAuth = () => {
         const fullName = data.fullName;
         const password = data.password;
 
-        console.log(fullName, password);
-
         const response = await fetch(USER_EDIT_API_URL, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
             },
             body: JSON.stringify({
                 "fullName": fullName,
-                "password": password,
+                "password": password
             }),
-        });
+        }).catch((error) => {
+            console.error(error);
+            alert("Something went wrong. Please try again later.");
+        });;
 
         if (response.status === 401) {
             alert("Session Expired. Logging you out. Try again.");
@@ -96,7 +105,7 @@ export const useAuth = () => {
         const userResponse = await fetch(USER_API_URL, {
             method: "GET",
             headers: {
-                "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
             },
         });
 
@@ -104,12 +113,73 @@ export const useAuth = () => {
         window.location.href = "/";
     }
 
+    const signUp = async (data) => {
+        const userEmail = data.userEmail;
+        const password = data.password;
+        const fullName = data.fullName;
+        const collegeId = data.collegeId;
+
+        const response = await fetch(USER_RESGISTER_URL, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "userEmail": userEmail,
+                "collegeId": collegeId,
+                "fullName": fullName,
+                "password": password
+            }),
+        }).catch((error) => {
+            console.error(error);
+            alert("Something went wrong. Please try again later.");
+        });;
+
+        if (response.status !== 200) {
+            alert("Something went wrong. Try again later.");
+            window.location.href = "/";
+            return;
+        }
+
+        setRegisterData(await response.json());
+
+        window.location.href = "/register/verifyOtp";
+    }
+
+    const verifyOTP = async (data) => {
+        const otp = data;
+
+        const response = await fetch(USER_OTP_URL, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("registerData")).SECRET_TOKEN}`,
+            },
+            body: JSON.stringify({
+                "otp": otp,
+            }),
+        }).catch((error) => {
+            console.error(error);
+            alert("Something went wrong. Please try again later.");
+        });
+
+        if (response.status !== 201) {
+            alert("Invalid OTP. Try again.");
+            return;
+        }
+
+        localStorage.setItem("registerData", null);
+        alert("Login. Registration Successful.")
+
+        window.location.href = "/login";
+    }
+
     const signOut = () => {
         localStorage.clear();
         window.location.href = "/";
     };
 
-    return { signIn, signOut, editProfile };
+    return { signIn, signOut, editProfile, verifyOTP, signUp };
 
 };
 

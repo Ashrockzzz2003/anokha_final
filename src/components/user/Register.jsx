@@ -1,77 +1,44 @@
 import * as React from "react";
 import anokha_circle from "../utils/anokha_circle.svg";
 import "../styles/form.css";
-/*
-import logo from "../components/utils/images/white-logo-home-page.png";
-import registerLottie from "../components/utils/images/register.webp";
-*/
 
 import { Link } from "react-router-dom";
-import {
-  Checkbox,
-  Typography,
-} from "@material-tailwind/react";
 import { useState } from "react";
-import { useEffect } from "react";
-// import { SHA256 } from "crypto-js";
+import { SHA512 } from "crypto-js";
+import { useAuth } from "../../auth/useAuth";
 
-function CollegeList() {
-  /*
-        "collegeId": 1,
-        "collegeName": "Aazad College of Education (Id: C-39230)",
-        "district": "Prakasam",
-        "state": "Andhra Pradesh",
-        "country": "INDIA" 
-  */
-
-  const API_URL =
-    "http://52.66.236.118:3000/userWeb/getAllColleges";
-  const [colleges, setColleges] = useState([]);
-
-  const fetchCollegeData = async () => {
-    await
-      fetch(`${API_URL}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setColleges(data);
-        });
-  };
-
-  useEffect(() => {
-    fetchCollegeData();
-  }, []);
-
-  console.log(colleges);
-
-  return (
-    <select className="w-3/5 border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700">
-      <option default selected disabled className="text-center">Select your College</option>
-      {colleges.map((college) => {
-        return (
-          <option key={college.collegeId} value={college.collegeId}>
-            {college.collegeName}
-          </option>
-        );
-      })}
-    </select>
-  );
-}
+import { collegeData } from "../data"
 
 export default function Register() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
-  const [isAmrita, setIsAmrita] = React.useState(true);
-  const [otp, setOtp] = React.useState("");
+  const [isAmrita, setIsAmrita] = React.useState(false);
+  const [collegeId, setCollegeId] = React.useState(638);
 
+  if (collegeId in [633, 638, 641, 645]) {
+    setIsAmrita(true);
+  }
+
+  const [colleges] = useState(collegeData);
+
+  const { signUp } = useAuth();
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    signUp({
+      "userEmail": email,
+      "collegeId": collegeId,
+      "fullName": name,
+      "password": password
+    });
+  }
 
   // Set isAmrita to true if the checkbox is checked
-  const handleAmrita = () => {
-    setIsAmrita(!isAmrita);
-  };
+  const handleSelect = (e) => {
+    setCollegeId(e.target.value);
+  }
 
   // Regular expression for email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -111,19 +78,19 @@ export default function Register() {
           <img
             src={anokha_circle}
             alt="Anokha circle"
-            className="animate-spin h-24 mr-auto ml-auto mb-4"
+            className="h-24 mr-auto ml-auto mb-4"
           />
           <h1 className="text-5xl font-semibold text-center">Register</h1>
           <p className="font-medium text-lg text-gray-900 mt-4 text-center">
             Welcome! Please enter you details.
           </p>
-          <form className="mt-8">
+          <form className="mt-8" onSubmit={handleSignUp}>
             <div className="flex flex-col">
               <label className="text-lg text-center font-medium">Name</label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className={"w-3/5 justify-center ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700"
+                className={"w-full justify-center ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700"
                   + (isNameValid || !name
                     ? "border-gray-400"
                     : "border-red-500")}
@@ -136,33 +103,32 @@ export default function Register() {
                 </p>
               )}
             </div>
-            <div className="flex flex-col items-center mt-4">
-              <Checkbox
-                required
-                defaultChecked={isAmrita}
-                onChange={handleAmrita}
-                label={
-                  <Typography
-                    variant="small"
-                    color="gray"
-                    className="flex items-center font-normal">
-                    Amrita Student
-                  </Typography>
-                }
-                value={isAmrita}
-                containerProps={{ className: "-ml-2.5" }}
-              />
-            </div>
-            {!isAmrita ? (
-              <div className="flex flex-col mt-4">
+            {<div className="flex flex-col mt-4">
                 <label className="text-lg text-center font-medium">
                   Select Your College
                 </label>
                 <div className="text-center">
-                  <CollegeList />
+                  <select className="w-full border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" onChange={handleSelect}>
+                    <option default selected disabled className="text-center">Select your College</option>
+                    {colleges.map((college) => {
+                      if (college.collegeId === collegeId) {
+                        return (
+                          <option key={college.collegeId} value={college.collegeId} selected>
+                            {college.collegeName}
+                          </option>
+                        );
+                      }
+                      else {
+                        return (
+                          <option key={college.collegeId} value={college.collegeId}>
+                            {college.collegeName}
+                          </option>
+                        );
+                      }
+                    })}
+                  </select>
                 </div>
-              </div>
-            ) : null}
+              </div>}
             <div className="flex text-center flex-col mt-4">
               {isAmrita ? (
                 <label className="text-lg font-medium">Amrita Email ID</label>
@@ -174,7 +140,7 @@ export default function Register() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className={
-                    "w-3/5 ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                    "w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
                     (isEmailValid || !email
                       ? "border-gray-400"
                       : "border-red-500")
@@ -186,7 +152,7 @@ export default function Register() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className={
-                    "w-3/5 ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                    "w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
                     (isEmailValid || !email
                       ? "border-gray-400"
                       : "border-red-500")
@@ -207,7 +173,7 @@ export default function Register() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className={
-                  "w-3/5 ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                  "w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
                   (isPasswordValid || !password
                     ? "border-gray-400"
                     : "border-red-500")
@@ -228,7 +194,7 @@ export default function Register() {
                 required
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className={"w-3/5 ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                className={"w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
                   (isConfirmPasswordValid || !confirmPassword
                     ? "border-gray-400"
                     : "border-red-500")
@@ -242,21 +208,7 @@ export default function Register() {
                 </p>
               )}
             </div>
-            <div className="flex flex-col mt-4">
-              <label className="text-lg text-center font-medium">OTP</label>
-              <input
-                type="text"
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
-                className={
-                  "w-3/5 ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
-                  (otp ? " border-gray-400" : " border-gray-700")
-                }
-                text-center placeholder="Enter OTP"
-                disabled={!otp}
-              />
-            </div>
-            <div className="mt-8 w-3/5 ml-auto mr-auto flex flex-col gap-y-4">
+            <div className="mt-8 w-full ml-auto mr-auto flex flex-col gap-y-4">
               <button
                 type="submit"
                 className={"active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-backgroundColor rounded-xl text-babyPowder font-bold text-lg" + (isEmailValid && isPasswordValid
@@ -279,4 +231,4 @@ export default function Register() {
       </div>
     </div>
   );
-}
+};

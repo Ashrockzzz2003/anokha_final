@@ -95,7 +95,8 @@ export default function Register() {
         e.preventDefault();
         editProfile({
             fullName: name,
-            password: password
+            password: password,
+            userEmail: localStorage.getItem("userEmail"),
         });
     };
 
