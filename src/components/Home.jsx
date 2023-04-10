@@ -4,7 +4,6 @@ import icici from "../components/utils/icici.png";
 import clab from "../components/utils/clab.webp";
 import "../components/styles/home.css";
 import "../components/styles/gallery.css";
-import "../components/styles/background.css";
 import ab1 from "../components/utils/cbe campus.svg";
 import { Typography } from "@material-tailwind/react";
 import anokha_text from "../components/utils/anokha_text.svg";
@@ -96,7 +95,7 @@ const Home = () => {
             variant="h1"
             className="mb-2 text-black font-title text-center lg:text-left"
           >
-            ABOUT ANOKHA
+            ABOUT
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
             Anokha, the national engineering techfest of Amrita School of
@@ -115,8 +114,6 @@ const Home = () => {
       </div>
 
       <div className="background-container">
-        <div className="gradient"></div>
-        <div className="gradient gradient-right"></div>
         <div
           id="aboutamrita"
           className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16"
@@ -165,7 +162,7 @@ const Home = () => {
               variant="h1"
               className="mb-2 text-lime-50 font-title text-center lg:text-left"
             >
-              ABOUT AMRITA
+              ABOUT Amrita
             </Typography>
             <Typography className="text-lime-50 text-xl text-center lg:text-justify">
             Amrita Vishwa Vidyapeetham University's Coimbatore campus is a picturesque and serene educational institution located in the foothills of the Western Ghats. With state-of-the-art facilities and a commitment to academic excellence, the university offers a wide range of undergraduate and postgraduate programs in various fields, including engineering, management, medicine, arts, and sciences. The campus boasts of world-class research facilities and is known for its focus on innovation and entrepreneurship. Apart from academics, the university emphasizes the importance of extracurricular activities and encourages students to participate in cultural events, sports, and community service. The campus provides a holistic and enriching learning environment that fosters the intellectual and personal growth of its students, making it a top choice for students from all over India and around the world. 
@@ -180,16 +177,7 @@ const Home = () => {
       >
         <table className="w-full" data-aos="fade-up-right">
           <tbody>
-            <iframe
-              width="560"
-              height="320"
-              src="https://www.youtube.com/embed/qJVUux1rAfI"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              className="rounded-lg"
-            ></iframe>
+          <iframe width="560" height="320" src="https://www.youtube.com/embed/qJVUux1rAfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className="rounded-lg"></iframe>
           </tbody>
         </table>
         <div
@@ -200,7 +188,7 @@ const Home = () => {
             variant="h1"
             className="mb-2 text-black font-title text-center lg:text-left"
           >
-            Civil 20 India
+            C20 G20
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
           Anokha 2023 techfest is proud to be recognized as a side event of the prestigious Civil20 (C20) official engagement group of G20 with various workshops, innovation showcase & techfair aligning to the various working groups of C20, which are hosted by Amrita University with world-renowned humanitarian leader, Sri Mata Amritanandamayi Devi (AMMA) as Chancellor of the university

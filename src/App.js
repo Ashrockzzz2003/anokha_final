@@ -37,7 +37,7 @@ function App() {
             <Footer />
           </>
         } />
-        {/* <Route path="/events/:eventId/about" element={
+        <Route path="/events/:eventId/about" element={
           <>
             <NavigationBar />
             <EventLanding />
@@ -85,7 +85,7 @@ function App() {
               <EditProfile />
             </>
           </RequireAuth>
-        } /> */}
+        } /> 
       </Routes>
     </BrowserRouter>
   );

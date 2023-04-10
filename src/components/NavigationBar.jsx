@@ -190,14 +190,16 @@ const NavigationBar = () => {
     );
 
     return (
-      <Navbar className="fixed inset-0 z-10 h-fit max-w-full rounded-none lg:px-16 lg:py-2 bg-black bg-opacity-50 backdrop-blur-xl mb-3 border-b-1 border-t-0 border-r-0 border-l-0 border-cyan-900 ">
-        <div className="flex items-center justify-between text-blue-black-900">
-          <a href="/">
-            <img src={logo} alt="Anokha Logo" className="w-36" />
-          </a>
-          <div className="flex items-center gap-4">
-            <div className="mr-4 hidden lg:block">{navList}</div>
-            {/* <a href={(isLoggedIn===1)? "/profile" : "/login"} className="hidden lg:inline-block">
+        <Navbar className="fixed inset-0 z-10 h-fit max-w-full rounded-none lg:px-16 lg:py-2 bg-black bg-opacity-50 backdrop-blur-xl" style={{ border: "none" }}>
+            <div className="flex items-center justify-between text-blue-black-900">
+                <a href="/">
+                    <img src={logo} alt="Anokha Logo" className="w-36" />
+                </a>
+                <div className="flex items-center gap-4">
+                    <div className="mr-4 hidden lg:block">
+                        {navList}
+                    </div>
+                    <a href={(isLoggedIn===1)? "/profile" : "/login"} className="hidden lg:inline-block">
                         {(isLoggedIn===1)? (
                             null
                         ) : (
@@ -209,52 +211,49 @@ const NavigationBar = () => {
                                 <span >Login / Register</span>
                             </Button>
                         )}
-                    </a> */}
-            <IconButton
-              variant="text"
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-              ripple={false}
-              onClick={() => setOpenNav(!openNav)}
-            >
-              {openNav ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
-            </IconButton>
-            {isLoggedIn === 1 ? (
-              <ProfileMenu handleSignOut={handleSignOut} />
-            ) : null}
-          </div>
-        </div>
-        <MobileNav open={openNav}>
-          {navList}
-          {/*
+                    </a> 
+                    <IconButton
+                        variant="text"
+                        className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                        ripple={false}
+                        onClick={() => setOpenNav(!openNav)}
+                    >
+                        {openNav ? (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                className="h-6 w-6"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth={2}
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        ) : (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth={2}
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                />
+                            </svg>
+                        )}
+                    </IconButton>
+                    {(isLoggedIn===1)? (<ProfileMenu handleSignOut={handleSignOut} />) : null}
+                </div>
+            </div>
+            <MobileNav open={openNav}>
+                 {navList}
                 <div className="w-fit ml-auto mr-auto">
                     <a href={(isLoggedIn===1)? "/profile" : "/login"} className="capitalize">
                         {(isLoggedIn===1)? (
@@ -269,9 +268,10 @@ const NavigationBar = () => {
                             </Button>
                         )}
                     </a>
-                </div> */}
-        </MobileNav>
-      </Navbar>
+                </div> 
+
+            </MobileNav>
+        </Navbar>
     );
 }
 
