@@ -85,10 +85,8 @@ export default function Footer() {
                     <img src={footerImage} alt="Eventide" className="h-40"/>
                 </div>
                 </div>
-                <div className="flex justify-evenly py-4 ">
-                    <span>Copyright</span>
+                <div className="flex justify-evenly py-4">
                     <span>Made with &#10084; by WMD</span>
-                    <span>Terms and Conditions</span>
                 </div>
             </div>
         </footer>
