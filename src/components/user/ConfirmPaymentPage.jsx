@@ -11,14 +11,16 @@ export default function ConfirmPaymentPage() {
   };
 
   return (
-    <div className="h-full w-screen">
-      <Typography variant="h4" color="blue-gray">
-        Sign Up
+    <div className="md:h-screen h-full bg-babyPowder w-screen flex flex-col items-center justify-center px-4 py-12">
+      <div className="flex  flex-col">
+      <Typography variant="h2" className="text-center">
+        Register for Event
       </Typography>
-      <Typography color="gray" className="mt-1 font-normal">
+      <Typography color="gray" className="mt-1 text-center font-normal">
         Enter your details to register.
       </Typography>
-      <form className="mt-8 mb-2 w-full ml-auto mr-auto max-w-screen-lg">
+      </div>
+      <form className="mt-8 pb-2 w-full flex flex-col justify-center ml-auto mr-auto max-w-screen-lg">
         <div className="mb-4 flex text-center flex-col gap-2">
           {/* <label>Order ID</label>
                                 <Input size="lg" label="OrderID" value={orderID} disabled /> */}
@@ -53,6 +55,7 @@ export default function ConfirmPaymentPage() {
 
           <label htmlFor="address">Address</label>
           <Input
+          className="bg-white"
             size="lg"
             id="address"
             label="Address"
