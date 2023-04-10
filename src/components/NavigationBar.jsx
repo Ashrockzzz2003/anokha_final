@@ -253,7 +253,8 @@ const NavigationBar = () => {
                 </div>
             </div>
             <MobileNav open={openNav}>
-                {/* {navList}
+                 {navList}
+                { /*
                 <div className="w-fit ml-auto mr-auto">
                     <a href={(isLoggedIn===1)? "/profile" : "/login"} className="capitalize">
                         {(isLoggedIn===1)? (
