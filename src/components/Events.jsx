@@ -4,26 +4,10 @@ import Card from "./events/Cards";
 import { Typography } from "@material-tailwind/react";
 import SelectBox from "./events/Select";
 
-const API_URL = "http://52.66.236.118:3000/userWeb/events/all";
-
 const Events = () => {
-  const [events, setEvents] = useState([]);
+  const [events] = useState(JSON.parse(localStorage.getItem("events")));
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredEvents, setFilteredEvents] = useState(events);
-
-  const fetchEventsData = async () => {
-    await fetch(`${API_URL}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setEvents(data);
-      });
-  };
-
-  useEffect(() => {
-    fetchEventsData();
-  }, []);
 
   useEffect(() => {
     if (events.length) {

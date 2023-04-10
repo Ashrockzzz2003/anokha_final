@@ -9,15 +9,20 @@ export const useAuth = () => {
     const [userEvents, setUserEvents] = useLocalStorage("userEvents", null);
     const [registerData, setRegisterData] = useLocalStorage("registerData", null);
     const [transactionToken, setTransactionToken] = useState(null);
+    const [events, setEvents] = useLocalStorage("events", null);
 
-    const LOGIN_API_URL = "http://52.66.236.118:3000/userWeb/login";
-    const USER_API_URL = "http://52.66.236.118:3000/userWeb/getUser";
-    const USER_EVENTS_API_URL = "http://52.66.236.118:3000/userWeb/events/myRegistered";
-    const USER_EDIT_API_URL = "http://52.66.236.118:3000/userWeb/editUser";
-    const USER_RESGISTER_URL = "http://52.66.236.118:3000/userWeb/registerUser";
-    const USER_OTP_URL = "http://52.66.236.118:3000/userWeb/verifyOTP";
-    const TRANSACTION_URL = "http://52.66.236.118:3000/userWeb/transaction/moveToTransaction";
-    const TRANSACTION_INITIATE_URL = 'http://52.66.236.118:3000/userWeb/transaction/initiateTransaction';
+    const domain = "http://52.66.236.118:3000";
+
+    const LOGIN_API_URL = `${domain}/userWeb/login`;
+    const USER_API_URL = `${domain}/userWeb/getUser`;
+    const USER_EVENTS_API_URL = `${domain}/userWeb/events/myRegistered`;
+    const USER_EDIT_API_URL = `${domain}/userWeb/editUser`;
+    const USER_RESGISTER_URL = `${domain}/userWeb/registerUser`;
+    const USER_OTP_URL = `${domain}/userWeb/verifyOTP`;
+    const TRANSACTION_URL = `${domain}/userWeb/transaction/moveToTransaction`;
+    const TRANSACTION_INITIATE_URL = `${domain}/userWeb/transaction/initiateTransaction`;
+    const EVENTS_API_URL = `${domain}/userWeb/events/all`;
+    const PAYU_URL = "https://test.payu.in/_payment";
 
 
     const signIn = async (data) => {
@@ -179,7 +184,7 @@ export const useAuth = () => {
         window.location.href = "/login";
     }
 
-    const moveToTransaction = async () => {
+    const moveToTransaction = async (eventId) => {
         // Update User Data Locally
         const response = await fetch(TRANSACTION_URL, {
             method: "POST",
@@ -199,17 +204,17 @@ export const useAuth = () => {
         console.log(moveTData)
         setTransactionToken(moveTData.TRANSACTION_SECRET_TOKEN);
 
-        window.location.href = "/events/confirmPayment";
+        window.location.href = `/events/${eventId}/confirmPayment`;
     }
 
     const initiateTransaction = async (data) => {
-        const response = fetch(TRANSACTION_INITIATE_URL, {
+        const response = await fetch(TRANSACTION_INITIATE_URL, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 "Authorization": `Bearer ${transactionToken}`
             },
-            body: {
+            body: JSON.parse({
                 "productId": `E${data.eventId}`,
                 "firstName": `${data.fullName}`,
                 "userEmail": `${data.userEmail}`,
@@ -219,11 +224,39 @@ export const useAuth = () => {
                 "country": data.country,
                 "zipcode": data.zipcode,
                 "phoneNumber": data.phoneNumber
-          }
+          })
         });
 
         const responseData = await response.json();
+        console.log(responseData);
 
+    }
+
+    const moveToPayU = async () => {
+        const data = {
+            "productId": "E1",
+            "firstName": "SAFENAME",
+            "userEmail": "cb.en.u4cse20010@cb.students.amrita.edu",
+            "address": "_addressController",
+            "city": "_cityController.text",
+            "state": "_stateController.text",
+            "country": "_countryController.text",
+            "zipcode": "641038",
+            "phoneNumber": "1234567890"
+        }
+
+        console.log(data);
+    }
+
+
+    const fetchEvents = async () => {
+        await fetch(`${EVENTS_API_URL}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          setEvents(data);
+        });
     }
 
     const signOut = () => {
@@ -231,7 +264,7 @@ export const useAuth = () => {
         window.location.href = "/";
     };
 
-    return { signIn, signOut, editProfile, verifyOTP, signUp, moveToTransaction, initiateTransaction };
+    return { signIn, signOut, editProfile, verifyOTP, signUp, moveToTransaction, initiateTransaction, fetchEvents, moveToPayU };
 
 };
 

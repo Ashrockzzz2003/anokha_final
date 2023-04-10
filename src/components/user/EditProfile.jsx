@@ -91,7 +91,7 @@ export default function Register() {
 
 
     return (
-        <div className="flex w-screen h-auto items-center justify-center">
+        <div className="flex w-screen h-screen items-center justify-center">
             <div className="lg:inline-block items-center justify-center m-auto hidden px-16 relative w-1/2">
                 <div className="loader">
                     <span>

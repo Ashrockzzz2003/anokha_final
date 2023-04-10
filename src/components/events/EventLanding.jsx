@@ -1,20 +1,22 @@
-import { Typography } from "@material-tailwind/react";
-import React from "react";
-import eventide from "../utils/eventide.png";
-import RegisterMembers from "../events/RegisterMembers";
-import { Button } from "react-scroll";
+import { Typography, Button } from "@material-tailwind/react";
+import React, { useState } from "react";
+// import RegisterMembers from "../events/RegisterMembers";
 import { useAuth } from "../../auth/useAuth";
+import { useParams } from 'react-router-dom'
 
 const EventLanding = () => {
+
   const { moveToTransaction } = useAuth();
+  const { eventId } = useParams();
 
   // Handle Login
   const handleRegsiter = (e) => {
     e.preventDefault();
-    moveToTransaction();
+    moveToTransaction(parseInt(eventId));
   };
-
   const isGroupEvent = false;
+
+  const [events] = useState(JSON.parse(localStorage.getItem("events")));
 
   /*
         "eventId": 1,
@@ -35,12 +37,18 @@ const EventLanding = () => {
         "refundable": 0,
         "departmentAbbr": "DEP0"
   */
+  // get Event by ID
+  const [event] = useState(
+    events.filter((event) => event.eventId === parseInt(eventId)
+    ));
+
+
 
   return (
     <div className="w-full block items-center justify-center lg:flex lg:justify-center pb-32 pt-32">
       <div className="w-auto lg:pr-12">
-        <img src={eventide} className="w-72 rounded-lg ml-auto mr-auto" alt="Event Pix" />
-        {isGroupEvent ?
+        <img src={event[0].url} className="w-72 rounded-lg ml-auto mr-auto" alt="Event Pix" />
+        {/* {isGroupEvent ?
           <div className="mt-4 w-fit ml-auto mr-auto">
             <RegisterMembers membercount={4} amount={500} buttonLabel={"Register with Members"} />
           </div>
@@ -54,22 +62,26 @@ const EventLanding = () => {
               <span>Register</span>
             </Button>
           </div>
-        }
+        } */}
+        <div className="mt-4 w-fit ml-auto mr-auto">
+          <Button
+            variant="filled"
+            className="bg-khaki text-backgroundColor"
+            onClick={handleRegsiter}
+          >
+            <span>Register</span>
+          </Button>
+        </div>
       </div>
       <div className="m-16 mt-24 lg:pl-24 lg:ml-16 lg:w-1/2">
         <Typography variant="h1" className="mb-4 text-khaki text-left">
-          Event Title
+          {event[0].eventName}
         </Typography>
         <Typography variant="h4" className="mb-16 text-khaki text-left">
           Tagline
         </Typography>
         <Typography variant="paragraph" className="mb-16 text-babyPowder text-left">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem ex ullam, ipsum minima, maxime cum optio quod unde a fugiat numquam quaerat voluptatum iure aliquid et dolorem eius dolore dolorum!
-          Animi sapiente doloribus vel numquam officia. Sit, aspernatur expedita. Ducimus voluptate, a nesciunt accusantium hic aut soluta, id amet unde, optio incidunt odio perferendis nulla. Quibusdam voluptatem distinctio excepturi soluta?
-          Eum nesciunt architecto fugiat rem reprehenderit nobis voluptate alias, in et accusantium itaque pariatur eveniet, qui ea! Delectus omnis soluta possimus! Sit aliquam natus illo quas ratione, mollitia quibusdam dolorum!
-          Placeat eligendi nobis ipsam autem hic pariatur asperiores recusandae optio minus? Voluptatum rerum totam quibusdam aperiam inventore nobis consequuntur fugit praesentium, amet laboriosam. Ut, dolorem. Ab fugit ipsum aperiam perspiciatis?
-          Totam beatae temporibus laboriosam assumenda, veritatis nesciunt molestiae cupiditate modi esse placeat enim non, quo veniam soluta debitis iusto optio tempore id architecto magnam dolorem itaque laborum. Magni, excepturi doloremque?
-          Aperiam ut aut dolor esse nobis voluptate autem fugiat, dolore laborum error nulla harum quae, optio provident. Eius error, nulla quidem vero officiis eligendi expedita impedit magnam rerum. Error, beatae?
+          {event[0].description}
         </Typography>
       </div>
     </div>

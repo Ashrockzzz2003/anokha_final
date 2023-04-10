@@ -13,8 +13,16 @@ import Register from './components/user/Register';
 import Footer from './components/Footer';
 import VerifyOTP from './components/user/VerifyOTP';
 import ConfirmPaymentPage from './components/user/ConfirmPaymentPage.jsx';
+import { useAuth } from './auth/useAuth';
+import { PaymentStatus } from './components/user/PaymentStatus';
 
 function App() {
+
+  const { fetchEvents } = useAuth();
+  if (localStorage.getItem("events") === null) {
+    fetchEvents();
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -32,7 +40,7 @@ function App() {
             <Footer />
           </>
         } />
-        <Route path="/events/:eventID/about" element={
+        <Route path="/events/:eventId/about" element={
           <>
             <NavigationBar />
             <EventLanding />
@@ -63,10 +71,13 @@ function App() {
             </>
           </RequireAuth>
         } />
-        <Route path="/events/confirmPayment" element={
+        <Route path="/events/:eventId/confirmPayment" element={
           <RequireAuth>
             <ConfirmPaymentPage />
           </RequireAuth>
+        } />
+        <Route path="/payment/:statusId" element={
+          <PaymentStatus />
         } />
         <Route path='/profile/edit' element={
           <RequireAuth>

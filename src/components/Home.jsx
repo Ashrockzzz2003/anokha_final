@@ -124,8 +124,6 @@ const Home = () => {
       </div>
 
       <div className="background-container">
-        <div className="gradient"></div>
-        <div className="gradient gradient-right"></div>
         <div
           id="aboutamrita"
           className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16"
@@ -175,7 +173,7 @@ const Home = () => {
               variant="h1"
               className="mb-2 text-lime-50 font-title text-center lg:text-left"
             >
-              ABOUT
+              ABOUT Amrita
             </Typography>
             <Typography className="text-lime-50 text-xl text-center lg:text-justify">
               Anokha, the national engineering techfest of Amrita School of
@@ -200,23 +198,7 @@ const Home = () => {
       >
         <table className="w-full" data-aos="fade-up-right">
           <tbody>
-            <tr>
-              <td>
-                <div className="wrap">
-                  <img className="card" alt="Eventide" src={eventide}></img>
-                  <img className="card" alt="Eventide" src={eventide}></img>
-                  <img className="card" alt="Eventide" src={eventide}></img>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div className="wrap">
-                  <img className="card" alt="Eventide" src={eventide}></img>
-                  <img className="card" alt="Eventide" src={eventide}></img>
-                </div>
-              </td>
-            </tr>
+          <iframe width="560" height="320" src="https://www.youtube.com/embed/qJVUux1rAfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className="rounded-lg"></iframe>
           </tbody>
         </table>
         <div
@@ -227,7 +209,7 @@ const Home = () => {
             variant="h1"
             className="mb-2 text-black font-title text-center lg:text-left"
           >
-            ABOUT
+            C20 G20
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
             Anokha, the national engineering techfest of Amrita School of
