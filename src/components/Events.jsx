@@ -40,6 +40,8 @@ const Events = () => {
   //     </div>
   //   </div>
   // );
+  
+  console.log(events);
 
   return (
     <div className="mt-16">
