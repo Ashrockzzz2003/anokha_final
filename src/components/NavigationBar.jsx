@@ -199,7 +199,7 @@ const NavigationBar = () => {
                     <div className="mr-4 hidden lg:block">
                         {navList}
                     </div>
-                    <a href={(isLoggedIn===1)? "/profile" : "/login"} className="hidden lg:inline-block">
+                    {/* <a href={(isLoggedIn===1)? "/profile" : "/login"} className="hidden lg:inline-block">
                         {(isLoggedIn===1)? (
                             null
                         ) : (
@@ -211,7 +211,7 @@ const NavigationBar = () => {
                                 <span >Login / Register</span>
                             </Button>
                         )}
-                    </a>
+                    </a> */}
                     <IconButton
                         variant="text"
                         className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -253,7 +253,7 @@ const NavigationBar = () => {
                 </div>
             </div>
             <MobileNav open={openNav}>
-                {navList}
+                {/* {navList}
                 <div className="w-fit ml-auto mr-auto">
                     <a href={(isLoggedIn===1)? "/profile" : "/login"} className="capitalize">
                         {(isLoggedIn===1)? (
@@ -268,7 +268,7 @@ const NavigationBar = () => {
                             </Button>
                         )}
                     </a>
-                </div>
+                </div> */}
 
             </MobileNav>
         </Navbar>

@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import { useLocalStorage } from './useLocalStorage'
+import formurlencoded from 'form-urlencoded';
+import axios from 'axios';
 
 export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useLocalStorage("isLoggedIn", 0);
@@ -8,8 +9,10 @@ export const useAuth = () => {
     const [userData, setUserData] = useLocalStorage("userData", null);
     const [userEvents, setUserEvents] = useLocalStorage("userEvents", null);
     const [registerData, setRegisterData] = useLocalStorage("registerData", null);
-    const [transactionToken, setTransactionToken] = useState(null);
+    const [transactionToken, setTransactionToken] = useLocalStorage("transactionToken",null);
     const [events, setEvents] = useLocalStorage("events", null);
+    const [payUHTML, setPayUHTML] = useLocalStorage("payUHTML", null);
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
     const domain = "http://52.66.236.118:3000";
 
@@ -22,8 +25,7 @@ export const useAuth = () => {
     const TRANSACTION_URL = `${domain}/userWeb/transaction/moveToTransaction`;
     const TRANSACTION_INITIATE_URL = `${domain}/userWeb/transaction/initiateTransaction`;
     const EVENTS_API_URL = `${domain}/userWeb/events/all`;
-    const PAYU_URL = "https://test.payu.in/_payment";
-
+    const PAYU_URL = "https://secure.payu.in/_payment";
 
     const signIn = async (data) => {
         try {
@@ -201,23 +203,25 @@ export const useAuth = () => {
         }
 
         const moveTData = await response.json();
-        console.log(moveTData)
         setTransactionToken(moveTData.TRANSACTION_SECRET_TOKEN);
 
         window.location.href = `/events/${eventId}/confirmPayment`;
     }
 
     const initiateTransaction = async (data) => {
+        data = JSON.parse(data);
+        const productId = `E${data.eventId}`;
+
         const response = await fetch(TRANSACTION_INITIATE_URL, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": `Bearer ${transactionToken}`
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("transactionToken"))}`
             },
-            body: JSON.parse({
-                "productId": `E${data.eventId}`,
-                "firstName": `${data.fullName}`,
-                "userEmail": `${data.userEmail}`,
+            body: JSON.stringify({
+                "productId": productId,
+                "firstName": data.fullName,
+                "userEmail": data.userEmail,
                 "address": data.address,
                 "city": data.city,
                 "state": data.state,
@@ -230,22 +234,32 @@ export const useAuth = () => {
         const responseData = await response.json();
         console.log(responseData);
 
-    }
-
-    const moveToPayU = async () => {
-        const data = {
-            "productId": "E1",
-            "firstName": "SAFENAME",
-            "userEmail": "cb.en.u4cse20010@cb.students.amrita.edu",
-            "address": "_addressController",
-            "city": "_cityController.text",
-            "state": "_stateController.text",
-            "country": "_countryController.text",
-            "zipcode": "641038",
-            "phoneNumber": "1234567890"
+        const payUData = {
+            "productInfo": responseData.product,
+            "txnid": responseData.txid,
+            "amount": responseData.amount,
+            "firstname": data.fullName,
+            "Lastname": data.fullName,
+            "email": data.userEmail,
+            "phone": data.phoneNumber,
+            "address1": data.address,
+            "address2": "",
+            "city": data.city,
+            "state": data.state,
+            "country": data.country,
+            "Zipcode": data.zipcode,
+            "hash": responseData.hash,
+            "surl": "/payment/1",
+            "furl": "/payment/0",
+            "key": "ypfBaj"
         }
+        console.log(formurlencoded(payUData));
 
-        console.log(data);
+        axios.post(proxyUrl + PAYU_URL, formurlencoded(payUData), {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          })
     }
 
 
@@ -264,7 +278,7 @@ export const useAuth = () => {
         window.location.href = "/";
     };
 
-    return { signIn, signOut, editProfile, verifyOTP, signUp, moveToTransaction, initiateTransaction, fetchEvents, moveToPayU };
+    return { signIn, signOut, editProfile, verifyOTP, signUp, moveToTransaction, initiateTransaction, fetchEvents };
 
 };
 
