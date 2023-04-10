@@ -12,6 +12,7 @@ module.exports = withMT({
       "navBackground": "#02845ff",
       "chipBg" : "#9ff7b8",
       "chipText" : "#014012",
+      "marqeeOrange": "#F79D1B",
     },
     fontFamily: {
       sans: ["DM Sans", "sans-serif"],

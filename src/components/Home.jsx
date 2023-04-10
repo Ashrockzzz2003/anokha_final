@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div className="home ml-auto mr-auto pt-12 snap-y">
       <div>
-        <div data-aos="fade-down" className="m-4 mt-6">
+        <div data-aos="fade-down" className="m-4 mt-12">
           <img
             src={anokha_text}
             alt="Anokha Logo"
