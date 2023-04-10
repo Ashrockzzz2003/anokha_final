@@ -20,6 +20,10 @@ import { useEffect } from 'react';
 
 function App() {
 
+  const { fetchEvents } = useAuth();
+  if (localStorage.getItem("events") === null) {
+    fetchEvents();
+  }
   return (
     <BrowserRouter>
       <Routes>
