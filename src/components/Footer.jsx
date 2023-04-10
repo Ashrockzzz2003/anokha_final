@@ -7,6 +7,7 @@ export default function Footer() {
     return (
         <footer id="footer">
             <div className="h-auto bg-white">
+                <div className="lg:flex block">
                 <div className="inline-block">
                     <div className="flex justify-center lg:justify-start gap-x-3 pt-24 pl-36">
                         <a
@@ -86,8 +87,9 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="inline-block px-36">
+                <div className="lg:px-36 md:py-36">
                     <img src={eventide} alt="Eventide" width={250} style={{ float: 'right' }} />
+                </div>
                 </div>
                 <div className="flex justify-evenly py-4 ">
                     <span>Copyright</span>
