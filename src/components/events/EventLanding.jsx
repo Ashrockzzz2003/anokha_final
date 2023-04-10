@@ -2,7 +2,7 @@ import { Typography } from "@material-tailwind/react";
 import React from "react";
 import eventide from "../utils/eventide.png";
 import RegisterMembers from "../events/RegisterMembers";
-import ConfirmPaymentPage from "../user/ConfirmPaymentPage,jsx";
+import ConfirmPaymentPage from "../user/ConfirmPaymentPage.jsx";
 
 const EventLanding = () => {
   const data = {

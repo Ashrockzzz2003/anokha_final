@@ -12,7 +12,7 @@ import NoAuth from './auth/NoAuth';
 import Register from './components/user/Register';
 import Footer from './components/Footer';
 import VerifyOTP from './components/user/VerifyOTP';
-import ConfirmPaymentPage from './components/user/ConfirmPaymentPage,jsx';
+import ConfirmPaymentPage from './components/user/ConfirmPaymentPage.jsx';
 
 function App() {
   return (
