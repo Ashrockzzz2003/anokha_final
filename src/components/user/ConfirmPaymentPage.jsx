@@ -1,6 +1,15 @@
 import { Input, Checkbox, Button, Typography } from "@material-tailwind/react";
+import { useState } from "react";
 
-export default function ConfirmPaymentPage({ fullName, email, amount }) {
+export default function ConfirmPaymentPage() {
+  const tempData = useState(localStorage.getItem("userData"));
+  const data = JSON.parse(tempData[0])[0];
+
+  // Handle Login
+  const handleConfirm = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="h-full w-screen">
       <Typography variant="h4" color="blue-gray">
@@ -18,7 +27,7 @@ export default function ConfirmPaymentPage({ fullName, email, amount }) {
             size="lg"
             id="name"
             label="Full Name"
-            value={fullName}
+            value={data.fullName}
             disabled
           />
 
@@ -28,7 +37,7 @@ export default function ConfirmPaymentPage({ fullName, email, amount }) {
             id="email"
             label="Email"
             type={"email"}
-            value={email}
+            value={data.email}
             disabled
           />
 
@@ -98,7 +107,7 @@ export default function ConfirmPaymentPage({ fullName, email, amount }) {
           <Button
             variant="filled"
             className="bg-backgroundColor text-babyPowder"
-          // onClick={handleConfirm}
+            onClick={handleConfirm}
           >
             <span>Proceed to Payment</span>
           </Button>

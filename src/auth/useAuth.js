@@ -196,7 +196,7 @@ export const useAuth = () => {
         }
 
         const moveTData = await response.json();
-
+        console.log(moveTData)
         setTransactionToken(moveTData.TRANSACTION_SECRET_TOKEN);
 
         window.location.href = "/events/confirmPayment";
@@ -206,7 +206,8 @@ export const useAuth = () => {
         const response = fetch(TRANSACTION_INITIATE_URL, {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${transactionToken}`,
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${transactionToken}`
             },
             body: {
                 "productId": `E${data.eventId}`,
@@ -222,8 +223,6 @@ export const useAuth = () => {
         });
 
         const responseData = await response.json();
-
-        
 
     }
 

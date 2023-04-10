@@ -2,19 +2,20 @@ import { Typography } from "@material-tailwind/react";
 import React from "react";
 import eventide from "../utils/eventide.png";
 import RegisterMembers from "../events/RegisterMembers";
-import ConfirmPaymentPage from "../user/ConfirmPaymentPage.jsx";
+import { Button } from "react-scroll";
+import { useAuth } from "../../auth/useAuth";
 
 const EventLanding = () => {
-  const data = {
-    "orderID": "order_DBJOWzybf0sJbb",
-    "amount": 50000,
-    "eventName": "Eventide",
-    "fullName": "Vira Manohar aka LEGEND",
-    "email": "vira_manohar_legend@cb.students.amrita.edu",
-  }
+  const { moveToTransaction } = useAuth();
+
+  // Handle Login
+  const handleRegsiter = (e) => {
+    e.preventDefault();
+    moveToTransaction();
+  };
 
   const isGroupEvent = false;
-  
+
   /*
         "eventId": 1,
         "eventName": "EVENT0",
@@ -40,13 +41,19 @@ const EventLanding = () => {
       <div className="w-auto lg:pr-12">
         <img src={eventide} className="w-72 rounded-lg ml-auto mr-auto" alt="Event Pix" />
         {isGroupEvent ?
-         <div className="mt-4 w-fit ml-auto mr-auto">
-          <RegisterMembers membercount={4} amount={500} buttonLabel={"Register with Members"} />
-        </div>
-        :
-        <div className="mt-4 w-fit ml-auto mr-auto">
-          <ConfirmPaymentPage orderID={data.orderID} amount={data.amount} eventName={data.eventName} fullName={data.fullName} email={data.email} buttonLabel={"Register"} />
-        </div>
+          <div className="mt-4 w-fit ml-auto mr-auto">
+            <RegisterMembers membercount={4} amount={500} buttonLabel={"Register with Members"} />
+          </div>
+          :
+          <div className="mt-4 w-fit ml-auto mr-auto">
+            <Button
+              variant="filled"
+              className="bg-backgroundColor text-babyPowder"
+              onClick={handleRegsiter}
+            >
+              <span>Register</span>
+            </Button>
+          </div>
         }
       </div>
       <div className="m-16 mt-24 lg:pl-24 lg:ml-16 lg:w-1/2">
