@@ -58,8 +58,6 @@ export default function Register() {
 
     const [name, setName] = React.useState(data.fullName);
     const [email, setEmail] = React.useState(data.userEmail);
-    const [password, setPassword] = React.useState(data.password);
-    const [confirmPassword, setConfirmPassword] = React.useState(data.password);
     const [isAmrita, setIsAmrita] = React.useState(data.isAmritaCBE===1? true : false);
 
     // Set isAmrita to true if the checkbox is checked
@@ -70,23 +68,14 @@ export default function Register() {
     // Regular expression for email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Regular expression for password validation
-    const passwordRegex = /.*/;
-
     // Check if email is valid
     const isEmailValid = emailRegex.test(email);
 
     // Regular expression for name validation
     const nameRegex = /.*/;
 
-    // Check if password is valid
-    const isPasswordValid = passwordRegex.test(password);
-
     // Check if name is valid
     const isNameValid = nameRegex.test(name);
-
-    // Check if confirm password matches password
-    const isConfirmPasswordValid = password === confirmPassword;
 
     const { editProfile } = useAuth();
 
@@ -95,7 +84,7 @@ export default function Register() {
         e.preventDefault();
         editProfile({
             fullName: name,
-            password: password,
+            password: data.password,
             userEmail: localStorage.getItem("userEmail"),
         });
     };
@@ -209,55 +198,10 @@ export default function Register() {
                                 </p>
                             )}
                         </div>
-                        <div className="flex flex-col mt-4">
-                            <label className="text-lg text-center font-medium">Old/New Password</label>
-                            <input
-                                required
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className={
-                                    "w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
-                                    (isPasswordValid || !password
-                                        ? "border-gray-400"
-                                        : "border-red-500")
-                                } text-center placeholder="Enter Password"
-                                type={"password"}
-                            />
-                            {!isPasswordValid && password && (
-                                <p className="mt-2 text-sm text-red-500">
-                                    Password must be at least 8 characters long and contain at
-                                    least one uppercase letter, one lowercase letter, and one
-                                    number
-                                </p>
-                            )}
-                        </div>
-                        <div className="flex flex-col mt-4">
-                            <label className="text-lg text-center font-medium">Confirm Old/New Password</label>
-                            <input
-                                required
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                className={"w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
-                                    (isConfirmPasswordValid || !confirmPassword
-                                        ? "border-gray-400"
-                                        : "border-red-500")
-                                }
-                                text-center placeholder="Enter Password again"
-                                type={"password"}
-                            />
-                            {!isConfirmPasswordValid && confirmPassword && (
-                                <p className="mt-2 text-sm text-red-500">
-                                    Password does not match
-                                </p>
-                            )}
-                        </div>
                         <div className="mt-8 w-full ml-auto mr-auto flex flex-col gap-y-4">
                             <button
                                 type="submit"
-                                className={"active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-backgroundColor rounded-xl text-babyPowder font-bold text-lg" + (isEmailValid && isPasswordValid
-                                    ? "bg-backgroundColor"
-                                    : "bg-gray-400 cursor-not-allowed")}
-                                disabled={!isEmailValid || !isPasswordValid}>
+                                className={"active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-backgroundColor rounded-xl text-babyPowder font-bold text-lg" }>
                                 Update
                             </button>
                         </div>

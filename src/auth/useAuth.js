@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useLocalStorage } from './useLocalStorage'
 
 export const useAuth = () => {
@@ -7,6 +8,7 @@ export const useAuth = () => {
     const [userData, setUserData] = useLocalStorage("userData", null);
     const [userEvents, setUserEvents] = useLocalStorage("userEvents", null);
     const [registerData, setRegisterData] = useLocalStorage("registerData", null);
+    const [transactionToken, setTransactionToken] = useState(null);
 
     const LOGIN_API_URL = "http://52.66.236.118:3000/userWeb/login";
     const USER_API_URL = "http://52.66.236.118:3000/userWeb/getUser";
@@ -14,6 +16,9 @@ export const useAuth = () => {
     const USER_EDIT_API_URL = "http://52.66.236.118:3000/userWeb/editUser";
     const USER_RESGISTER_URL = "http://52.66.236.118:3000/userWeb/registerUser";
     const USER_OTP_URL = "http://52.66.236.118:3000/userWeb/verifyOTP";
+    const TRANSACTION_URL = "http://52.66.236.118:3000/userWeb/transaction/moveToTransaction";
+    const TRANSACTION_INITIATE_URL = 'http://52.66.236.118:3000/userWeb/transaction/initiateTransaction';
+
 
     const signIn = async (data) => {
         try {
@@ -169,9 +174,57 @@ export const useAuth = () => {
         }
 
         localStorage.setItem("registerData", null);
-        alert("Login. Registration Successful.")
+        alert("Registration Successful. Proceed to Login.")
 
         window.location.href = "/login";
+    }
+
+    const moveToTransaction = async () => {
+        // Update User Data Locally
+        const response = await fetch(TRANSACTION_URL, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+            },
+        });
+
+        if (response.status === 401) {
+            alert("Session Expired. Logging you out. Try again.");
+            signOut();
+            window.location.href = "/";
+            return;
+        }
+
+        const moveTData = await response.json();
+
+        setTransactionToken(moveTData.TRANSACTION_SECRET_TOKEN);
+
+        window.location.href = "/events/confirmPayment";
+    }
+
+    const initiateTransaction = async (data) => {
+        const response = fetch(TRANSACTION_INITIATE_URL, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${transactionToken}`,
+            },
+            body: {
+                "productId": `E${data.eventId}`,
+                "firstName": `${data.fullName}`,
+                "userEmail": `${data.userEmail}`,
+                "address": data.address,
+                "city": data.city,
+                "state": data.state,
+                "country": data.country,
+                "zipcode": data.zipcode,
+                "phoneNumber": data.phoneNumber
+          }
+        });
+
+        const responseData = await response.json();
+
+        
+
     }
 
     const signOut = () => {
@@ -179,7 +232,7 @@ export const useAuth = () => {
         window.location.href = "/";
     };
 
-    return { signIn, signOut, editProfile, verifyOTP, signUp };
+    return { signIn, signOut, editProfile, verifyOTP, signUp, moveToTransaction, initiateTransaction };
 
 };
 

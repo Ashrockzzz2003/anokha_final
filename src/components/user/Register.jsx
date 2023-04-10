@@ -33,7 +33,7 @@ export default function Register() {
       "fullName": name,
       "password": password
     });
-  }
+  };
 
   // Set isAmrita to true if the checkbox is checked
   const handleSelect = (e) => {

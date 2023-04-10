@@ -4,7 +4,6 @@ import {
   CardBody,
   Typography,
 } from "@material-tailwind/react";
-import QRCode from "react-qr-code";
 
 
 export default function ProfileCard({ fullName, userEmail, qrlink }) {
@@ -13,7 +12,7 @@ export default function ProfileCard({ fullName, userEmail, qrlink }) {
       <Card className="w-fit ml-auto mr-auto">
         <CardHeader floated={false} className="flex flex-col lg:flex-row justify-evenly">
           <img className="w-72 ml-auto mr-auto lg:ml-0 lg:mr-0" src="https://www.dummies.com/wp-content/uploads/324172.image0.jpg" alt="dummy-qr" />
-          <QRCode title="profile-qr" value={qrlink} size={50} level="L" />
+           {/* <QRCode title="profile-qr" value={qrlink} size={50} level="L" /> */}
         </CardHeader>
         <CardBody className="text-center">
           <Typography variant="h4" color="blue-gray" className="mb-2">
