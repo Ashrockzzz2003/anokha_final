@@ -36,18 +36,28 @@ export default function ConfirmPayment({ orderID, amount, eventName, fullName, e
                     <DialogBody divider>
                         <form className="mt-8 mb-2 w-3/5 ml-auto mr-auto max-w-screen-lg">
                             <div className="mb-4 flex text-center flex-col gap-2">
-                                <label>Order ID</label>
-                                <Input size="lg" label="OrderID" value={orderID} disabled />
-                                <label>Amount</label>
-                                <Input size="lg" type={"number"} label="Amount" value={amount} disabled />
-                                <label>Event Name</label>
-                                <Input size="lg" label="Event Name" value={eventName} disabled />
-                                <label>Full Name</label>
-                                <Input size="lg" label="Full Name" value={fullName} disabled />
-                                <label>Email ID</label>
-                                <Input size="lg" label="Email" type={"email"} value={email} disabled />
-                                <br />
-                                <Input size="lg" label="Pincode" type={"number"} maxLength="6" required />
+                                {/* <label>Order ID</label>
+                                <Input size="lg" label="OrderID" value={orderID} disabled /> */}
+                                <label htmlFor="name">Name</label>
+                                <Input size="lg" id="name" label="Full Name" value={fullName} disabled />
+
+                                <label htmlFor="email">Email ID</label>
+                                <Input size="lg" id="email" label="Email" type={"email"} value={email} disabled />
+
+                                <label htmlFor="phone">Phone Number</label>
+                                <Input size="lg" id="phone" label="Phone Number" type={"number"} maxLength="10" required />
+
+                                <label htmlFor="address">Address</label>
+                                <Input size="lg" id="address" label="Address" type={"text"} required />
+
+                                <label htmlFor="city">City</label>
+                                <Input size="lg" id="city" label="city" type={"text"} required />
+
+                                <label htmlFor="state">State</label>
+                                <Input size="lg" id="state" label="state" type={"text"} required />
+
+                                <label htmlFor="country">Country</label>
+                                <Input size="lg" id="country" label="country" type={"text"} required />
                             </div>
                         </form>
                     </DialogBody>
