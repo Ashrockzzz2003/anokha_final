@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div className="home ml-auto mr-auto pt-12 snap-y">
       <div>
-        <div data-aos="fade-down" className="m-4 mt-6">
+        <div data-aos="fade-down" className="m-4 mt-12">
           <img
             src={anokha_text}
             alt="Anokha Logo"
@@ -39,17 +39,23 @@ const Home = () => {
             className="h-[60vh] ml-auto mr-auto"
           />
         </div>
-        <Marquee
+        {/* <Marquee
           pauseOnHover="true"
           gradient="false"
           gradientColor="[0, 0, 0]"
-          speed={40}
-          className="mb-8"
+          speed={60}
+          className="bg-marqeeOrange"
         >
-          <img src={logo} alt="Anokha Logo" className="h-10 mr-auto" />
-          <img src={logo} alt="Anokha Logo" className="h-10 mr-auto" />
-          <img src={logo} alt="Anokha Logo" className="h-10 mr-auto" />
-        </Marquee>
+          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
+          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
+          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
+          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
+          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
+          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
+          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
+          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
+          <span class="text-4xl font-title mx-8">DARE TO BE DIFFERENT</span>
+        </Marquee> */}
       </div>
 
       <div data-aos="fade-up" className="pb-10">
