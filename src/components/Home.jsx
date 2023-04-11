@@ -186,9 +186,18 @@ const Home = () => {
 
       <div
         id="c20g20"
-        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16"
-      >
-        <iframe src="https://www.youtube.com/embed/qJVUux1rAfI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className="rounded-lg w-full h-full"></iframe>
+        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around py-10 px-16">
+        <div
+          className=" flex justify-center lg:w-full"
+          data-aos="fade-up-right">
+          <iframe
+            className="aspect-video rounded-lg lg:w-full"
+            src="https://www.youtube.com/embed/qJVUux1rAfI"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
         <div
           data-aos="fade-up-left"
           className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
