@@ -6,7 +6,7 @@ const EventsRegistered = () => {
   const [data] = useState(JSON.parse(tempData[0]));
 
   return (
-    <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-4">
+    <div className="flex flex-wrap gap-8 py-8">
       {data.map((event) => (
         <Card
           key={event.eventId}

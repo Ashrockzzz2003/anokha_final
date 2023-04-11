@@ -43,7 +43,7 @@ export default function Example({
         size="sm"
         color="red"
         variant="text"
-        className="!absolute top-4 right-4 duration-0 rounded-full">
+        className="!absolute top-4 right-4 duration-0 border-none">
         <HeartIcon className="h-6 w-6" />
       </IconButton>
       : 
@@ -52,7 +52,7 @@ export default function Example({
           size="sm"
           color="white"
           variant="text"
-          className="!absolute top-4 right-4 duration-0 rounded-full">
+          className="!absolute top-4 right-4 duration-0 border-none">
           <HeartIcon className="h-6 w-6" />
         </IconButton>}
       </CardHeader>
