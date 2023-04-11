@@ -12,7 +12,6 @@ export const useAuth = () => {
     const [registerData, setRegisterData] = useLocalStorage("registerData", null);
     const [transactionToken, setTransactionToken] = useLocalStorage("transactionToken",null);
     const [events, setEvents] = useLocalStorage("events", null);
-    const [payUHTML, setPayUHTML] = useLocalStorage("payUHTML", null);
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
     const domain = "http://52.66.236.118:3000";
@@ -26,7 +25,7 @@ export const useAuth = () => {
     const TRANSACTION_URL = `${domain}/userWeb/transaction/moveToTransaction`;
     const TRANSACTION_INITIATE_URL = `${domain}/userWeb/transaction/initiateTransaction`;
     const EVENTS_API_URL = `${domain}/userWeb/events/all`;
-    const PAYU_URL = "https://secure.payu.in/_payment";
+    const USER_RESET_PASSWORD_URL = `${domain}/userWeb/forgotPassword`;
 
     const signIn = async (data) => {
         try {
@@ -246,8 +245,8 @@ export const useAuth = () => {
             "email": data.userEmail,
             "phone": data.phoneNumber,
             "hash": responseData.hash,
-            "surl": "https://www.google.com/",
-            "furl": "https://www.google.com/",
+            "surl": "http://52.66.236.118:3000/userWeb/success",
+            "furl": "http://52.66.236.118:3000/userWeb/failure",
             "key": "ypfBaj"
         }
 
@@ -280,12 +279,34 @@ export const useAuth = () => {
         });
     }
 
+    const resetPassword = async (data) => {
+        const response = await fetch(USER_RESET_PASSWORD_URL, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "userEmail": data,
+            }),
+        }).catch((error) => {
+            console.error(error);
+            alert("Something went wrong. Please try again later.");
+        });
+
+        if (response.status !== 200) {
+            alert("Something went wrong. Try again later.");
+            window.location.href = "/";
+            return;
+        }
+        alert("Password Reset OTP Sent to your Email. Please check your inbox.");
+    }
+
     const signOut = () => {
         secureLocalStorage.clear();
         window.location.href = "/";
     };
 
-    return { signIn, signOut, editProfile, verifyOTP, signUp, moveToTransaction, initiateTransaction, fetchEvents };
+    return { signIn, signOut, editProfile, verifyOTP, signUp, moveToTransaction, initiateTransaction, fetchEvents, resetPassword };
 
 };
 

@@ -7,11 +7,7 @@ import {
     DialogFooter,
     Input,
     Checkbox,
-    Typography,
-    CardHeader,
-    Card,
-    CardBody,
-    CardFooter,
+    Typography
 } from "@material-tailwind/react";
 import secureLocalStorage from "react-secure-storage";
 

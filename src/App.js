@@ -22,11 +22,6 @@ function App() {
 
   const { fetchEvents } = useAuth();
 
-  // if (JSON.parse(localStorage.getItem("events")) === null) {
-  //   console.log("I was here");
-  //   fetchEvents();
-  // }
-
   useEffect(() => {
     window.addEventListener("load", () => {
       fetchEvents();

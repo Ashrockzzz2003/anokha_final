@@ -12,12 +12,20 @@ import {
 import React from "react";
 import anokha_circle from "../utils/anokha_circle.svg";
 import {Link} from "react-router-dom";
+import { useAuth } from "../../auth/useAuth";
 
 export default function ForgotPassword() {
   const [email, setEmail] = React.useState("");
   const [open, setOpen] = React.useState(false);
+
+  const { resetPassword } = useAuth();
+
   const handleOpen = () => {
-    if(!isEmailValid) return;
+    if(!isEmailValid) {
+      alert("Check your email again!");
+      return;
+    };
+    resetPassword(email);
     setOpen((cur) => !cur)
   };
   const [isAmrita, setIsAmrita] = React.useState(true);
