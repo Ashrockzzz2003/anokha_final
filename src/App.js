@@ -17,6 +17,7 @@ import { useAuth } from './auth/useAuth';
 import { PaymentStatus } from './components/user/PaymentStatus';
 import { useEffect } from 'react';
 import ForgotPassword from './components/user/ForgotPassword';
+import ResetPassword from './components/user/ChangePassword';
 
 function App() {
 
@@ -100,7 +101,14 @@ function App() {
           </RequireAuth>
         } /> 
       <Route path='/forgotpassword' element={
-        <ForgotPassword />
+        <NoAuth>
+          <ForgotPassword />
+        </NoAuth>
+      } />
+      <Route path='/resetPassword' element={
+        <NoAuth>
+          <ResetPassword />
+        </NoAuth>
       } />
       </Routes>
     </BrowserRouter>

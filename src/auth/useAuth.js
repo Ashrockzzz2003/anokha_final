@@ -12,6 +12,7 @@ export const useAuth = () => {
     const [registerData, setRegisterData] = useLocalStorage("registerData", null);
     const [transactionToken, setTransactionToken] = useLocalStorage("transactionToken",null);
     const [events, setEvents] = useLocalStorage("events", null);
+    const [resetToken, setResetToken] = useLocalStorage("resetToken", null);
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
     const domain = "http://52.66.236.118:3000";
@@ -26,6 +27,8 @@ export const useAuth = () => {
     const TRANSACTION_INITIATE_URL = `${domain}/userWeb/transaction/initiateTransaction`;
     const EVENTS_API_URL = `${domain}/userWeb/events/all`;
     const USER_RESET_PASSWORD_URL = `${domain}/userWeb/forgotPassword`;
+    const USER_RESET_PASSWORD_VERIFY_URL = `${domain}/userWeb/forgotPassword/verifyOtp`;
+    const USER_RESET_PASSWORD_CHANGE_URL = `${domain}/userApp/forgotPassword/newPassword`;
 
     const signIn = async (data) => {
         try {
@@ -279,7 +282,7 @@ export const useAuth = () => {
         });
     }
 
-    const resetPassword = async (data) => {
+    const getResetTokenAndOtp = async (data) => {
         const response = await fetch(USER_RESET_PASSWORD_URL, {
             method: "POST",
             headers: {
@@ -298,7 +301,67 @@ export const useAuth = () => {
             window.location.href = "/";
             return;
         }
+
+        setResetToken(await response.json());
+
         alert("Password Reset OTP Sent to your Email. Please check your inbox.");
+    }
+
+    const verifyResetOTP = async (data) => {
+        const otp = data;
+        const response = await fetch(USER_RESET_PASSWORD_VERIFY_URL, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("resetToken")).SECRET_TOKEN}`,
+            },
+            body: JSON.stringify({
+                "otp": otp,
+            }),
+        }).catch((error) => {
+            console.error(error);
+            alert("Something went wrong. Please try again later.");
+        });
+
+        if (response.status !== 200) {
+            alert("Invalid OTP. Try again.");
+            return;
+        }
+
+        secureLocalStorage.setItem("resetToken", null);
+
+        setResetToken(await response.json());
+        alert("OTP Verified. Proceed to Reset Password.")
+
+        window.location.href = "/resetPassword";
+    }
+
+    const newPasswordReset = async (data) => {
+        const newPassword = data;
+
+        const response = await fetch(USER_RESET_PASSWORD_CHANGE_URL, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("resetToken")).SECRET_TOKEN}`,
+            },
+            body: JSON.stringify({
+                "newPassword": newPassword,
+            }),
+        }).catch((error) => {
+            console.error(error);
+            alert("Something went wrong. Please try again later.");
+        });
+
+        if (response.status !== 200) {
+            alert("Invalid OTP. Try again.");
+            return;
+        }
+
+        secureLocalStorage.setItem("resetToken", null);
+        setResetToken(await response.json());
+        alert("Password has been successfully Reset. Proceed to Login.")
+        window.location.href = "/login";
     }
 
     const signOut = () => {
@@ -306,7 +369,6 @@ export const useAuth = () => {
         window.location.href = "/";
     };
 
-    return { signIn, signOut, editProfile, verifyOTP, signUp, moveToTransaction, initiateTransaction, fetchEvents, resetPassword };
+    return { signIn, signOut, editProfile, verifyOTP, signUp, moveToTransaction, initiateTransaction, fetchEvents, getResetTokenAndOtp, verifyResetOTP, newPasswordReset };
 
 };
-

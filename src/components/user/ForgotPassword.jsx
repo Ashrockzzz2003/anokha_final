@@ -11,22 +11,27 @@ import {
 } from "@material-tailwind/react";
 import React from "react";
 import anokha_circle from "../utils/anokha_circle.svg";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../auth/useAuth";
 
 export default function ForgotPassword() {
   const [email, setEmail] = React.useState("");
   const [open, setOpen] = React.useState(false);
+  const [otp, setOtp] = React.useState("");
 
-  const { resetPassword } = useAuth();
+  const { getResetTokenAndOtp } = useAuth();
+  const { verifyResetOTP } = useAuth();
 
   const handleOpen = () => {
-    if(!isEmailValid) {
+    if (!isEmailValid) {
       alert("Check your email again!");
       return;
     };
-    resetPassword(email);
     setOpen((cur) => !cur)
+    if (!open) {
+      console.log("I was here");
+      getResetTokenAndOtp(email);
+    }
   };
   const [isAmrita, setIsAmrita] = React.useState(true);
 
@@ -39,11 +44,11 @@ export default function ForgotPassword() {
   };
 
   const handleOTP = () => {
-    //? function to send otp to backend
+    verifyResetOTP(otp);
   };
 
   return (
-    <div className="flex w-full h-full">
+    <div className="flex w-full h-screen">
       <div className="lg:inline-block items-center justify-center m-auto hidden px-16 relative w-1/2">
         <div className="loader">
           <span>
@@ -73,34 +78,34 @@ export default function ForgotPassword() {
             Enter your E-Mail to recieve OTP
           </p>
           <div className="mt-4">
-            <form onSubmit={handleOTP}>
-              <div className="flex flex-col mx-auto items-center">
-                <Checkbox
-                  defaultChecked={isAmrita}
-                  onChange={handleAmrita}
-                  label={
-                    <Typography
-                      variant="small"
-                      color="gray"
-                      className="flex items-center font-normal">
-                      Amrita Student
-                    </Typography>
-                  }
-                  value={isAmrita}
-                  containerProps={{className: "-ml-2.5"}}
-                />
-              </div>
-              <div className="flex flex-col mt-4">
-                {isAmrita ? (
-                  <label className="text-lg text-center font-medium">
-                    Amrita Email ID
-                  </label>
-                ) : (
-                  <label className="text-lg text-center font-medium">
-                    Email
-                  </label>
-                )}
-              </div>
+            <div className="flex flex-col mx-auto items-center">
+              <Checkbox
+                defaultChecked={isAmrita}
+                onChange={handleAmrita}
+                label={
+                  <Typography
+                    variant="small"
+                    color="gray"
+                    className="flex items-center font-normal">
+                    Amrita Student
+                  </Typography>
+                }
+                value={isAmrita}
+                containerProps={{ className: "-ml-2.5" }}
+              />
+            </div>
+            <div className="flex flex-col mt-4">
+              {isAmrita ? (
+                <label className="text-lg text-center font-medium">
+                  Amrita Email ID
+                </label>
+              ) : (
+                <label className="text-lg text-center font-medium">
+                  Email
+                </label>
+              )}
+            </div>
+            <form onSubmit={handleOpen}>
               <div className="mt-2 text-center">
                 <input
                   type="text"
@@ -122,42 +127,45 @@ export default function ForgotPassword() {
                   </p>
                 )}
               </div>
-
               <div className="mt-8 text-center">
-                
-                  <React.Fragment>
-                    <Button onClick={handleOpen} className="bg-backgroundColor">Send OTP</Button>
-                    <Dialog
-                      size="xl"
-                      open={open}
-                      handler={handleOpen}
-                      className="bg-transparent shadow-none">
-                      <Card className="mx-auto w-full max-w-[24rem]">
-                        <CardHeader
-                          variant="gradient"
-                          className="mb-4 grid h-24 place-items-center bg-backgroundColor">
-                          <Typography variant="h3" color="white">
-                            Reset Password
-                          </Typography>
-                        </CardHeader>
-                        <CardBody className="flex flex-col gap-4">
-                          <Input label="OTP" size="lg" type="number" />
-                        </CardBody>
-                        <CardFooter className="pt-0">
-                          <Button
-                            variant="fill"
-                            type="submit"
-                            onSubmit={handleOTP}
-                            className="bg-backgroundColor"
-                            fullWidth>
-                            Enter OTP
-                          </Button>
-                        </CardFooter>
-                      </Card>
-                    </Dialog>
-                  </React.Fragment>
+              <Button onClick={handleOpen} className="bg-backgroundColor">Send OTP</Button>
               </div>
             </form>
+
+            <div className="mt-8 text-center">
+              <React.Fragment>
+                <form>
+                  <Dialog
+                    size="xl"
+                    open={open}
+                    handler={handleOpen}
+                    className="bg-transparent shadow-none">
+                    <Card className="mx-auto w-full max-w-[24rem]">
+                      <CardHeader
+                        variant="gradient"
+                        className="mb-4 grid h-24 place-items-center bg-backgroundColor">
+                        <Typography variant="h3" color="white">
+                          Reset Password
+                        </Typography>
+                      </CardHeader>
+                      <CardBody className="flex flex-col gap-4">
+                        <Input label="OTP" size="lg" type="number" onChange={(e) => setOtp(e.target.value)} />
+                      </CardBody>
+                      <CardFooter className="pt-0">
+                        <Button
+                          variant="fill"
+                          type="submit"
+                          onClick={handleOTP}
+                          className="bg-backgroundColor"
+                          fullWidth>
+                          Verify OTP
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </Dialog>
+                </form>
+              </React.Fragment>
+            </div>
             <div className="mt-4 text-center">
               <p className="text-gray-600">
                 Back to{" "}

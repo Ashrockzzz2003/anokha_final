@@ -1,12 +1,24 @@
 import * as React from "react";
 import anokha_circle from "../utils/anokha_circle.svg";
 import "../styles/form.css";
+import { useAuth } from "../../auth/useAuth";
 
-export default function Login() {
+export default function ResetPassword() {
   
-  const [oldPassword, setOldPassword] = React.useState('');
+  // const [oldPassword, setOldPassword] = React.useState('');
   const [NewPassword, setNewPassword] = React.useState('');
   const [reEnteredPassword, setReEnteredPassword] = React.useState('');
+
+  const {newPasswordReset} = useAuth();
+
+  const handleReset = (e) => {
+    e.preventDefault();
+    if (NewPassword !== reEnteredPassword) {
+      alert("Passwords don't match");
+      return;
+    }
+    newPasswordReset(NewPassword);
+  }
   
   return (
     <div className="flex w-full h-full align-middle mt-32">
@@ -18,10 +30,10 @@ export default function Login() {
             alt="Anokha circle"
             className="animate-spin h-24 ml-auto mr-auto mb-4"
           />
-          <h1 className="text-5xl font-semibold text-center">Change Password</h1>
+          <h1 className="text-5xl font-semibold text-center">Reset Password</h1>
           <div className="mt-8">
-            <form>
-              <div className="flex flex-col mt-4">
+            <form onSubmit={handleReset}>
+              {/* <div className="flex flex-col mt-4">
                 <label className="text-lg font-medium">Old Password</label>
                 <input
                   value={oldPassword}
@@ -31,7 +43,7 @@ export default function Login() {
                   type={"password"}
                   required
                 />
-              </div>
+              </div> */}
               <div className="flex flex-col mt-4">
                 <label className="text-lg font-medium">New Password</label>
                 <input
@@ -58,7 +70,7 @@ export default function Login() {
                 <button
                   type="submit"
                   className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-backgroundColor rounded-xl text-babyPowder font-bold text-lg">
-                  Change Password
+                  Reset Password
                 </button>
               </div>
             </form>
