@@ -5,12 +5,11 @@ import clab from "../components/utils/clab.webp";
 import "../components/styles/home.css";
 import "../components/styles/gallery.css";
 import ab1 from "../components/utils/cbe campus.svg";
-import { Typography } from "@material-tailwind/react";
+import {Typography} from "@material-tailwind/react";
 import anokha_text from "../components/utils/anokha_text.svg";
 import Marquee from "react-fast-marquee";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 
 const Home = () => {
   React.useEffect(() => {
@@ -50,8 +49,7 @@ const Home = () => {
           gradient="false"
           gradientColor="[0, 0, 0]"
           speed={40}
-          className="mb-8"
-        >
+          className="mb-8">
           <img src={icici} alt="Anokha Logo" className="h-32 ml-auto mr-auto" />
           <img src={clab} alt="Anokha Logo" className="h-32 ml-auto mr-auto" />
           <img src={iete} alt="Anokha Logo" className="h-32 ml-auto mr-auto" />
@@ -60,8 +58,7 @@ const Home = () => {
 
       <div
         id="about"
-        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16"
-      >
+        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
         <table className="w-full" data-aos="fade-up-right">
           <tbody>
             <tr>
@@ -70,18 +67,29 @@ const Home = () => {
                   <img
                     className="card"
                     alt="Eventide"
-                    src={require("./utils/AHK/1.jpg")}
-                  ></img>
-                  <img className="card" alt="Eventide" src={require("./utils/AHK/2.jpg")} ></img>
-                  <img className="card" alt="Eventide" src={require("./utils/AHK/5.jpg")} ></img>
+                    src={require("./utils/AHK/1.jpg")}></img>
+                  <img
+                    className="card"
+                    alt="Eventide"
+                    src={require("./utils/AHK/2.jpg")}></img>
+                  <img
+                    className="card"
+                    alt="Eventide"
+                    src={require("./utils/AHK/5.jpg")}></img>
                 </div>
               </td>
             </tr>
             <tr>
               <td>
                 <div className="wrap">
-                  <img className="card" alt="Eventide" src={require("./utils/AHK/8.jpg")} ></img>
-                  <img className="card" alt="Eventide" src={require("./utils/AHK/9.jpg")} ></img>
+                  <img
+                    className="card"
+                    alt="Eventide"
+                    src={require("./utils/AHK/8.jpg")}></img>
+                  <img
+                    className="card"
+                    alt="Eventide"
+                    src={require("./utils/AHK/9.jpg")}></img>
                 </div>
               </td>
             </tr>
@@ -89,12 +97,10 @@ const Home = () => {
         </table>
         <div
           data-aos="fade-up-left"
-          className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6"
-        >
+          className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
           <Typography
             variant="h1"
-            className="mb-2 text-black font-title text-center lg:text-left"
-          >
+            className="mb-2 text-black font-title text-center lg:text-left">
             ABOUT
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
@@ -116,8 +122,7 @@ const Home = () => {
       <div className="background-container">
         <div
           id="aboutamrita"
-          className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16"
-        >
+          className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16">
           <table className="w-full" data-aos="fade-up-right">
             <tbody>
               <tr>
@@ -126,18 +131,15 @@ const Home = () => {
                     <img
                       className="card"
                       alt="Eventide"
-                      src={require("./utils/AHK/AM 1.jpg")}
-                    ></img>
+                      src={require("./utils/AHK/AM 1.jpg")}></img>
                     <img
                       className="card"
                       alt="Eventide"
-                      src={require("./utils/AHK/AM 2.jpg")}
-                    ></img>
+                      src={require("./utils/AHK/AM 2.jpg")}></img>
                     <img
                       className="card"
                       alt="Eventide"
-                      src={require("./utils/AHK/AM 3.jpg")}
-                    ></img>
+                      src={require("./utils/AHK/AM 3.jpg")}></img>
                   </div>
                 </td>
               </tr>
@@ -147,8 +149,7 @@ const Home = () => {
                     <img
                       className="card"
                       alt="Eventide"
-                      src={require("./utils/AHK/AM 4.jpg")}
-                    ></img>
+                      src={require("./utils/AHK/AM 4.jpg")}></img>
                   </div>
                 </td>
               </tr>
@@ -156,16 +157,28 @@ const Home = () => {
           </table>
           <div
             data-aos="fade-up-left"
-            className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6"
-          >
+            className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
             <Typography
               variant="h1"
-              className="mb-2 text-lime-50 font-title text-center lg:text-left"
-            >
+              className="mb-2 text-lime-50 font-title text-center lg:text-left">
               ABOUT Amrita
             </Typography>
             <Typography className="text-lime-50 text-xl text-center lg:text-justify">
-            Amrita Vishwa Vidyapeetham University's Coimbatore campus is a picturesque and serene educational institution located in the foothills of the Western Ghats. With state-of-the-art facilities and a commitment to academic excellence, the university offers a wide range of undergraduate and postgraduate programs in various fields, including engineering, management, medicine, arts, and sciences. The campus boasts of world-class research facilities and is known for its focus on innovation and entrepreneurship. Apart from academics, the university emphasizes the importance of extracurricular activities and encourages students to participate in cultural events, sports, and community service. The campus provides a holistic and enriching learning environment that fosters the intellectual and personal growth of its students, making it a top choice for students from all over India and around the world. 
+              Amrita Vishwa Vidyapeetham University's Coimbatore campus is a
+              picturesque and serene educational institution located in the
+              foothills of the Western Ghats. With state-of-the-art facilities
+              and a commitment to academic excellence, the university offers a
+              wide range of undergraduate and postgraduate programs in various
+              fields, including engineering, management, medicine, arts, and
+              sciences. The campus boasts of world-class research facilities and
+              is known for its focus on innovation and entrepreneurship. Apart
+              from academics, the university emphasizes the importance of
+              extracurricular activities and encourages students to participate
+              in cultural events, sports, and community service. The campus
+              provides a holistic and enriching learning environment that
+              fosters the intellectual and personal growth of its students,
+              making it a top choice for students from all over India and around
+              the world.
             </Typography>
           </div>
         </div>
@@ -173,25 +186,33 @@ const Home = () => {
 
       <div
         id="c20g20"
-        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16"
-      >
-        <table className="w-full" data-aos="fade-up-right">
-          <tbody>
-          <iframe width="560" height="320" src="https://www.youtube.com/embed/qJVUux1rAfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className="rounded-lg"></iframe>
-          </tbody>
-        </table>
+        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around py-10 px-16">
+        <div
+          className=" flex justify-center lg:w-full"
+          data-aos="fade-up-right">
+          <iframe
+            className="aspect-video rounded-lg lg:w-full"
+            src="https://www.youtube.com/embed/qJVUux1rAfI"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
         <div
           data-aos="fade-up-left"
-          className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6"
-        >
+          className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
           <Typography
             variant="h1"
-            className="mb-2 text-black font-title text-center lg:text-left"
-          >
+            className="mb-2 text-black font-title text-center lg:text-left">
             C20 G20
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
-          Anokha 2023 techfest is proud to be recognized as a side event of the prestigious Civil20 (C20) official engagement group of G20 with various workshops, innovation showcase & techfair aligning to the various working groups of C20, which are hosted by Amrita University with world-renowned humanitarian leader, Sri Mata Amritanandamayi Devi (AMMA) as Chancellor of the university
+            Anokha 2023 techfest is proud to be recognized as a side event of
+            the prestigious Civil20 (C20) official engagement group of G20 with
+            various workshops, innovation showcase & techfair aligning to the
+            various working groups of C20, which are hosted by Amrita University
+            with world-renowned humanitarian leader, Sri Mata Amritanandamayi
+            Devi (AMMA) as Chancellor of the university
           </Typography>
         </div>
       </div>
@@ -201,8 +222,7 @@ const Home = () => {
         <div className="gradient gradient-right"></div>
         <div
           id="eventide"
-          className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16"
-        >
+          className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16">
           <table className="w-full" data-aos="fade-up-right">
             <tbody>
               <tr>
@@ -211,18 +231,15 @@ const Home = () => {
                     <img
                       className="card"
                       alt="Eventide"
-                      src={require("./utils/AHK/Eventide-1.jpg")}
-                    ></img>
+                      src={require("./utils/AHK/Eventide-1.jpg")}></img>
                     <img
                       className="card"
                       alt="Eventide"
-                      src={require("./utils/AHK/Eventide-2.jpg")}
-                    ></img>
+                      src={require("./utils/AHK/Eventide-2.jpg")}></img>
                     <img
                       className="card"
                       alt="Eventide"
-                      src={require("./utils/AHK/Eventide-3.jpg")}
-                    ></img>
+                      src={require("./utils/AHK/Eventide-3.jpg")}></img>
                   </div>
                 </td>
               </tr>
@@ -232,13 +249,11 @@ const Home = () => {
                     <img
                       className="card"
                       alt="Eventide"
-                      src={require("./utils/AHK/Eventide-4.jpg")}
-                    ></img>
+                      src={require("./utils/AHK/Eventide-4.jpg")}></img>
                     <img
                       className="card"
                       alt="Eventide"
-                      src={require("./utils/AHK/Eventide-4.jpg")}
-                    ></img>
+                      src={require("./utils/AHK/Eventide-4.jpg")}></img>
                   </div>
                 </td>
               </tr>
@@ -246,19 +261,32 @@ const Home = () => {
           </table>
           <div
             data-aos="fade-up-left"
-            className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6"
-          >
+            className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
             <Typography
               variant="h1"
-              className="mb-2 text-khaki font-title text-center lg:text-left"
-            >
+              className="mb-2 text-khaki font-title text-center lg:text-left">
               EVENTIDE
             </Typography>
             <Typography className="font-normal text-babyPowder text-xl text-center lg:text-justify">
-              "All work and no play makes Jack a dull boy.", a proverb says. At Anokha, we understand this very well. Eventide, the cultural component of Anokha, has brought joy to thousands over the past decade through explosive performances from talented and captivating artists. The performances leave our audience in awe, showcasing the beauty and diversity of human expression through art.
-              Some talented and passionate artists who have previously graced the stage include percussionist Sivamani; playback singers Vijay Prakash, Karthik, Benny Dayal, Haricharan, Rahul Nambiar, Alaap Raju, Shaktisree Gopalan, Sunitha Sarathy, Ranjani-Gayatri, and Nikita Gandhi.
-              Eventide has become a platform for the celebration of India's rich cultural heritage, featuring performers from all over the country, representing a diverse range of genres. Between soulful classical music, scintillating film numbers and explosive percussion, we've explored every genre you can name.
-              It's been an incredible experience to witness the talent and dedication of the performers, who have brought their cultures and traditions to life through their art, leaving a lasting impression on the audience.
+              "All work and no play makes Jack a dull boy.", a proverb says. At
+              Anokha, we understand this very well. Eventide, the cultural
+              component of Anokha, has brought joy to thousands over the past
+              decade through explosive performances from talented and
+              captivating artists. The performances leave our audience in awe,
+              showcasing the beauty and diversity of human expression through
+              art. Some talented and passionate artists who have previously
+              graced the stage include percussionist Sivamani; playback singers
+              Vijay Prakash, Karthik, Benny Dayal, Haricharan, Rahul Nambiar,
+              Alaap Raju, Shaktisree Gopalan, Sunitha Sarathy, Ranjani-Gayatri,
+              and Nikita Gandhi. Eventide has become a platform for the
+              celebration of India's rich cultural heritage, featuring
+              performers from all over the country, representing a diverse range
+              of genres. Between soulful classical music, scintillating film
+              numbers and explosive percussion, we've explored every genre you
+              can name. It's been an incredible experience to witness the talent
+              and dedication of the performers, who have brought their cultures
+              and traditions to life through their art, leaving a lasting
+              impression on the audience.
             </Typography>
           </div>
         </div>
@@ -266,24 +294,38 @@ const Home = () => {
 
       <div
         id="techfair"
-        className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-evenly bg-babyPowder mb-0 pb-32 pt-32 px-16"
-      >
+        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
         <table className="w-full" data-aos="fade-up-right">
           <tbody>
             <tr>
               <td>
-                <div className="wrap">
-                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/4.png"></img>
-                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/6.png"></img>
-                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/7.png"></img>
-                </div>
+              <div className="wrap">
+                    <img
+                      className="card"
+                      alt="Eventide"
+                      src={require("./utils/AHK/AM 1.jpg")}></img>
+                    <img
+                      className="card"
+                      alt="Eventide"
+                      src={require("./utils/AHK/AM 2.jpg")}></img>
+                    <img
+                      className="card"
+                      alt="Eventide"
+                      src={require("./utils/AHK/AM 3.jpg")}></img>
+                  </div>
               </td>
             </tr>
             <tr>
               <td>
-                <div className="wrap">
-                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/8.png"></img>
-                  <img className="card v2" alt="Eventide" src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/9.png"></img>
+              <div className="wrap">
+                  <img
+                    className="card"
+                    alt="Eventide"
+                    src={require("./utils/AHK/8.jpg")}></img>
+                  <img
+                    className="card"
+                    alt="Eventide"
+                    src={require("./utils/AHK/9.jpg")}></img>
                 </div>
               </td>
             </tr>
@@ -291,12 +333,10 @@ const Home = () => {
         </table>
         <div
           data-aos="fade-up-left"
-          className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6"
-        >
+          className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
           <Typography
             variant="h1"
-            className="mb-2 text-backgroundColor font-title text-center lg:text-left"
-          >
+            className="mb-2 text-backgroundColor font-title text-center lg:text-left">
             TECHFAIR
           </Typography>
           <Typography className="text-lg font-normal text-backgroundColor text-center lg:text-justify">
@@ -321,8 +361,7 @@ const Home = () => {
         <div className="container w-full lg:h-[100vh] overflow-y-auto  no-scrollbar ml-auto mr-auto mt-24">
           <Typography
             variant="h1"
-            className="mb-16 text-khaki text-center font-title"
-          >
+            className="mb-16 text-khaki text-center font-title">
             GALLERY
           </Typography>
           <div className="gallery">
