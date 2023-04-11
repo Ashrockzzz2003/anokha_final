@@ -187,6 +187,7 @@ export const useAuth = () => {
     }
 
     const moveToTransaction = async (eventId) => {
+
         // Update User Data Locally
         const response = await fetch(TRANSACTION_URL, {
             method: "POST",
@@ -209,6 +210,8 @@ export const useAuth = () => {
     }
 
     const initiateTransaction = async (data) => {
+
+
         data = JSON.parse(data);
         const productId = `E${data.eventId}`;
 
@@ -261,7 +264,6 @@ export const useAuth = () => {
             }
           })
     }
-
 
     const fetchEvents = async () => {
         await fetch(`${EVENTS_API_URL}`)

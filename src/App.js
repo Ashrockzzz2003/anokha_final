@@ -21,9 +21,11 @@ import { useEffect } from 'react';
 function App() {
 
   const { fetchEvents } = useAuth();
-  if (localStorage.getItem("events") === null) {
+  
+  useEffect(() => {
     fetchEvents();
-  }
+  }, [fetchEvents]);
+
   return (
     <BrowserRouter>
       <Routes>
