@@ -4,12 +4,11 @@ import {
   Button,
   Typography,
   CardFooter,
-  Checkbox,
   CardBody,
   CardHeader,
   Dialog,
 } from "@material-tailwind/react";
-import React, { useState } from "react";
+import React from "react";
  
 export default function ForgotPassword() {
   
