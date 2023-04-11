@@ -62,7 +62,7 @@ const Events = () => {
             <SelectBox label={"Tags"} options={["IOT", "Hacking", "Drone"]} />
           </div>
           <br />
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 pt-5">
+          <div className="flex flex-wrap justify-center gap-8 items-center pt-5">
             {filteredEvents.map((event) => (
               <Card
                 key={event.eventId}
