@@ -15,15 +15,22 @@ import VerifyOTP from './components/user/VerifyOTP';
 import ConfirmPaymentPage from './components/user/ConfirmPaymentPage.jsx';
 import { useAuth } from './auth/useAuth';
 import { PaymentStatus } from './components/user/PaymentStatus';
+import { useEffect } from 'react';
 
 function App() {
 
   const { fetchEvents } = useAuth();
 
-  if (JSON.parse(localStorage.getItem("events")) === null) {
-    console.log("I was here");
-    fetchEvents();
-  }
+  // if (JSON.parse(localStorage.getItem("events")) === null) {
+  //   console.log("I was here");
+  //   fetchEvents();
+  // }
+
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      fetchEvents();
+    })
+  }, [fetchEvents])
 
   return (
     <BrowserRouter>
