@@ -175,11 +175,7 @@ const Home = () => {
         id="c20g20"
         className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16"
       >
-        <table className="w-full" data-aos="fade-up-right">
-          <tbody>
-          <iframe width="560" height="320" src="https://www.youtube.com/embed/qJVUux1rAfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className="rounded-lg"></iframe>
-          </tbody>
-        </table>
+        <iframe src="https://www.youtube.com/embed/qJVUux1rAfI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className="rounded-lg w-full h-full"></iframe>
         <div
           data-aos="fade-up-left"
           className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6"

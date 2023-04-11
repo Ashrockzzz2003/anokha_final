@@ -12,6 +12,11 @@ const EventLanding = () => {
   // Handle Login
   const handleRegsiter = (e) => {
     e.preventDefault();
+    if (JSON.parse(localStorage.getItem("token"))) {
+      alert("Please Login to Register for Events.");
+      window.location.href = "/login";
+      return;
+    }
     moveToTransaction(parseInt(eventId));
   };
   const isGroupEvent = false;
