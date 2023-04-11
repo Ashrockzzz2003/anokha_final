@@ -7,7 +7,7 @@ const Profile = () => {
   const tempData = JSON.parse(data[0])[0];
 
   return (
-    <div className='flex flex-col justify-evenly items-center'>
+    <div className='flex flex-col justify-center items-center pt-32'>
       <ProfileCard userEmail={tempData.userEmail} fullName={tempData.fullName} />
       <EventsRegistered />
     </div>
