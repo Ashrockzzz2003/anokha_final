@@ -115,7 +115,7 @@ export default function ForgotPassword() {
               <div className="mt-8 text-center">
                 
                   <React.Fragment>
-                    <Button onClick={handleOpen}>Send OTP</Button>
+                    <Button onClick={handleOpen} color="">Send OTP</Button>
                     <Dialog
                       size="xs"
                       open={open}
