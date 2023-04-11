@@ -4,7 +4,6 @@ import "../styles/form.css";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { SHA512 } from "crypto-js";
 import { useAuth } from "../../auth/useAuth";
 
 import { collegeData } from "../data"

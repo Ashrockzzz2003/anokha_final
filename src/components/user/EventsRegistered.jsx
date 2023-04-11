@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import secureLocalStorage from "react-secure-storage";
 import Card from "../events/Cards";
 
 const EventsRegistered = () => {
-  const tempData = useState(localStorage.getItem("userEvents"));
+  const tempData = useState(secureLocalStorage.getItem("userEvents"));
   const [data] = useState(JSON.parse(tempData[0]));
 
   return (

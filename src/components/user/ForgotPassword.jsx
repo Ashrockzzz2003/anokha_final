@@ -16,7 +16,10 @@ import {Link} from "react-router-dom";
 export default function ForgotPassword() {
   const [email, setEmail] = React.useState("");
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen((cur) => !cur);
+  const handleOpen = () => {
+    if(!isEmailValid) return;
+    setOpen((cur) => !cur)
+  };
   const [isAmrita, setIsAmrita] = React.useState(true);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

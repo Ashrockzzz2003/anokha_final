@@ -22,6 +22,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from 'react-scroll';
 import { useAuth } from "../auth/useAuth";
+import  secureLocalStorage  from  "react-secure-storage";
 
 // profile menu component
 const profileMenuItems = [
@@ -103,10 +104,10 @@ function ProfileMenu({ handleSignOut }) {
 const NavigationBar = () => {
     const [openNav, setOpenNav] = useState(false);
 
-    const [isLoggedIn, setIsLoggedIn] = useState(parseInt(localStorage.getItem("isLoggedIn")));
+    const [isLoggedIn, setIsLoggedIn] = useState(parseInt(secureLocalStorage.getItem("isLoggedIn")));
 
     useEffect(() => {
-        setIsLoggedIn(parseInt(localStorage.getItem("isLoggedIn")));
+        setIsLoggedIn(parseInt(secureLocalStorage.getItem("isLoggedIn")));
     }, [])
 
     const { signOut } = useAuth();

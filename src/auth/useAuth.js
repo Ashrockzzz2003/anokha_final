@@ -1,4 +1,5 @@
 import { useLocalStorage } from './useLocalStorage'
+import  secureLocalStorage  from  "react-secure-storage";
 import formurlencoded from 'form-urlencoded';
 import axios from 'axios';
 
@@ -95,7 +96,7 @@ export const useAuth = () => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("token"))}`,
             },
             body: JSON.stringify({
                 "fullName": fullName,
@@ -117,7 +118,7 @@ export const useAuth = () => {
         const userResponse = await fetch(USER_API_URL, {
             method: "GET",
             headers: {
-                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("token"))}`,
             },
         });
 
@@ -165,7 +166,7 @@ export const useAuth = () => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("registerData")).SECRET_TOKEN}`,
+                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("registerData")).SECRET_TOKEN}`,
             },
             body: JSON.stringify({
                 "otp": otp,
@@ -180,7 +181,7 @@ export const useAuth = () => {
             return;
         }
 
-        localStorage.setItem("registerData", null);
+        secureLocalStorage.setItem("registerData", null);
         alert("Registration Successful. Proceed to Login.")
 
         window.location.href = "/login";
@@ -192,7 +193,7 @@ export const useAuth = () => {
         const response = await fetch(TRANSACTION_URL, {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("token"))}`,
             },
         });
 
@@ -218,7 +219,7 @@ export const useAuth = () => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("transactionToken"))}`
+                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("transactionToken"))}`
             },
             body: JSON.stringify({
                 "productId": productId,
@@ -280,7 +281,7 @@ export const useAuth = () => {
     }
 
     const signOut = () => {
-        localStorage.clear();
+        secureLocalStorage.clear();
         window.location.href = "/";
     };
 

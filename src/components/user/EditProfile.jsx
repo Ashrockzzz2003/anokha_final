@@ -8,6 +8,7 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 import { useAuth } from "../../auth/useAuth";
+import secureLocalStorage from "react-secure-storage";
 
 function CollegeList() {
     /*
@@ -53,7 +54,7 @@ function CollegeList() {
 
 export default function Register() {
     // Fetch Data
-    const tempData = useState(localStorage.getItem("userData"));
+    const tempData = useState(secureLocalStorage.getItem("userData"));
     const data = JSON.parse(tempData[0])[0];
 
     const [name, setName] = React.useState(data.fullName);
@@ -85,7 +86,7 @@ export default function Register() {
         editProfile({
             fullName: name,
             password: data.password,
-            userEmail: localStorage.getItem("userEmail"),
+            userEmail: secureLocalStorage.getItem("userEmail"),
         });
     };
 

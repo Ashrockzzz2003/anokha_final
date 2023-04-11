@@ -3,9 +3,18 @@ import Searchbar from "./events/Searchbar";
 import Card from "./events/Cards";
 import { Typography } from "@material-tailwind/react";
 import SelectBox from "./events/Select";
+import { useAuth } from "../auth/useAuth";
+import  secureLocalStorage  from  "react-secure-storage";
 
 const Events = () => {
-  const [events] = useState(JSON.parse(localStorage.getItem("events")));
+  const { fetchEvents } = useAuth();
+  useEffect(() => {
+    window.addEventListener("load", async () => {
+      await fetchEvents();
+    })
+  }, [fetchEvents])
+
+  const [events] = useState(JSON.parse(secureLocalStorage.getItem("events")));
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredEvents, setFilteredEvents] = useState(events);
 

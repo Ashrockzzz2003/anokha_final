@@ -1,10 +1,11 @@
 import { Input, Checkbox, Button, Typography } from "@material-tailwind/react";
 import { useState } from "react";
 import { useParams } from 'react-router-dom'
+import secureLocalStorage from "react-secure-storage";
 import { useAuth } from "../../auth/useAuth";
 
 export default function ConfirmPaymentPage() {
-  const tempData = useState(localStorage.getItem("userData"));
+  const tempData = useState(secureLocalStorage.getItem("userData"));
   const data = JSON.parse(tempData[0])[0];
 
   const [name] = useState(data.fullName);

@@ -13,11 +13,12 @@ import {
     CardBody,
     CardFooter,
 } from "@material-tailwind/react";
+import secureLocalStorage from "react-secure-storage";
 
 export default function ConfirmPayment({ membercount, amount, buttonLabel }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
-        const auth = JSON.parse(localStorage.getItem('isLoggedIn'));
+        const auth = JSON.parse(secureLocalStorage.getItem('isLoggedIn'));
 
         if(!auth) {
             alert("Login Required to view this. Redirecting to Login Page");

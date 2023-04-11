@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import RegisterMembers from "../events/RegisterMembers";
 import { useAuth } from "../../auth/useAuth";
 import { useParams } from 'react-router-dom'
+import secureLocalStorage from "react-secure-storage";
 
 const EventLanding = () => {
 
@@ -12,16 +13,15 @@ const EventLanding = () => {
   // Handle Login
   const handleRegsiter = (e) => {
     e.preventDefault();
-    if (!JSON.parse(localStorage.getItem("token"))) {
+    if (!JSON.parse(secureLocalStorage.getItem("token"))) {
       alert("Please Login to Register for Events.");
       window.location.href = "/login";
       return;
     }
     moveToTransaction(parseInt(eventId));
   };
-  const isGroupEvent = true;
 
-  const [events] = useState(JSON.parse(localStorage.getItem("events")));
+  const [events] = useState(JSON.parse(secureLocalStorage.getItem("events")));
 
 
   // "eventId": 1,
@@ -47,7 +47,7 @@ const EventLanding = () => {
     events.filter((event) => event.eventId === parseInt(eventId)
     ));
 
-
+  const isGroupEvent = event[0].groupOrIndividual === 1;
 
   return (
     <div className="w-full block items-center justify-center lg:flex lg:justify-center pb-32 pt-32">
