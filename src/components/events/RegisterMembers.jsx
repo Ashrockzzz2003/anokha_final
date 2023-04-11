@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import {
     Button,
     Dialog,
@@ -8,6 +8,10 @@ import {
     Input,
     Checkbox,
     Typography,
+    CardHeader,
+    Card,
+    CardBody,
+    CardFooter,
 } from "@material-tailwind/react";
 
 export default function ConfirmPayment({ membercount, amount, buttonLabel }) {
@@ -37,11 +41,14 @@ export default function ConfirmPayment({ membercount, amount, buttonLabel }) {
     ));
     
     return (
-            <Fragment>
-                <Button className="filled text-backgroundColor bg-khaki justify-center w-full text-lg" onClick={handleOpen} variant="filled">
+        
+        
+        
+            <React.Fragment>
+                <Button className="filled bg-khaki text-backgroundColor justify-center w-full text-md" onClick={handleOpen} variant="filled">
                     {buttonLabel}
                 </Button>
-                <Dialog open={open} size={"md"} handler={handleOpen} className="bg-babyPowder">
+                <Dialog open={open} size={"xxl"} handler={handleOpen} className="bg-babyPowder">
                     <DialogHeader>Register Members for Events</DialogHeader>
                     <DialogBody divider>
                         <form className="mt-8 mb-2 w-3/5 ml-auto mr-auto max-w-screen-lg">
@@ -93,6 +100,6 @@ export default function ConfirmPayment({ membercount, amount, buttonLabel }) {
                         </form>
                     </DialogFooter>
                 </Dialog>
-            </Fragment>
+            </React.Fragment>
     );
 }
