@@ -157,6 +157,16 @@ export default function Login() {
                   </Link>
                 </p>
               </div>
+              <div className="mt-4 text-center">
+                <p className="text-gray-600">
+                  Forgot Password?{" "}
+                  <Link
+                    to="/forgotpassword"
+                    className="text-backgroundColor font-medium">
+                    Reset here.
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>

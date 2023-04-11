@@ -16,6 +16,7 @@ import ConfirmPaymentPage from './components/user/ConfirmPaymentPage.jsx';
 import { useAuth } from './auth/useAuth';
 import { PaymentStatus } from './components/user/PaymentStatus';
 import { useEffect } from 'react';
+import ForgotPassword from './components/user/ForgotPassword';
 
 function App() {
 
@@ -103,6 +104,9 @@ function App() {
             </>
           </RequireAuth>
         } /> 
+      <Route path='/forgotpassword' element={
+        <ForgotPassword />
+      } />
       </Routes>
     </BrowserRouter>
   );
