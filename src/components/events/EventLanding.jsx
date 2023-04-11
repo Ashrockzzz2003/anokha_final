@@ -1,6 +1,6 @@
 import { Typography, Button } from "@material-tailwind/react";
 import React, { useState } from "react";
-// import RegisterMembers from "../events/RegisterMembers";
+import RegisterMembers from "../events/RegisterMembers";
 import { useAuth } from "../../auth/useAuth";
 import { useParams } from 'react-router-dom'
 
@@ -19,7 +19,7 @@ const EventLanding = () => {
     }
     moveToTransaction(parseInt(eventId));
   };
-  const isGroupEvent = false;
+  const isGroupEvent = true;
 
   const [events] = useState(JSON.parse(localStorage.getItem("events")));
 
@@ -53,7 +53,7 @@ const EventLanding = () => {
     <div className="w-full block items-center justify-center lg:flex lg:justify-center pb-32 pt-32">
       <div className="w-auto lg:pr-12">
         <img src={event[0].url} className="w-72 rounded-lg ml-auto mr-auto" alt="Event Pix" />
-        {/* {isGroupEvent ?
+        {isGroupEvent ?
           <div className="mt-4 w-fit ml-auto mr-auto">
             <RegisterMembers membercount={4} amount={500} buttonLabel={"Register with Members"} />
           </div>
@@ -61,22 +61,14 @@ const EventLanding = () => {
           <div className="mt-4 w-fit ml-auto mr-auto">
             <Button
               variant="filled"
-              className="bg-backgroundColor text-babyPowder"
+              className="bg-khaki text-backgroundColor"
               onClick={handleRegsiter}
             >
               <span>Register</span>
             </Button>
           </div>
-        } */}
-        <div className="mt-4 w-fit ml-auto mr-auto">
-          <Button
-            variant="filled"
-            className="bg-khaki text-backgroundColor"
-            onClick={handleRegsiter}
-          >
-            <span>Register</span>
-          </Button>
-        </div>
+        }
+
       </div>
       <div className="m-16 mt-24 lg:pl-24 lg:ml-16 lg:w-1/2">
         <Typography variant="h1" className="mb-4 text-khaki text-left">

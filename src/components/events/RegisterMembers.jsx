@@ -41,9 +41,8 @@ export default function ConfirmPayment({ membercount, amount, buttonLabel }) {
     ));
     
     return (
-        
-        
-        
+
+        // ! Do not change the code need to make it responsive depending on the device width
             <React.Fragment>
                 <Button className="filled bg-khaki text-backgroundColor justify-center w-full text-md" onClick={handleOpen} variant="filled">
                     {buttonLabel}
