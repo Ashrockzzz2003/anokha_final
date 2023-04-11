@@ -12,7 +12,7 @@ const EventLanding = () => {
   // Handle Login
   const handleRegsiter = (e) => {
     e.preventDefault();
-    if (JSON.parse(localStorage.getItem("token"))) {
+    if (!JSON.parse(localStorage.getItem("token"))) {
       alert("Please Login to Register for Events.");
       window.location.href = "/login";
       return;
@@ -23,25 +23,25 @@ const EventLanding = () => {
 
   const [events] = useState(JSON.parse(localStorage.getItem("events")));
 
-  
-        // "eventId": 1,
-        // "eventName": "EVENT0",
-        // "eventOrWorkshop": 1,
-        // "groupOrIndividual": 1,
-        // "maxCount": 1,
-        // "description": "DESC0",
-        // "url": "https://play-lh.googleusercontent.com/VojafVZNddI6JvdDGWFrRmxc-prrcInL2AuBymsqGoeXjT4f9sv7KnetB-v3iLxk_Koi",
-        // "userEmail": "managerEmail1@gmail.com",
-        // "date": "24-Mar-2023",
-        // "eventTime": "08:14:57",
-        // "venue": "VENUE0",
-        // "fees": 100,
-        // "totalNumberOfSeats": 100,
-        // "noOfRegistrations": 0,
-        // "timeStamp": "2023-04-04T10:51:47.000Z",
-        // "refundable": 0,
-        // "departmentAbbr": "DEP0"
-  
+
+  // "eventId": 1,
+  // "eventName": "EVENT0",
+  // "eventOrWorkshop": 1,
+  // "groupOrIndividual": 1,
+  // "maxCount": 1,
+  // "description": "DESC0",
+  // "url": "https://play-lh.googleusercontent.com/VojafVZNddI6JvdDGWFrRmxc-prrcInL2AuBymsqGoeXjT4f9sv7KnetB-v3iLxk_Koi",
+  // "userEmail": "managerEmail1@gmail.com",
+  // "date": "24-Mar-2023",
+  // "eventTime": "08:14:57",
+  // "venue": "VENUE0",
+  // "fees": 100,
+  // "totalNumberOfSeats": 100,
+  // "noOfRegistrations": 0,
+  // "timeStamp": "2023-04-04T10:51:47.000Z",
+  // "refundable": 0,
+  // "departmentAbbr": "DEP0"
+
   // get Event by ID
   const [event] = useState(
     events.filter((event) => event.eventId === parseInt(eventId)

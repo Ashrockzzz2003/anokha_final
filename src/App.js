@@ -15,7 +15,6 @@ import VerifyOTP from './components/user/VerifyOTP';
 import ConfirmPaymentPage from './components/user/ConfirmPaymentPage.jsx';
 import { useAuth } from './auth/useAuth';
 import { PaymentStatus } from './components/user/PaymentStatus';
-import PayURedirect from './components/user/PayURedirect';
 
 function App() {
 
@@ -79,12 +78,17 @@ function App() {
             <ConfirmPaymentPage />
           </RequireAuth>
         } />
-        <Route path='/payURedirect' element={
-          <PayURedirect />
-        } />
         <Route path="/payment/:statusId" element={
           <PaymentStatus />
         } />
+        <Route path="/success" render={() => {
+          window.location.href = "/payment/1"
+          return null;
+        }} />
+        <Route path="/fail" render={() => {
+          window.location.href = "/payment/0"
+          return null;
+        }} />
         <Route path='/profile/edit' element={
           <RequireAuth>
             <>

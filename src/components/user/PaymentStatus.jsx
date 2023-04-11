@@ -1,8 +1,11 @@
 import { Button, Typography } from "@material-tailwind/react";
 import React from "react";
-import { RiCheckLine } from "react-icons/ri";
-import { RxCross2 } from "react-icons/rx";
+import { AiFillCheckCircle } from "react-icons/ai";
+import { RxCrossCircled } from "react-icons/rx";
 import { Link, useParams } from "react-router-dom";
+
+// NodeJS handle post request to this page from payubiz
+
 
 export const PaymentStatus = () => {
   const { statusId } = useParams();
@@ -15,18 +18,20 @@ export const PaymentStatus = () => {
             ?
             <>
               <div className="flex items-center justify-center">
-                <RiCheckLine color="green" size={100} />
+                <AiFillCheckCircle color="green" size={160} />
               </div>
-              <Typography className="text-center justify-center">Payment Successful!</Typography>
+              <Typography variant="h2" className="text-center justify-center">Payment Successful!</Typography>
             </>
             :
             <>
               <div className="flex items-center justify-center">
-                <RxCross2 color="red" size={100} />
+                <RxCrossCircled color="red" size={160} />
               </div>
-              <Typography className="text-center justify-center">Payment Failed !</Typography>
+              <Typography variant="h2" className="text-center justify-center">Payment Failed !</Typography>
             </>
         }
+
+
 
         <Link to={"/"}>
           <Button

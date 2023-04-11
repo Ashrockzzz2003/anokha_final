@@ -211,7 +211,6 @@ export const useAuth = () => {
 
     const initiateTransaction = async (data) => {
 
-
         data = JSON.parse(data);
         const productId = `E${data.eventId}`;
 
@@ -245,24 +244,29 @@ export const useAuth = () => {
             "Lastname": data.fullName,
             "email": data.userEmail,
             "phone": data.phoneNumber,
-            "address1": data.address,
-            "address2": "",
-            "city": data.city,
-            "state": data.state,
-            "country": data.country,
-            "Zipcode": data.zipcode,
             "hash": responseData.hash,
-            "surl": "/payment/1",
-            "furl": "/payment/0",
+            "surl": "https://www.google.com/",
+            "furl": "https://www.google.com/",
             "key": "ypfBaj"
         }
-        console.log(formurlencoded(payUData));
 
-        axios.post(proxyUrl + PAYU_URL, formurlencoded(payUData), {
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://secure.payu.in/_payment';
+
+        for (const key in payUData) {
+            if (payUData.hasOwnProperty(key)) {
+                const hiddenField = document.createElement('input');
+                hiddenField.type = 'hidden';
+                hiddenField.name = key;
+                hiddenField.value = payUData[key];
+
+                form.appendChild(hiddenField);
             }
-          })
+        }
+
+        document.body.appendChild(form);
+        form.submit();
     }
 
     const fetchEvents = async () => {
