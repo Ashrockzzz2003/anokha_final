@@ -16,15 +16,15 @@ import ConfirmPaymentPage from './components/user/ConfirmPaymentPage.jsx';
 import { useAuth } from './auth/useAuth';
 import { PaymentStatus } from './components/user/PaymentStatus';
 import PayURedirect from './components/user/PayURedirect';
-import { useEffect } from 'react';
 
 function App() {
 
   const { fetchEvents } = useAuth();
-  
-  useEffect(() => {
+
+  if (JSON.parse(localStorage.getItem("events")) === null) {
+    console.log("I was here");
     fetchEvents();
-  }, [fetchEvents]);
+  }
 
   return (
     <BrowserRouter>
