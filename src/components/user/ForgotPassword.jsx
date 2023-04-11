@@ -115,17 +115,16 @@ export default function ForgotPassword() {
               <div className="mt-8 text-center">
                 
                   <React.Fragment>
-                    <Button onClick={handleOpen} color="">Send OTP</Button>
+                    <Button onClick={handleOpen} className="bg-backgroundColor">Send OTP</Button>
                     <Dialog
-                      size="xs"
+                      size="xl"
                       open={open}
                       handler={handleOpen}
                       className="bg-transparent shadow-none">
                       <Card className="mx-auto w-full max-w-[24rem]">
                         <CardHeader
                           variant="gradient"
-                          color="blue"
-                          className="mb-4 grid h-28 place-items-center">
+                          className="mb-4 grid h-24 place-items-center bg-backgroundColor">
                           <Typography variant="h3" color="white">
                             Reset Password
                           </Typography>
@@ -135,9 +134,10 @@ export default function ForgotPassword() {
                         </CardBody>
                         <CardFooter className="pt-0">
                           <Button
-                            variant="gradient"
+                            variant="fill"
                             type="submit"
                             onSubmit={handleOTP}
+                            className="bg-backgroundColor"
                             fullWidth>
                             Enter OTP
                           </Button>
