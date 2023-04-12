@@ -1,7 +1,5 @@
 import { useLocalStorage } from './useLocalStorage'
 import  secureLocalStorage  from  "react-secure-storage";
-import formurlencoded from 'form-urlencoded';
-import axios from 'axios';
 
 export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useLocalStorage("isLoggedIn", 0);
@@ -135,6 +133,8 @@ export const useAuth = () => {
         const fullName = data.fullName;
         const collegeId = data.collegeId;
 
+
+
         const response = await fetch(USER_RESGISTER_URL, {
             method: "POST",
             headers: {
@@ -150,7 +150,9 @@ export const useAuth = () => {
         }).catch((error) => {
             console.error(error);
             alert("Something went wrong. Please try again later.");
-        });;
+        });
+
+        console.log("Response: ",response);
 
         if (response.status !== 200) {
             alert("Something went wrong. Try again later.");
@@ -160,11 +162,12 @@ export const useAuth = () => {
 
         setRegisterData(await response.json());
 
-        window.location.href = "/register/verifyOtp";
+        // window.location.href = "/register/verifyOtp";
     }
 
     const verifyOTP = async (data) => {
         const otp = data;
+        console.log(JSON.parse(secureLocalStorage.getItem("registerData")));
 
         const response = await fetch(USER_OTP_URL, {
             method: "POST",
@@ -185,7 +188,7 @@ export const useAuth = () => {
             return;
         }
 
-        secureLocalStorage.setItem("registerData", null);
+        // secureLocalStorage.setItem("registerData", null);
         alert("Registration Successful. Proceed to Login.")
 
         window.location.href = "/login";
@@ -298,6 +301,12 @@ export const useAuth = () => {
             alert("Something went wrong. Please try again later.");
         });
 
+        if (response.status === 404) {
+            alert("You are not registered. Please register first.");
+            window.location.href = "/register";
+            return;
+        }
+
         if (response.status !== 200) {
             alert("Something went wrong. Try again later.");
             window.location.href = "/";
@@ -340,7 +349,6 @@ export const useAuth = () => {
 
     const newPasswordReset = async (data) => {
         const newPassword = data;
-
         const response = await fetch(USER_RESET_PASSWORD_CHANGE_URL, {
             method: "POST",
             headers: {
@@ -356,7 +364,8 @@ export const useAuth = () => {
         });
 
         if (response.status !== 200) {
-            alert("Invalid OTP. Try again.");
+            alert("Something went wrong. Try again later.");
+            window.location.href = "/";
             return;
         }
 
