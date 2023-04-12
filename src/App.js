@@ -35,7 +35,11 @@ function App() {
       <Routes>
         
         <Route path='/amritaPassport' element={
+          <>
+          <NavigationBar />
           <AmritaPassport />
+          <Footer />
+          </>
         }
         />
         
