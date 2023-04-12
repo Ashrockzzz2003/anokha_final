@@ -197,12 +197,12 @@ const NavigationBar = () => {
   );
 
   return (
-    <Navbar className="fixed inset-0 z-10 h-fit max-w-full rounded-none lg:px-16 lg:py-2 bg-black bg-opacity-50 backdrop-blur-xl mb-3 border-b-1 border-t-0 border-r-0 border-l-0 border-none ">
+    <Navbar className="fixed inset-0 z-10 h-fit max-w-full rounded-none lg:px-16 lg:py-2 bg-black bg-opacity-50 backdrop-blur-xl mb-3 border-b-1 border-t-0 border-r-0 border-l-0 border-none">
       <div className="flex items-center justify-between text-blue-black-900">
         <a href="/">
           <img src={logo} alt="Anokha Logo" className="w-36" />
         </a>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 md:gap-1">
           <div className="mr-4 hidden lg:block">{navList}</div>
           <a
             href={isLoggedIn === 1 ? "/profile" : "/login"}
@@ -218,6 +218,36 @@ const NavigationBar = () => {
               </Button>
             )}
           </a>
+          {isLoggedIn === 1 ? (
+            <ProfileMenu handleSignOut={handleSignOut} userEmail={email}/>
+          ) : null}
+          {isLoggedIn === 1 ? (
+            <a
+              href={isLoggedIn === 1 ? "/profile" : "/login"}
+              className="capitalize"
+            >
+              {
+                isAmritaCBE === 1 ? null : (
+                  <a
+                    href={hasActivePassport === 1 ? "/profile" : "/amritaPassport"}
+                    className="capitalize"
+                  >
+                    {hasActivePassport === 1 ? 
+                      (null)
+                     : (
+                      <Button
+                        variant="filled"
+                        size="sm"
+                        className="mb-1 capitalize text-black bg-babyPowder"
+                      >
+                        <span>Buy Passport</span>
+                      </Button>
+                    )}
+                  </a>
+                )
+              }
+            </a>
+          ) : null}
           <IconButton
             variant="text"
             className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -255,36 +285,6 @@ const NavigationBar = () => {
               </svg>
             )}
           </IconButton>
-          {isLoggedIn === 1 ? (
-            <ProfileMenu handleSignOut={handleSignOut} userEmail={email}/>
-          ) : null}
-          {isLoggedIn === 1 ? (
-            <a
-              href={isLoggedIn === 1 ? "/profile" : "/login"}
-              className="capitalize"
-            >
-              {
-                isAmritaCBE === 1 ? null : (
-                  <a
-                    href={hasActivePassport === 1 ? "/profile" : "/amritaPassport"}
-                    className="capitalize"
-                  >
-                    {hasActivePassport === 1 ? 
-                      (null)
-                     : (
-                      <Button
-                        variant="filled"
-                        size="sm"
-                        className="mb-1 capitalize text-black bg-babyPowder"
-                      >
-                        <span>Buy Passport</span>
-                      </Button>
-                    )}
-                  </a>
-                )
-              }
-            </a>
-          ) : null}
         </div>
       </div>
       <MobileNav open={openNav}>
