@@ -32,7 +32,7 @@ const EventLanding = () => {
           className="w-72 rounded-lg ml-auto mr-auto"
           alt="Event Pix"
         />
-        <div className="mt-4 w-fit ml-auto mr-auto">
+        <div className="mt-4 w-fit pt-4 ml-auto mr-auto">
           <Button
             variant="filled"
             className="bg-khaki text-backgroundColor"
@@ -45,12 +45,10 @@ const EventLanding = () => {
         <Typography variant="h1" className="mb-4 text-khaki text-left">
           dUMMY data
         </Typography>
-        <Typography variant="h4" className="mb-16 text-khaki text-left">
-          Tagline
-        </Typography>
+        
         <Typography
           variant="paragraph"
-          className="mb-16 text-babyPowder text-left">
+          className="mb-16 py-4 text-babyPowder text-left">
           Dummy content{" "}
         </Typography>
       </div>
