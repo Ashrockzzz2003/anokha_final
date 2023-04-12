@@ -342,41 +342,7 @@ const Home = () => {
                 <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/9.png" />
               </figure>
             </div>
-            <div className="gallery-item">
-              <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/10.png" />
-              </figure>
-            </div>
-            <div className="gallery-item">
-              <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/11.png" />
-              </figure>
-            </div>
-            <div className="gallery-item">
-              <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/12.png" />
-              </figure>
-            </div>
-            <div className="gallery-item">
-              <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/13.png" />
-              </figure>
-            </div>
-            <div className="gallery-item">
-              <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/14.png" />
-              </figure>
-            </div>
-            <div className="gallery-item">
-              <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/17.png" />
-              </figure>
-            </div>
-            <div className="gallery-item">
-              <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/18.png" />
-              </figure>
-            </div>
+            
           </div>
         </div>
     </div>

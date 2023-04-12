@@ -68,32 +68,13 @@ export default function Login() {
           </p>
           <div className="mt-4">
             <form onSubmit={handleLogin}>
-              <div className="flex flex-col mx-auto items-center">
-                <Checkbox
-                  defaultChecked={isAmrita}
-                  onChange={handleAmrita}
-                  label={
-                    <Typography
-                      variant="small"
-                      color="gray"
-                      className="flex items-center font-normal">
-                      Amrita Student
-                    </Typography>
-                  }
-                  value={isAmrita}
-                  containerProps={{className: "-ml-2.5"}}
-                />
-              </div>
+              
               <div className="flex flex-col mt-4">
-                {isAmrita ? (
+                
                   <label className="text-lg text-center font-medium">
-                    Amrita Email ID
+                    Email ID
                   </label>
-                ) : (
-                  <label className="text-lg text-center font-medium">
-                    Email
-                  </label>
-                )}
+                
               </div>
               <div className="mt-2 text-center">
                 <input
