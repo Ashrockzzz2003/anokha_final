@@ -14,12 +14,7 @@ export default function Register() {
   const [phone, setPhone] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
-  const [isAmrita, setIsAmrita] = React.useState(false);
   const [collegeId, setCollegeId] = React.useState(638);
-
-  if (collegeId in [633, 638, 641, 645]) {
-    setIsAmrita(true);
-  }
 
   const [colleges] = useState(collegeData);
 
@@ -47,8 +42,15 @@ export default function Register() {
   // Regular expression for password validation
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
+  
+  //Regular expression to check amrita mail 
+  const amritaRegex = /@amrita\.edu$/;
+  
   // Check if email is valid
   const isEmailValid = emailRegex.test(email);
+  
+  //check if amrita mail or not
+  const isAmritaMail = amritaRegex.test(email);  
 
   // Regular expression for name validation
   const nameRegex = /^[a-zA-Z ]+$/;
@@ -58,7 +60,7 @@ export default function Register() {
   
   //Regular expression for phone number validation
   const phoneRegex = /^[0-9]{10}$/;
-  
+    
   //check if phone numer is valid
   const isPhoneValid = phoneRegex.test(phone);
 
@@ -137,18 +139,18 @@ export default function Register() {
                 </div>
               </div>}
             <div className="flex text-center flex-col mt-4">
-              {isAmrita ? (
+              {[633, 638, 641, 645].includes(collegeId) ? (
                 <label className="text-lg font-medium">Amrita Email ID</label>
               ) : (
                 <label className="text-lg font-medium">Email</label>
               )}
-              {isAmrita ? (
+              {[633, 638, 641, 645].includes(collegeId) ? (
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className={
                     "w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
-                    (isEmailValid || !email
+                    (isAmritaMail || !email
                       ? "border-gray-400"
                       : "border-red-500")
                   } text-center placeholder="Enter your Amrita college Email-ID."
@@ -167,11 +169,21 @@ export default function Register() {
                   required
                 />
               )}
-              {!isEmailValid && email && (
-                <p className="mt-2 text-sm text-red-500">
-                  Invalid Email Address
-                </p>
+              
+              {[633, 638, 641, 645].includes(collegeId) ? (
+                !isAmritaMail && email && (
+                  <p className="mt-2 text-sm text-red-500">
+                    Invalid Amrita Email Address
+                  </p>
+                )
+              ) : (
+                !isEmailValid && email && (
+                  <p className="mt-2 text-sm text-red-500">
+                    Invalid Email Address
+                  </p>
+                )
               )}
+
             </div>
             
             <div className="flex text-center flex-col mt-4">
