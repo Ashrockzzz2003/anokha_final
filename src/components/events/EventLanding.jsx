@@ -4,6 +4,10 @@ import RegisterMembers from "../events/RegisterMembers";
 import { useAuth } from "../../auth/useAuth";
 import { useParams } from 'react-router-dom'
 import secureLocalStorage from "react-secure-storage";
+import Markdown from 'react-markdown';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EventLanding = () => {
 
@@ -51,6 +55,8 @@ const EventLanding = () => {
   // "timeStamp": "2023-04-04T10:51:47.000Z",
   // "refundable": 0,
   // "departmentAbbr": "DEP0"
+  
+
 
   // get Event by ID
   const [event] = useState(
@@ -84,10 +90,10 @@ const EventLanding = () => {
         <Typography variant="h1" className="mb-4 text-khaki text-left">
           {event[0].eventName}
         </Typography>
-        <Typography variant="h4" className="mb-16 text-khaki text-left">
+        {/* <Typography variant="h4" className="mb-16 text-khaki text-left">
           Tagline
-        </Typography>
-        <Typography variant="paragraph" className="mb-16 text-babyPowder text-left">
+        </Typography> */}
+        <Typography className="mb-16 text-babyPowder text-left">
           {event[0].description}
         </Typography>
       </div>
