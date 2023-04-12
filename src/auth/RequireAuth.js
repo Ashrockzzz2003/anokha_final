@@ -6,7 +6,7 @@ function RequireAuth({children}) {
     const auth = JSON.parse(secureLocalStorage.getItem('isLoggedIn'));
 
     if(!auth) {
-        alert("Login Required to view this. Redirecting to Login Page");
+        alert("Session Expired. Login again to view this. Redirecting to login page.");
         return <Navigate to="/login" state={{ from: location.pathname }}/>
     }
     return children;
