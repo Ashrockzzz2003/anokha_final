@@ -8,6 +8,8 @@ export default function ConfirmPaymentPage() {
   const tempData = useState(secureLocalStorage.getItem("userData"));
   const data = JSON.parse(tempData[0])[0];
 
+  const { isPassport } = useParams();
+
   const [name] = useState(data.fullName);
   const [email] = useState(data.userEmail);
   const [phone, setPhone] = useState("");
@@ -40,7 +42,7 @@ export default function ConfirmPaymentPage() {
       "state": state,
       "country": country,
       "zipcode": zipCode
-    }));
+    }), isPassport);
   };
 
   return (

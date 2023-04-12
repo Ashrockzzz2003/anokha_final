@@ -18,7 +18,7 @@ const EventLanding = () => {
       window.location.href = "/login";
       return;
     }
-    moveToTransaction(parseInt(eventId));
+    moveToTransaction(parseInt(eventId), false);
   };
 
   const [events] = useState(JSON.parse(secureLocalStorage.getItem("events")));

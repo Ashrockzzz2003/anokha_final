@@ -1,14 +1,17 @@
 import { useLocalStorage } from './useLocalStorage'
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useLocalStorage("isLoggedIn", 0);
+    const [isAmritaCBE, setIsAmritaCBE] = useLocalStorage("isAmritaCBE", 0);
+    const [hasActivePassport, setHasActivePassport] = useLocalStorage("hasActivePassport", 0);
     const [token, setToken] = useLocalStorage("token", null);
     const [email, setEmail] = useLocalStorage("email", null);
     const [userData, setUserData] = useLocalStorage("userData", null);
     const [userEvents, setUserEvents] = useLocalStorage("userEvents", null);
-    const [registerData, setRegisterData] = useLocalStorage("registerData", null);
-    const [transactionToken, setTransactionToken] = useLocalStorage("transactionToken",null);
+    const [transactionToken, setTransactionToken] = useLocalStorage("transactionToken", null);
     const [events, setEvents] = useLocalStorage("events", null);
     const [resetToken, setResetToken] = useLocalStorage("resetToken", null);
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -59,6 +62,8 @@ export const useAuth = () => {
             setToken(responseData.SECRET_TOKEN);
             setEmail(userEmail);
             setIsLoggedIn(1);
+            setHasActivePassport(responseData.activePassport);
+            setIsAmritaCBE(responseData.isAmritaCBE);
 
             // Fetch User Data
             const userResponse = await fetch(USER_API_URL, {
@@ -135,45 +140,51 @@ export const useAuth = () => {
 
 
 
-        const response = await fetch(USER_RESGISTER_URL, {
-            method: "POST",
+        const axiosConfig = {
             headers: {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                "userEmail": userEmail,
-                "collegeId": collegeId,
-                "phoneNumber": phone,
-                "fullName": fullName,
-                "password": password
-            }),
-        }).catch((error) => {
+            }
+        };
+
+        const userData = {
+            "userEmail": userEmail,
+            "collegeId": collegeId,
+            "phoneNumber": phone,
+            "fullName": fullName,
+            "password": password
+        };
+
+        try {
+            const response = await axios.post(USER_RESGISTER_URL, userData, axiosConfig);
+
+            if (response.status !== 200) {
+                alert("Something went wrong. Try again later.");
+                window.location.href = "/";
+                return;
+            }
+
+            if (response.status === 400) {
+                alert("Only amritaEmailID allowed. You have selected your college as amrita. Try again.");
+                return;
+            }
+
+            const responseData = await response.data;
+            alert("OTP sent to your email. Please verify.");
+
+            window.location.href = `/verifyOtp/${responseData.SECRET_TOKEN}`;
+        } catch (error) {
             console.error(error);
             alert("Something went wrong. Please try again later.");
-        });
-
-        console.log("Response: ",response);
-
-        if (response.status !== 200) {
-            alert("Something went wrong. Try again later.");
-            window.location.href = "/";
-            return;
         }
-
-        setRegisterData(await response.json());
-
-        // window.location.href = "/register/verifyOtp";
     }
 
-    const verifyOTP = async (data) => {
+    const verifyOTP = async (data, token) => {
         const otp = data;
-        console.log(JSON.parse(secureLocalStorage.getItem("registerData")));
-
         const response = await fetch(USER_OTP_URL, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("registerData")).SECRET_TOKEN}`,
+                "Authorization": `Bearer ${token}`,
             },
             body: JSON.stringify({
                 "otp": otp,
@@ -189,12 +200,12 @@ export const useAuth = () => {
         }
 
         // secureLocalStorage.setItem("registerData", null);
-        alert("Registration Successful. Proceed to Login.")
+        alert("Registration Successful. Proceed to Login.");
 
         window.location.href = "/login";
     }
 
-    const moveToTransaction = async (eventId) => {
+    const moveToTransaction = async (eventId, isPassport) => {
 
         // Update User Data Locally
         const response = await fetch(TRANSACTION_URL, {
@@ -214,13 +225,12 @@ export const useAuth = () => {
         const moveTData = await response.json();
         setTransactionToken(moveTData.TRANSACTION_SECRET_TOKEN);
 
-        window.location.href = `/events/${eventId}/confirmPayment`;
+        window.location.href = `/events/${eventId}/confirmPayment/${isPassport}`;
     }
 
-    const initiateTransaction = async (data) => {
-
+    const initiateTransaction = async (data, isPassport) => {
         data = JSON.parse(data);
-        const productId = `E${data.eventId}`;
+        const productId = isPassport === "true" ? `P` : `E${data.eventId}`;
 
         const response = await fetch(TRANSACTION_INITIATE_URL, {
             method: "POST",
@@ -238,7 +248,7 @@ export const useAuth = () => {
                 "country": data.country,
                 "zipcode": data.zipcode,
                 "phoneNumber": data.phoneNumber
-          })
+            })
         });
 
         const responseData = await response.json();
@@ -279,12 +289,12 @@ export const useAuth = () => {
 
     const fetchEvents = async () => {
         await fetch(`${EVENTS_API_URL}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setEvents(data);
-        });
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                setEvents(data);
+            });
     }
 
     const getResetTokenAndOtp = async (data) => {

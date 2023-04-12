@@ -7,10 +7,9 @@ import { useAuth } from "../../auth/useAuth";
 import { useParams } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
 
-const EventLanding = () => {
+const AmritaPassport = () => {
   
   const { moveToTransaction } = useAuth();
-  const { eventId } = useParams();
 
   // Handle Login
   const handleBuyPassport = (e) => {
@@ -20,7 +19,7 @@ const EventLanding = () => {
       window.location.href = "/login";
       return;
     }
-    moveToTransaction(parseInt(eventId));
+    moveToTransaction(0, true);
   };
   
 
@@ -43,7 +42,7 @@ const EventLanding = () => {
       </div>
       <div className="m-16 mt-24 lg:pl-24 lg:ml-16 lg:w-1/2">
         <Typography variant="h1" className="mb-4 text-khaki text-left">
-          dUMMY data
+          Passpoort
         </Typography>
         
         <Typography
@@ -56,4 +55,4 @@ const EventLanding = () => {
   );
 };
 
-export default EventLanding;
+export default AmritaPassport;

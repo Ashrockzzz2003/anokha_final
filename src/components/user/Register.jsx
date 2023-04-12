@@ -7,29 +7,16 @@ import { useState } from "react";
 import { useAuth } from "../../auth/useAuth";
 
 import { collegeData } from "../data"
-import { Card, CardBody, CardFooter, CardHeader, Dialog, Input, Typography } from "@material-tailwind/react";
-import { Button } from "react-scroll";
 
 export default function Register() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
-  const [open, setOpen] = React.useState(false);
   const [otp, setOtp] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [collegeId, setCollegeId] = React.useState(638);
-
   const [colleges] = useState(collegeData);
-  
-  const handleOpen = () => {
-    if (!isEmailValid) {
-      alert("Check your email again!");
-      return;
-    };
-    setOpen((cur) => !cur)
-    
-  };
 
   const { signUp } = useAuth();
 
@@ -55,25 +42,25 @@ export default function Register() {
   // Regular expression for password validation
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
-  
+
   //Regular expression to check amrita mail 
   const amritaRegex = /@amrita\.edu$/;
-  
+
   // Check if email is valid
   const isEmailValid = emailRegex.test(email);
-  
+
   //check if amrita mail or not
-  const isAmritaMail = amritaRegex.test(email);  
+  const isAmritaMail = amritaRegex.test(email);
 
   // Regular expression for name validation
   const nameRegex = /^[a-zA-Z ]+$/;
 
   // Check if password is valid
   const isPasswordValid = passwordRegex.test(password);
-  
+
   //Regular expression for phone number validation
   const phoneRegex = /^[0-9]{10}$/;
-    
+
   //check if phone numer is valid
   const isPhoneValid = phoneRegex.test(phone);
 
@@ -82,13 +69,13 @@ export default function Register() {
 
   // Check if confirm password matches password
   const isConfirmPasswordValid = password === confirmPassword;
-  
-  
+
+
 
 
   return (
-    <div className="flex w-screen h-auto items-center justify-center">
-      <div className="lg:inline-block items-center justify-center m-auto hidden px-16 relative w-1/2">
+    <div className="flex w-full h-full items-center justify-center">
+      {/* <div className="lg:inline-block items-center justify-center m-auto hidden px-16 relative w-1/2">
         <div className="loader">
           <span>
             <div className="px-10 py-2 h-full w-full rounded-3xl shadow-xl bg-white bg-opacity-50 backdrop-blur-lg"></div>
@@ -96,8 +83,8 @@ export default function Register() {
           <span></span>
           <span></span>
         </div>
-      </div>
-      <div className="lg:inline-block bg-babyPowder w-fit h-auto flex items-center justify-center lg:w-1/2 ">
+      </div> */}
+      <div className="lg:inline-block bg-babyPowder w-full md:h-[100vh] flex items-center justify-center lg:w-1/2 ">
         <div className="w-auto px-12 py-8 m-0 bg-babyPowder">
           <img
             src={anokha_circle}
@@ -128,31 +115,31 @@ export default function Register() {
               )}
             </div>
             {<div className="flex flex-col mt-4">
-                <label className="text-lg text-center font-medium">
-                  Select Your College
-                </label>
-                <div className="text-center">
-                  <select className="w-full border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" onChange={handleSelect}>
-                    <option default selected disabled className="text-center">Select your College</option>
-                    {colleges.map((college) => {
-                      if (college.collegeId === collegeId) {
-                        return (
-                          <option key={college.collegeId} value={college.collegeId} selected>
-                            {college.collegeName}
-                          </option>
-                        );
-                      }
-                      else {
-                        return (
-                          <option key={college.collegeId} value={college.collegeId}>
-                            {college.collegeName}
-                          </option>
-                        );
-                      }
-                    })}
-                  </select>
-                </div>
-              </div>}
+              <label className="text-lg text-center font-medium">
+                Select Your College
+              </label>
+              <div className="text-center">
+                <select className="w-full border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" onChange={handleSelect}>
+                  <option default selected disabled className="text-center">Select your College</option>
+                  {colleges.map((college) => {
+                    if (college.collegeId === collegeId) {
+                      return (
+                        <option key={college.collegeId} value={college.collegeId} selected>
+                          {college.collegeName}
+                        </option>
+                      );
+                    }
+                    else {
+                      return (
+                        <option key={college.collegeId} value={college.collegeId}>
+                          {college.collegeName}
+                        </option>
+                      );
+                    }
+                  })}
+                </select>
+              </div>
+            </div>}
             <div className="flex text-center flex-col mt-4">
               {[633, 638, 641, 645].includes(collegeId) ? (
                 <label className="text-lg font-medium">Amrita Email ID</label>
@@ -184,7 +171,7 @@ export default function Register() {
                   required
                 />
               )}
-              
+
               {[633, 638, 641, 645].includes(collegeId) ? (
                 !isAmritaMail && email && (
                   <p className="mt-2 text-sm text-red-500">
@@ -200,7 +187,7 @@ export default function Register() {
               )}
 
             </div>
-            
+
             <div className="flex text-center flex-col mt-4">
               <label className="text-lg text-center font-medium">Phone Number</label>
               <input
@@ -222,8 +209,8 @@ export default function Register() {
                 </p>
               )}
             </div>
-            
-            
+
+
             <div className="flex flex-col mt-4">
               <label className="text-lg text-center font-medium">Password</label>
               <input
@@ -266,59 +253,28 @@ export default function Register() {
                 </p>
               )}
             </div>
-            </form>
-
-            <div className="mt-8 w-full ml-auto mr-auto flex flex-col gap-y-4">
-              
-            <React.Fragment>
-                <form>
-                  <Dialog
-                    size="xl"
-                    open={open}
-                    handler={handleOpen}
-                    className="bg-transparent shadow-none">
-                    <Card className="mx-auto w-full max-w-[24rem]">
-                      <CardHeader
-                        variant="gradient"
-                        className="mb-4 grid h-24 place-items-center bg-backgroundColor">
-                        <Typography variant="h3" color="white">
-                          Reset Password
-                        </Typography>
-                      </CardHeader>
-                      <CardBody className="flex flex-col gap-4">
-                        <Input label="OTP" size="lg" type="number" onChange={(e) => setOtp(e.target.value)} />
-                      </CardBody>
-                      <CardFooter className="pt-0">
-                        <Button
-                          variant="fill"
-                          type="submit"
-                          className="bg-backgroundColor"
-                          fullWidth>
-                          Verify OTP
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </Dialog>
-                </form>
-              </React.Fragment>
-              
-              {/* <button
+            <div className="mt-4 text-center">
+              <button
                 type="submit"
-                className={"active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-backgroundColor rounded-xl text-babyPowder font-bold text-lg" + (isEmailValid && isPasswordValid
-                  ? "bg-backgroundColor"
-                  : "bg-gray-400 cursor-not-allowed")}
+                className={
+                  "py-4 w-full rounded-md text-white font-medium " +
+                  (isEmailValid && isPasswordValid
+                    ? "bg-backgroundColor"
+                    : "bg-gray-400 cursor-not-allowed")
+                }
                 disabled={!isEmailValid || !isPasswordValid}>
                 Register
-              </button> */}
+              </button>
             </div>
-            <div className="mt-8 flex justify-center items-center">
-              <p className="font-medium text-base">Already have an account?</p>
-              <Link to="/login">
-                <button className="ml-2 font-medium text-base text-backgroundColor underline">
-                  Login
-                </button>
-              </Link>
-            </div>
+          </form>
+          <div className="mt-8 flex justify-center items-center">
+            <p className="font-medium text-base">Already have an account?</p>
+            <Link to="/login">
+              <button className="ml-2 font-medium text-base text-backgroundColor underline">
+                Login
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -2,16 +2,17 @@ import * as React from "react";
 import anokha_circle from "../utils/anokha_circle.svg";
 import "../styles/form.css";
 import { useAuth } from "../../auth/useAuth";
+import { useParams } from "react-router-dom";
 
 export default function VerifyOTP() {
     const [otp, setOTP] = React.useState("");
-
     const { verifyOTP } = useAuth();
+    const { token } = useParams();
 
     // Handle Edit Profile
     const handleOTP = (e) => {
         e.preventDefault();
-        verifyOTP(otp);
+        verifyOTP(otp, token);
     };
 
     return (

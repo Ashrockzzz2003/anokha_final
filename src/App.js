@@ -33,16 +33,18 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        
-        <Route path='/amritaPassport' element={
+
+        <Route path='/amritaPassport/:isPassport' element={
           <>
-          <NavigationBar />
-          <AmritaPassport />
-          <Footer />
+            <NoAuth>
+              <NavigationBar />
+              <AmritaPassport />
+              <Footer />
+            </NoAuth>
           </>
         }
         />
-        
+
         <Route path="/" element={
           <>
             <NavigationBar />
@@ -74,7 +76,7 @@ function App() {
             <Register />
           </NoAuth>
         } />
-        <Route path='/register/verifyOtp' element={
+        <Route path='/verifyOtp/:token' element={
           <NoAuth>
             <VerifyOTP />
           </NoAuth>
@@ -88,7 +90,7 @@ function App() {
             </>
           </RequireAuth>
         } />
-        <Route path="/events/:eventId/confirmPayment" element={
+        <Route path="/events/:eventId/confirmPayment/:isPassport" element={
           <RequireAuth>
             <ConfirmPaymentPage />
           </RequireAuth>
@@ -110,17 +112,17 @@ function App() {
               <EditProfile />
             </>
           </RequireAuth>
-        } /> 
-      <Route path='/forgotpassword' element={
-        <NoAuth>
-          <ForgotPassword />
-        </NoAuth>
-      } />
-      <Route path='/resetPassword' element={
-        <NoAuth>
-          <ResetPassword />
-        </NoAuth>
-      } />
+        } />
+        <Route path='/forgotpassword' element={
+          <NoAuth>
+            <ForgotPassword />
+          </NoAuth>
+        } />
+        <Route path='/resetPassword' element={
+          <NoAuth>
+            <ResetPassword />
+          </NoAuth>
+        } />
       </Routes>
     </BrowserRouter>
   );
