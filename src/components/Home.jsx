@@ -110,7 +110,7 @@ const Home = () => {
 
       <div
           id="aboutamrita"
-          className="w-full h-full lg:min-h-screenblock items-center justify-center lg:flex lg:justify-around pb-10 px-16">
+          className="w-full h-full lg:min-h-screen block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16">
           <table className="w-full mr-6 px-6" data-aos="fade-up-right">
             <tbody>
               <tr>

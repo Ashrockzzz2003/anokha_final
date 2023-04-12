@@ -38,8 +38,6 @@ export const useAuth = () => {
             const password = data.password;
             const hashedPassword = SHA512(`${password}`).toString();
         
-            alert(hashedPassword);
-
             const response = await fetch(LOGIN_API_URL, {
                 method: "POST",
                 headers: {
@@ -54,7 +52,6 @@ export const useAuth = () => {
                 alert("Something went wrong. Please try again later.");
             });
 
-            console.log(response)
 
             if (response.status === 404) {
                 alert("Invalid Credentials. Try again");
@@ -266,7 +263,6 @@ export const useAuth = () => {
         });
 
         const responseData = await response.json();
-        console.log(responseData);
 
         const payUData = {
             "productInfo": responseData.product,
@@ -368,7 +364,6 @@ export const useAuth = () => {
         secureLocalStorage.setItem("resetToken", null);
         const responseData = await response.json();
 
-        console.log(responseData);
         alert("OTP Verified. Proceed to Reset Password.")
 
         window.location.href = `/resetPassword/${responseData.token}`;
