@@ -247,7 +247,8 @@ export const useAuth = () => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("transactionToken"))}`
+                "Authorization": '1234567890'
+                // "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("transactionToken"))}`
             },
             body: JSON.stringify({
                 "productId": productId,
