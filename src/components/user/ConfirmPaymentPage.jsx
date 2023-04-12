@@ -12,7 +12,7 @@ export default function ConfirmPaymentPage() {
 
   const [name] = useState(data.fullName);
   const [email] = useState(data.userEmail);
-  const [phone, setPhone] = useState("");
+  const [phone] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
