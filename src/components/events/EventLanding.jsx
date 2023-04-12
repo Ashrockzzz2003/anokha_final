@@ -10,7 +10,7 @@ const EventLanding = () => {
   const { moveToTransaction } = useAuth();
   const { eventId } = useParams();
 
-  const [isAmritaCBE, setIsAmritaCBE] = useState(secureLocalStorage("isAmritaCBE"));
+  const [isAmritaCBE, setIsAmritaCBE] = useState(secureLocalStorage.getItem("isAmritaCBE"));
 
   // Handle Login
   const handleRegsiter = (e) => {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RiFacebookFill, RiInstagramFill, RiLinkedinFill, RiTwitterFill, RiYoutubeFill } from 'react-icons/ri'
 import { Link } from "react-scroll";
-import eventide from "./utils/eventide.png";
+import  footer_image from "./utils/anokha_2023_black_small.png";
 
 export default function Footer() {
     return (
@@ -96,7 +96,7 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="lg:pr-36 flex justify-center py-4 lg:py-36">
-                        <img src={eventide} alt="Eventide" width={250} style={{ minWidth: "200px" }} />
+                        <img src={footer_image} alt="Eventide"  className="h-40" />
                     </div>
                 </div>
                 <div className="flex justify-evenly py-4 ">

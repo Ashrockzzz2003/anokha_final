@@ -23,6 +23,7 @@ import { useEffect } from "react";
 import { Link } from 'react-scroll';
 import { useAuth } from "../auth/useAuth";
 import secureLocalStorage from "react-secure-storage";
+import { MD5 } from "crypto-js";
 
 // profile menu component
 const profileMenuItems = [
@@ -42,8 +43,9 @@ const profileMenuItems = [
   },
 ];
 
-function ProfileMenu({ handleSignOut }) {
+function ProfileMenu({ handleSignOut, userEmail }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const hash = MD5(userEmail + userEmail);
 
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
@@ -58,7 +60,7 @@ function ProfileMenu({ handleSignOut }) {
             size="sm"
             alt="candice wu"
             className="border border-blue-500 p-0.5"
-            src="https://www.pngarts.com/files/10/Default-Profile-Picture-Download-PNG-Image.png"
+            src={`https://www.gravatar.com/avatar/${hash}.jpg?s=200&d=robohash`}
           />
           <ChevronDownIcon
             strokeWidth={2.5}
@@ -104,9 +106,9 @@ function ProfileMenu({ handleSignOut }) {
 const NavigationBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(parseInt(secureLocalStorage.getItem("isLoggedIn")));
-
   const [isAmritaCBE, setIsAmritaCBE] = useState(parseInt(secureLocalStorage.getItem("isAmritaCBE")));
   const [hasActivePassport, setHasActivePassport] = useState(parseInt(secureLocalStorage.getItem("hasActivePassport")));
+  const [email, setEmail] = useState(secureLocalStorage.getItem("email"));
 
   useEffect(() => {
     setIsLoggedIn(parseInt(secureLocalStorage.getItem("isLoggedIn")));
@@ -195,7 +197,7 @@ const NavigationBar = () => {
   );
 
   return (
-    <Navbar className="fixed inset-0 z-10 h-fit max-w-full rounded-none lg:px-16 lg:py-2 bg-black bg-opacity-50 backdrop-blur-xl mb-3 border-b-1 border-t-0 border-r-0 border-l-0 border-white ">
+    <Navbar className="fixed inset-0 z-10 h-fit max-w-full rounded-none lg:px-16 lg:py-2 bg-black bg-opacity-50 backdrop-blur-xl mb-3 border-b-1 border-t-0 border-r-0 border-l-0 border-none ">
       <div className="flex items-center justify-between text-blue-black-900">
         <a href="/">
           <img src={logo} alt="Anokha Logo" className="w-36" />
@@ -254,7 +256,7 @@ const NavigationBar = () => {
             )}
           </IconButton>
           {isLoggedIn === 1 ? (
-            <ProfileMenu handleSignOut={handleSignOut} />
+            <ProfileMenu handleSignOut={handleSignOut} userEmail={email}/>
           ) : null}
           {isLoggedIn === 1 ? (
             <a

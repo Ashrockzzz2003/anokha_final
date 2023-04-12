@@ -6,8 +6,8 @@ import { useParams } from "react-router-dom";
 
 export default function ResetPassword() {
   // const [oldPassword, setOldPassword] = React.useState('');
-  const [NewPassword, setNewPassword] = React.useState('');
-  const [reEnteredPassword, setReEnteredPassword] = React.useState('');
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
 
   const {newPasswordReset} = useAuth();
 
@@ -15,12 +15,16 @@ export default function ResetPassword() {
 
   const handleReset = (e) => {
     e.preventDefault();
-    if (NewPassword !== reEnteredPassword) {
+    if (password !== confirmPassword) {
       alert("Passwords don't match");
       return;
     }
-    newPasswordReset(NewPassword, resetToken);
+    newPasswordReset(password, resetToken);
   }
+
+  const passwordRegex = /^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/;
+  const isPasswordValid = passwordRegex.test(password);
+  const isConfirmPasswordValid = password === confirmPassword;
   
   return (
     <div className="flex w-full h-full align-middle mt-32">
@@ -47,26 +51,46 @@ export default function ResetPassword() {
                 />
               </div> */}
               <div className="flex flex-col mt-4">
-                <label className="text-lg font-medium">New Password</label>
-                <input
-                  value={NewPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  className="w-full border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent placeholder:text-gray-700"
-                  placeholder="Enter Password"
-                  type={"password"}
-                  required
-                />
+              <label className="text-lg text-center font-medium">New Password</label>
+              <input
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className={
+                  "w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                  (isPasswordValid || !password
+                    ? "border-gray-400"
+                    : "border-red-500")
+                } text-center placeholder="Enter Password"
+                type={"password"}
+              />
+              {!isPasswordValid && password && (
+                <p className="mt-2 text-sm text-red-500">
+                  Password must be at least 8 characters long and contain at
+                  least one uppercase letter, one lowercase letter, and one
+                  number
+                </p>
+              )}
               </div>
               <div className="flex flex-col mt-4">
-                <label className="text-lg font-medium">Re-Enter New Password</label>
-                <input
-                  value={reEnteredPassword}
-                  onChange={(e) => setReEnteredPassword(e.target.value)}
-                  className="w-full border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent placeholder:text-gray-700"
-                  placeholder="Re-Enter New Password"
-                  type={"password"}
-                  required
-                />
+              <label className="text-lg text-center font-medium">Confirm New Password</label>
+              <input
+                required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className={"w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                  (isConfirmPasswordValid || !confirmPassword
+                    ? "border-gray-400"
+                    : "border-red-500")
+                }
+                text-center placeholder="Enter Password again"
+                type={"password"}
+              />
+              {!isConfirmPasswordValid && confirmPassword && (
+                <p className="mt-2 text-sm text-red-500">
+                  Password does not match
+                </p>
+              )}
               </div>
               <div className="mt-8 flex flex-col gap-y-4">
                 <button

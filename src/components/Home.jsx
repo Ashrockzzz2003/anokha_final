@@ -58,7 +58,7 @@ const Home = () => {
 
       <div
         id="about"
-        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
+        className="w-full h-full lg:h-screen block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
         <table className="w-full" data-aos="fade-up-right">
           <tbody>
             <tr>
@@ -104,25 +104,14 @@ const Home = () => {
             ABOUT
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
-            Anokha, the national engineering techfest of Amrita School of
-            Engineering, Coimbatore, is a 3-day congregation of some of the
-            brightest minds in India. Founded in 2010, Anokha has grown by leaps
-            and bounds and has progressed to become one of the most popular and
-            top techfests in India. Having successfully completed eight
-            editions, Anokha has had an average annual participation of over
-            10,000 of the best undergraduate engineering students from
-            top-ranking engineering institutions in India like IITs, BITS, NITs
-            and IIITs participating as well as partner universities in USA and
-            Europe like University of New Mexico, EVRY France and Uppsala
-            University-Sweden.
+          Anokha, the national techfest of Amrita Vishwa Vidyapeetham Coimbatore, is a 3-day congregation of some of the brightest minds in India. Founded in 2010, Anokha has grown by leaps and bounds and has progressed to become one of the leading techfests in India. Anokha has successfully completed eight editions and boasts an average annual participation of over 10,000 outstanding students from top-ranking engineering institutions in India like IITs, BITS, NITs and IIITs as well as partner universities in USA and Europe namely University of New Mexico, EVRY France and Uppsala University-Sweden.
           </Typography>
         </div>
       </div>
 
-      <div className="background-container">
-        <div
+      <div
           id="aboutamrita"
-          className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16">
+          className="w-full h-full lg:h-screen block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16">
           <table className="w-full" data-aos="fade-up-right">
             <tbody>
               <tr>
@@ -157,7 +146,7 @@ const Home = () => {
           </table>
           <div
             data-aos="fade-up-left"
-            className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
+            className="lg:mt-24 mt-24 mb-24 lg:ml-32 lg:w-fit lg:pr-6">
             <Typography
               variant="h1"
               className="mb-2 text-lime-50 font-title text-center lg:text-left">
@@ -182,11 +171,10 @@ const Home = () => {
             </Typography>
           </div>
         </div>
-      </div>
 
       <div
         id="c20g20"
-        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around py-10 px-16">
+        className="w-full h-full lg:h-screen block bg-babyPowder items-center justify-center lg:flex lg:justify-around py-10 px-16">
         <div
           className=" flex justify-center lg:w-full"
           data-aos="fade-up-right">
@@ -207,22 +195,14 @@ const Home = () => {
             C20 G20
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
-            Anokha 2023 techfest is proud to be recognized as a side event of
-            the prestigious Civil20 (C20) official engagement group of G20 with
-            various workshops, innovation showcase & techfair aligning to the
-            various working groups of C20, which are hosted by Amrita University
-            with world-renowned humanitarian leader, Sri Mata Amritanandamayi
-            Devi (AMMA) as Chancellor of the university
+          Anokha 2023 techfest is proud to be recognized as a supporting event of the prestigious Civil20 (C20), official engagement group of G20. The fest orchestrates a plethora of workshops, innovation showcases and a techfair aligning to the various working groups of C20, which are hosted by Amrita University under the guidance of world-renowned humanitarian leader, Sri Mata Amritanandamayi Devi (AMMA), the Chancellor of the university.
           </Typography>
         </div>
       </div>
 
-      <div className="background-container">
-        <div className="gradient"></div>
-        <div className="gradient gradient-right"></div>
-        <div
+      <div
           id="eventide"
-          className="w-full h-full lg:h-[100vh] block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16">
+          className="w-full h-full block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16">
           <table className="w-full" data-aos="fade-up-right">
             <tbody>
               <tr>
@@ -261,40 +241,21 @@ const Home = () => {
           </table>
           <div
             data-aos="fade-up-left"
-            className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
+            className="lg:m-16 mt-32 lg:ml-32 lg:w-fit lg:pr-6">
             <Typography
               variant="h1"
               className="mb-2 text-khaki font-title text-center lg:text-left">
               EVENTIDE
             </Typography>
             <Typography className="font-normal text-babyPowder text-xl text-center lg:text-justify">
-              "All work and no play makes Jack a dull boy.", a proverb says. At
-              Anokha, we understand this very well. Eventide, the cultural
-              component of Anokha, has brought joy to thousands over the past
-              decade through explosive performances from talented and
-              captivating artists. The performances leave our audience in awe,
-              showcasing the beauty and diversity of human expression through
-              art. Some talented and passionate artists who have previously
-              graced the stage include percussionist Sivamani; playback singers
-              Vijay Prakash, Karthik, Benny Dayal, Haricharan, Rahul Nambiar,
-              Alaap Raju, Shaktisree Gopalan, Sunitha Sarathy, Ranjani-Gayatri,
-              and Nikita Gandhi. Eventide has become a platform for the
-              celebration of India's rich cultural heritage, featuring
-              performers from all over the country, representing a diverse range
-              of genres. Between soulful classical music, scintillating film
-              numbers and explosive percussion, we've explored every genre you
-              can name. It's been an incredible experience to witness the talent
-              and dedication of the performers, who have brought their cultures
-              and traditions to life through their art, leaving a lasting
-              impression on the audience.
+            Eventide, the cultural extravaganza of Anokha, has brought joy to thousands over the past decade through explosive performances from talented and captivating artists. The performances leave our audience in awe, showcasing the magnificence of human expression through art. Some passionate artists who have previously graced the stage include percussionist Sivamani; playback singers Vijay Prakash, Karthik, Benny Dayal, Haricharan, Rahul Nambiar, Alaap Raju, Shaktisree Gopalan, Sunitha Sarathy, Ranjani-Gayatri, and Nikita Gandhi. Eventide has become a platform for the celebration of India's rich cultural heritage and diversity featuring performers from all over the country. Between soulful classical music, scintillating film numbers and explosive percussion, we've explored every genre you can name. It's been an incredible experience to witness the dedication of the performers who have left a lasting impression on the audience.
             </Typography>
           </div>
         </div>
-      </div>
 
       <div
         id="techfair"
-        className="w-full h-full lg:h-[100vh] block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
+        className="w-full h-full lg:h-screen block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
         <table className="w-full" data-aos="fade-up-right">
           <tbody>
             <tr>
@@ -355,10 +316,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="background-container">
-        <div className="gradient"></div>
-        <div className="gradient gradient-right"></div>
-        <div className="container w-full lg:h-[100vh] overflow-y-auto  no-scrollbar ml-auto mr-auto mt-24">
+      <div className="container w-full lg:h-screen overflow-y-auto  no-scrollbar ml-auto mr-auto mt-24">
           <Typography
             variant="h1"
             className="mb-16 text-khaki text-center font-title">
@@ -447,7 +405,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };

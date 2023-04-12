@@ -118,7 +118,7 @@ function App() {
             <ForgotPassword />
           </NoAuth>
         } />
-        <Route path='/resetPassword' element={
+        <Route path='/resetPassword/:resetToken' element={
           <NoAuth>
             <ResetPassword />
           </NoAuth>

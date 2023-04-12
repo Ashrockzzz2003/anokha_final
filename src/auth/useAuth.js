@@ -5,6 +5,7 @@ import axios from 'axios';
 export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useLocalStorage("isLoggedIn", 0);
     const [isAmritaCBE, setIsAmritaCBE] = useLocalStorage("isAmritaCBE", 0);
+    const [userFullName, setUserFullName] = useLocalStorage("userFullName", null);
     const [hasActivePassport, setHasActivePassport] = useLocalStorage("hasActivePassport", 0);
     const [token, setToken] = useLocalStorage("token", null);
     const [email, setEmail] = useLocalStorage("email", null);
@@ -331,7 +332,9 @@ export const useAuth = () => {
             return;
         }
 
-        setResetToken(await response.json());
+        const responseData = await response.json();
+
+        setResetToken(responseData);
 
         alert("Password Reset OTP Sent to your Email. Please check your inbox.");
     }
@@ -360,9 +363,10 @@ export const useAuth = () => {
         secureLocalStorage.setItem("resetToken", null);
         const responseData = await response.json();
 
+        console.log(responseData);
         alert("OTP Verified. Proceed to Reset Password.")
 
-        window.location.href = `/resetPassword/${JSON.parse(responseData).SECRET_TOKEN}`;
+        window.location.href = `/resetPassword/${responseData.token}`;
     }
 
     const newPasswordReset = async (data, resetToken) => {
