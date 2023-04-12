@@ -243,7 +243,7 @@ export const useAuth = () => {
         data = JSON.parse(data);
         const productId = isPassport === "true" ? `P` : `E${data.eventId}`;
 
-        const response = await fetch("https://anokha.amrita.edu/api/userWeb/transaction/initiateTransaction", {
+        const response = await fetch("https://anokha.amrita.edu/api/userWeb/movetotrans", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -273,8 +273,8 @@ export const useAuth = () => {
             "email": data.userEmail,
             "phone": data.phoneNumber,
             "hash": responseData.hash,
-            "surl": "http://52.66.236.118:3000/userWeb/success",
-            "furl": "http://52.66.236.118:3000/userWeb/failure",
+            "surl": `${domain}/userWeb/success`,
+            "furl": `${domain}/userWeb/failure`,
             "key": "ypfBaj"
         }
 
