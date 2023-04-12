@@ -10,6 +10,15 @@ import anokha_text from "../components/utils/anokha_text.svg";
 import Marquee from "react-fast-marquee";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import photo1 from "./utils/AHK/Gallery/1.jpeg";
+import photo2 from "./utils/AHK/Gallery/2.jpeg";
+import photo3 from "./utils/AHK/Gallery/3.jpeg";
+import photo4 from "./utils/AHK/Gallery/4.jpeg";
+import photo5 from "./utils/AHK/Gallery/5.jpeg";
+import photo6 from "./utils/AHK/Gallery/6.jpeg";
+import photo7 from "./utils/AHK/Gallery/7.jpeg";
+import photo8 from "./utils/AHK/Gallery/8.jpeg";
+import photo9 from "./utils/AHK/Gallery/9.jpeg";
 
 const Home = () => {
   React.useEffect(() => {
@@ -299,47 +308,47 @@ const Home = () => {
           <div className="gallery">
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/1.png" />
+                <img src={photo1} />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/2.png" />
+                <img src={photo2} />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/3.png" />
+                <img src={photo3} />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/4.png" />
+                <img src={photo4} />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/5.png" />
+                <img src={photo5} />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/6.png" />
+                <img src={photo6} />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/7.png" />
+                <img src={photo7} />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/8.png" />
+                <img src={photo8} />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src="https://anokha-image.securehuman.workers.dev/0:/home/gallery/9.png" />
+                <img src={photo9} />
               </figure>
             </div>
             

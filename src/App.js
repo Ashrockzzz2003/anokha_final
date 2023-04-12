@@ -10,7 +10,7 @@ import RequireAuth from './auth/RequireAuth';
 import EditProfile from './components/user/EditProfile';
 import NoAuth from './auth/NoAuth';
 import Register from './components/user/Register';
-import Footer from './components/Footer';
+import Footer1 from './components/Footer1';
 import VerifyOTP from './components/user/VerifyOTP';
 import ConfirmPaymentPage from './components/user/ConfirmPaymentPage.jsx';
 import { useAuth } from './auth/useAuth';
@@ -39,7 +39,7 @@ function App() {
             <RequireAuth>
               <NavigationBar />
               <AmritaPassport />
-              <Footer />
+              <Footer1 />
             </RequireAuth>
           </>
         }
@@ -49,21 +49,21 @@ function App() {
           <>
             <NavigationBar />
             <Home />
-            <Footer />
+            <Footer1 />
           </>
         } />
         <Route path="/events" element={
           <>
             <NavigationBar />
             <Events />
-            <Footer />
+            <Footer1 />
           </>
         } />
         <Route path="/events/:eventId/about" element={
           <>
             <NavigationBar />
             <EventLanding />
-            <Footer />
+            <Footer1 />
           </>
         } />
         <Route path='/login' element={
@@ -86,7 +86,7 @@ function App() {
             <>
               <NavigationBar />
               <Profile />
-              <Footer />
+              <Footer1 />
             </>
           </RequireAuth>
         } />
