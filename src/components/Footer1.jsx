@@ -1,11 +1,12 @@
 import React from 'react'
 import anokha_home_logo from './utils/anokha_home_logo.png'
 import "./styles/footer.css"
-import { RiFacebookBoxFill, RiHeartFill, RiInstagramFill, RiLinkedinBoxFill, RiTwitterFill, RiYoutubeFill, } from 'react-icons/ri'
+import { RiFacebookBoxFill, RiHeartFill, RiInstagramFill, RiLinkedinBoxFill, RiYoutubeFill, } from 'react-icons/ri'
+import { FaTwitterSquare } from 'react-icons/fa'
 
 export default function Footer1() {
   return (
-      <footer>
+      <footer id='footer'>
     <div className="content">
       <div className="top">
         <div className="logo-details">
@@ -16,26 +17,26 @@ export default function Footer1() {
           <a target="_blank" rel="noreferrer" href="https://www.instagram.com/anokhatechfest/"><RiInstagramFill size={50} /></a>
           <a target="_blank" rel="noreferrer" href="https://www.facebook.com/anokha.amrita/"><RiFacebookBoxFill size={50} /></a>
           <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/school/anokha-amrita/"><RiLinkedinBoxFill size={50} /></a>
-          <a target="_blank" rel="noreferrer" href="https://twitter.com/anokha_techfest"><RiTwitterFill size={50} /></a>
+          <a target="_blank" rel="noreferrer" href="https://twitter.com/anokha_techfest"><FaTwitterSquare size={49} /></a>
           <a target="_blank" rel="noreferrer" href="https://www.youtube.com/@AnokhaTechfest"><RiYoutubeFill size={50} /></a>
         </div>
       </div>
       <div className="link-boxes">
         <ul className="box">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Contact us</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="#contactus">Contact us</a></li>
           
         </ul>
         <ul className="box">
-          <li><a href="/#about">About</a></li>
-          <li><a href="#">Events & Workshops</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="/events">Events & Workshops</a></li>
         </ul>
         <ul className="box">
-          <li><a href="#">Eventide</a></li>
-          <li><a href="#">My Profile</a></li>
+          <li><a href="#eventide">Eventide</a></li>
+          <li><a href="/profile">My Profile</a></li>
         </ul>
         <ul className="box">
-          <li><a href="#">TechFair</a></li>
+          <li><a href="#techfair">TechFair</a></li>
           <li><a href="#">The Team</a></li>
         </ul>
         <ul className="box">

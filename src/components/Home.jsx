@@ -308,47 +308,47 @@ const Home = () => {
           <div className="gallery">
             <div className="gallery-item">
               <figure>
-                <img src={photo1} />
+                <img src={photo1} alt="gallery" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src={photo2} />
+                <img src={photo2} alt="gallery" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src={photo3} />
+                <img src={photo3} alt="gallery" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src={photo4} />
+                <img src={photo4} alt="gallery" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src={photo5} />
+                <img src={photo5} alt="gallery" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src={photo6} />
+                <img src={photo6} alt="gallery" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src={photo7} />
+                <img src={photo7} alt="gallery" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src={photo8} />
+                <img src={photo8} alt="gallery" />
               </figure>
             </div>
             <div className="gallery-item">
               <figure>
-                <img src={photo9} />
+                <img src={photo9} alt="gallery" />
               </figure>
             </div>
             
