@@ -2,14 +2,16 @@ import * as React from "react";
 import anokha_circle from "../utils/anokha_circle.svg";
 import "../styles/form.css";
 import { useAuth } from "../../auth/useAuth";
+import { useParams } from "react-router-dom";
 
 export default function ResetPassword() {
-  
   // const [oldPassword, setOldPassword] = React.useState('');
   const [NewPassword, setNewPassword] = React.useState('');
   const [reEnteredPassword, setReEnteredPassword] = React.useState('');
 
   const {newPasswordReset} = useAuth();
+
+  const { resetToken } = useParams();
 
   const handleReset = (e) => {
     e.preventDefault();
@@ -17,7 +19,7 @@ export default function ResetPassword() {
       alert("Passwords don't match");
       return;
     }
-    newPasswordReset(NewPassword);
+    newPasswordReset(NewPassword, resetToken);
   }
   
   return (

@@ -1,7 +1,6 @@
 import { useLocalStorage } from './useLocalStorage'
 import secureLocalStorage from "react-secure-storage";
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useLocalStorage("isLoggedIn", 0);
@@ -74,7 +73,6 @@ export const useAuth = () => {
             });
 
             setUserData(await userResponse.json());
-
             // Fetch events reg by user
 
             const eventsResponse = await fetch(USER_EVENTS_API_URL, {
@@ -194,6 +192,11 @@ export const useAuth = () => {
             alert("Something went wrong. Please try again later.");
         });
 
+        if (response.status === 400) {
+            alert("Already used Phone number? Try again.");
+            return;
+        }
+
         if (response.status !== 201) {
             alert("Invalid OTP. Try again.");
             return;
@@ -205,8 +208,7 @@ export const useAuth = () => {
         window.location.href = "/login";
     }
 
-    const moveToTransaction = async (eventId, isPassport) => {
-
+    const moveToTransaction = async (isAmritaCBE, eventId, isPassport) => {
         // Update User Data Locally
         const response = await fetch(TRANSACTION_URL, {
             method: "POST",
@@ -224,6 +226,12 @@ export const useAuth = () => {
 
         const moveTData = await response.json();
         setTransactionToken(moveTData.TRANSACTION_SECRET_TOKEN);
+
+        if(eventId != null && isPassport === "false" && isAmritaCBE === 0) {
+            alert("You have to buy a passport to register for events.");
+            window.location.href = "/profile";
+            return;
+        }
 
         window.location.href = `/events/${eventId}/confirmPayment/${isPassport}`;
     }
@@ -350,20 +358,20 @@ export const useAuth = () => {
         }
 
         secureLocalStorage.setItem("resetToken", null);
+        const responseData = await response.json();
 
-        setResetToken(await response.json());
         alert("OTP Verified. Proceed to Reset Password.")
 
-        window.location.href = "/resetPassword";
+        window.location.href = `/resetPassword/${JSON.parse(responseData).SECRET_TOKEN}`;
     }
 
-    const newPasswordReset = async (data) => {
+    const newPasswordReset = async (data, resetToken) => {
         const newPassword = data;
         const response = await fetch(USER_RESET_PASSWORD_CHANGE_URL, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": `Bearer ${JSON.parse(secureLocalStorage.getItem("resetToken")).SECRET_TOKEN}`,
+                "Authorization": `Bearer ${resetToken}`,
             },
             body: JSON.stringify({
                 "newPassword": newPassword,

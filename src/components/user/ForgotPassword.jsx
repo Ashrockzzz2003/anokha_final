@@ -48,9 +48,9 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="flex w-full h-screen">
-      <div className="lg:inline-block items-center justify-center m-auto hidden px-16 relative w-1/2">
-        <div className="loader">
+    <div className="flex w-full h-screen items-center justify-center">
+      {/* <div className="lg:inline-block items-center justify-center m-auto hidden px-16 relative w-full">
+         <div className="loader">
           <span>
             <div className="h-full w-full rounded-3xl shadow-xl bg-white bg-opacity-50 backdrop-blur-lg">
               <Typography>
@@ -63,7 +63,7 @@ export default function ForgotPassword() {
           <span></span>
           <span></span>
         </div>
-      </div>
+      </div> */}
       <div className="lg:inline-block bg-babyPowder w-full md:h-[100vh] flex justify-center lg:w-1/2 ">
         <div className="px-20 py-32 items-center bg-babyPowder">
           <img

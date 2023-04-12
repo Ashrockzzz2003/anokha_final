@@ -100,6 +100,7 @@ export default function Register() {
               <label className="text-lg text-center font-medium">Name</label>
               <input
                 value={name}
+                autoCapitalize="none"
                 onChange={(e) => setName(e.target.value)}
                 className={"w-full justify-center ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700"
                   + (isNameValid || !name
@@ -254,17 +255,31 @@ export default function Register() {
               )}
             </div>
             <div className="mt-4 text-center">
-              <button
-                type="submit"
-                className={
-                  "py-4 w-full rounded-md text-white font-medium " +
-                  (isEmailValid && isPasswordValid
-                    ? "bg-backgroundColor"
-                    : "bg-gray-400 cursor-not-allowed")
-                }
-                disabled={!isEmailValid || !isPasswordValid}>
-                Register
-              </button>
+              {
+                [633, 638, 641, 645].includes(collegeId) ? (
+                  <button
+                    type="submit"
+                    className={
+                      "py-4 w-full rounded-md text-white font-medium " +
+                      (isAmritaMail && isPasswordValid
+                        ? "bg-backgroundColor"
+                        : "bg-gray-400 cursor-not-allowed")
+                    }
+                    disabled={!isAmritaMail || !isPasswordValid}>
+                    Register
+                  </button>
+                ) : (<button
+                  type="submit"
+                  className={
+                    "py-4 w-full rounded-md text-white font-medium " +
+                    (isEmailValid && isPasswordValid
+                      ? "bg-backgroundColor"
+                      : "bg-gray-400 cursor-not-allowed")
+                  }
+                  disabled={!isEmailValid || !isPasswordValid}>
+                  Register
+                </button>)
+              }
             </div>
           </form>
           <div className="mt-8 flex justify-center items-center">

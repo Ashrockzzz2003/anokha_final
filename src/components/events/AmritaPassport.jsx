@@ -1,5 +1,5 @@
 import {Button, Typography} from "@material-tailwind/react";
-import React from "react";
+import React, { useState } from "react";
 import eventide from "../utils/eventide.png";
 import RegisterMembers from "../events/RegisterMembers";
 import ConfirmPaymentPage from "../user/ConfirmPaymentPage.jsx";
@@ -10,6 +10,7 @@ import secureLocalStorage from "react-secure-storage";
 const AmritaPassport = () => {
   
   const { moveToTransaction } = useAuth();
+  const [isAmritaCBE, setIsAmritaCBE] = useState(secureLocalStorage.getItem("isAmritaCBE"));
 
   // Handle Login
   const handleBuyPassport = (e) => {
@@ -19,7 +20,7 @@ const AmritaPassport = () => {
       window.location.href = "/login";
       return;
     }
-    moveToTransaction(0, true);
+    moveToTransaction(isAmritaCBE, 0, true);
   };
   
 

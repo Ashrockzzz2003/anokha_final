@@ -34,13 +34,13 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route path='/amritaPassport/:isPassport' element={
+        <Route path='/amritaPassport' element={
           <>
-            <NoAuth>
+            <RequireAuth>
               <NavigationBar />
               <AmritaPassport />
               <Footer />
-            </NoAuth>
+            </RequireAuth>
           </>
         }
         />

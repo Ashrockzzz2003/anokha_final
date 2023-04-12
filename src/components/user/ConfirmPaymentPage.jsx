@@ -49,7 +49,7 @@ export default function ConfirmPaymentPage() {
     <div className="md:h-screen h-full bg-babyPowder w-screen flex flex-col items-center justify-center px-4 py-12">
       <div className="flex  flex-col">
         <Typography variant="h2" className="text-center">
-          Register for Event
+          Register for {isPassport === "true" ? "Passport" : "Event"}
         </Typography>
         <Typography color="gray" className="mt-1 text-center font-normal">
           Enter your details to register.

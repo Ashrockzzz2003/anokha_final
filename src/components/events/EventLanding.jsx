@@ -10,6 +10,8 @@ const EventLanding = () => {
   const { moveToTransaction } = useAuth();
   const { eventId } = useParams();
 
+  const [isAmritaCBE, setIsAmritaCBE] = useState(secureLocalStorage("isAmritaCBE"));
+
   // Handle Login
   const handleRegsiter = (e) => {
     e.preventDefault();
@@ -18,7 +20,8 @@ const EventLanding = () => {
       window.location.href = "/login";
       return;
     }
-    moveToTransaction(parseInt(eventId), false);
+    console.log(parseInt())
+    moveToTransaction(isAmritaCBE, parseInt(eventId), false);
   };
 
   const [events] = useState(JSON.parse(secureLocalStorage.getItem("events")));
