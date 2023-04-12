@@ -1,6 +1,7 @@
 import { useLocalStorage } from './useLocalStorage'
 import secureLocalStorage from "react-secure-storage";
 import axios from 'axios';
+import { SHA512 } from 'crypto-js';
 
 export const useAuth = () => {
     const [isLoggedIn, setIsLoggedIn] = useLocalStorage("isLoggedIn", 0);
@@ -35,6 +36,9 @@ export const useAuth = () => {
         try {
             const userEmail = data.email;
             const password = data.password;
+            const hashedPassword = SHA512(`${password}`).toString();
+        
+            alert(hashedPassword);
 
             const response = await fetch(LOGIN_API_URL, {
                 method: "POST",
@@ -43,7 +47,7 @@ export const useAuth = () => {
                 },
                 body: JSON.stringify({
                     "userEmail": userEmail,
-                    "password": password,
+                    "password": hashedPassword,
                 }),
             }).catch((error) => {
                 console.error(error);
@@ -95,6 +99,7 @@ export const useAuth = () => {
     const editProfile = async (data) => {
         const fullName = data.fullName;
         const password = data.password;
+        
 
         const response = await fetch(USER_EDIT_API_URL, {
             method: "POST",
@@ -137,8 +142,8 @@ export const useAuth = () => {
         const fullName = data.fullName;
         const collegeId = data.collegeId;
 
-
-
+        const hashedPassword = SHA512(`${password}`).toString();
+        
         const axiosConfig = {
             headers: {
                 'Content-Type': 'application/json',
@@ -150,7 +155,7 @@ export const useAuth = () => {
             "collegeId": collegeId,
             "phoneNumber": phone,
             "fullName": fullName,
-            "password": password
+            "password": hashedPassword,
         };
 
         try {
@@ -371,6 +376,7 @@ export const useAuth = () => {
 
     const newPasswordReset = async (data, resetToken) => {
         const newPassword = data;
+        const hashedNewPassword = SHA512(newPassword).toString();
         const response = await fetch(USER_RESET_PASSWORD_CHANGE_URL, {
             method: "POST",
             headers: {
@@ -378,7 +384,7 @@ export const useAuth = () => {
                 "Authorization": `Bearer ${resetToken}`,
             },
             body: JSON.stringify({
-                "newPassword": newPassword,
+                "newPassword": hashedNewPassword,
             }),
         }).catch((error) => {
             console.error(error);
