@@ -43,7 +43,7 @@ export default function Example({
         size="sm"
         color="red"
         variant="text"
-        className="!absolute top-4 right-4 duration-0 border-none">
+        className="!absolute grayscale-0 top-4 right-4 duration-0 border-none">
         <HeartIcon className="h-6 w-6" />
       </IconButton>
       : 

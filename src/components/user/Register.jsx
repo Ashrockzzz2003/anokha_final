@@ -11,6 +11,7 @@ import { collegeData } from "../data"
 export default function Register() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [isAmrita, setIsAmrita] = React.useState(false);
@@ -29,6 +30,7 @@ export default function Register() {
     signUp({
       "userEmail": email,
       "collegeId": collegeId,
+      "phoneNumber": phone,
       "fullName": name,
       "password": password
     });
@@ -53,6 +55,12 @@ export default function Register() {
 
   // Check if password is valid
   const isPasswordValid = passwordRegex.test(password);
+  
+  //Regular expression for phone number validation
+  const phoneRegex = /^[0-9]{10}$/;
+  
+  //check if phone numer is valid
+  const isPhoneValid = phoneRegex.test(phone);
 
   // Check if name is valid
   const isNameValid = nameRegex.test(name);
@@ -72,8 +80,8 @@ export default function Register() {
           <span></span>
         </div>
       </div>
-      <div className="lg:inline-block bg-babyPowder w-fit h-full flex items-center justify-center lg:w-1/2 ">
-        <div className="w-auto px-12 py-12 m-0 bg-babyPowder">
+      <div className="lg:inline-block bg-babyPowder w-fit h-auto flex items-center justify-center lg:w-1/2 ">
+        <div className="w-auto px-12 py-8 m-0 bg-babyPowder">
           <img
             src={anokha_circle}
             alt="Anokha circle"
@@ -165,6 +173,30 @@ export default function Register() {
                 </p>
               )}
             </div>
+            
+            <div className="flex text-center flex-col mt-4">
+              <label className="text-lg text-center font-medium">Phone Number</label>
+              <input
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className={
+                  "w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                  (isPhoneValid || !phone
+                    ? "border-gray-400"
+                    : "border-red-500")
+                } text-center placeholder="Enter Phone Number"
+                type={"number"}
+                maxLength={10}
+              />
+              {!isPhoneValid && phone && (
+                <p className="mt-2 text-sm text-center text-red-500">
+                  Enter a valid phone number.
+                </p>
+              )}
+            </div>
+            
+            
             <div className="flex flex-col mt-4">
               <label className="text-lg text-center font-medium">Password</label>
               <input

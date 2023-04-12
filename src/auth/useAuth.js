@@ -131,6 +131,7 @@ export const useAuth = () => {
     const signUp = async (data) => {
         const userEmail = data.userEmail;
         const password = data.password;
+        const phone = data.phoneNumber;
         const fullName = data.fullName;
         const collegeId = data.collegeId;
 
@@ -142,6 +143,7 @@ export const useAuth = () => {
             body: JSON.stringify({
                 "userEmail": userEmail,
                 "collegeId": collegeId,
+                "phoneNumber": phone,
                 "fullName": fullName,
                 "password": password
             }),

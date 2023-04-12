@@ -16,6 +16,13 @@ export default function ConfirmPaymentPage() {
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [zipCode, setZipCode] = useState("");
+  
+  //regex for zip code
+  const zipRegex = /^[0-9]{6}$/;
+  
+  //check if zip code is valid
+  const isZipValid = zipRegex.test(zipCode);
+  
 
   const { eventId } = useParams();
   const { initiateTransaction } = useAuth();
@@ -69,18 +76,15 @@ export default function ConfirmPaymentPage() {
 
           <label htmlFor="phone">Phone Number</label>
           <Input
-            size="lg"
-            label="Phone Number"
-            type={"number"}
-            maxLength="10"
-            minLength={"10"}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-          />
+                required
+                value={data.phoneNumber}
+                label="Phone Number"
+                type={"number"}
+                
+              />
 
           <label htmlFor="address">Address</label>
           <Input
-            className="bg-white"
             size="lg"
             label="Address"
             type={"text"}
@@ -149,6 +153,7 @@ export default function ConfirmPaymentPage() {
             type="submit"
             variant="filled"
             className="bg-backgroundColor text-babyPowder"
+            disabled={!isZipValid}
           >
             <span>Proceed to Payment</span>
           </Button>

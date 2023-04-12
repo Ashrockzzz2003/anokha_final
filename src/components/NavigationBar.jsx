@@ -131,7 +131,7 @@ const NavigationBar = () => {
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
                 >
-                    <Typography className="flex items-center capitalize">
+                    <Typography className="flex items-center text-xl capitalize">
                         About
                     </Typography>
                 </Button>
@@ -141,7 +141,7 @@ const NavigationBar = () => {
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
                 >
-                    <Typography className="flex items-center capitalize">
+                    <Typography className="flex items-center text-xl capitalize">
                         Eventide
                     </Typography>
                 </Button>
@@ -151,7 +151,7 @@ const NavigationBar = () => {
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
                 >
-                    <Typography className="flex items-center capitalize">
+                    <Typography className="flex items-center text-xl capitalize">
                         TechFair
                     </Typography>
                 </Button>
@@ -161,7 +161,7 @@ const NavigationBar = () => {
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
                 >
-                    <Typography className="flex items-center capitalize">
+                    <Typography className="flex items-center text-xl capitalize">
                         Gallery
                     </Typography>
                 </Button>
@@ -171,7 +171,7 @@ const NavigationBar = () => {
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
                 >
-                    <Typography className="flex items-center capitalize">
+                    <Typography className="flex items-center text-xl capitalize">
 
                         Contact Us
                     </Typography>
@@ -182,7 +182,7 @@ const NavigationBar = () => {
                     variant="text"
                     className="text-gray-50 ml-auto mr-auto"
                 >
-                    <Typography className="flex items-center capitalize">
+                    <Typography className="flex items-center text-xl capitalize">
                         Events & Workshops
                     </Typography>
                 </Button>
@@ -206,7 +206,7 @@ const NavigationBar = () => {
                 <Button
                   variant="filled"
                   size="sm"
-                  className="mb-1 capitalize border-2 text-babyPowder bg-transparent hover:bg-babyPowder hover:text-backgroundColor"
+                  className="mb-1 capitalize text-lg border-2 text-babyPowder bg-transparent hover:bg-babyPowder hover:text-backgroundColor"
                 >
                   <span>Login / Register</span>
                 </Button>
