@@ -35,7 +35,7 @@ const Home = () => {
           <img
             src={anokha_text}
             alt="Anokha Logo"
-            className="h-36 pt-12 lg:h-64 ml-auto mr-auto"
+            className="w-auto pt-12 lg:h-64 px-24 ml-auto mr-auto"
           />
         </div>
 
