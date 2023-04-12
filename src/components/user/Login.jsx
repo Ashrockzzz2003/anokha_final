@@ -100,6 +100,7 @@ export default function Login() {
                   type="text"
                   id="email"
                   name="email"
+                  autoCapitalize="none"
                   placeholder="Email"
                   className={
                     "w-5/6 border-2 text-center border-gray-700 rounded-xl p-4 mt-1 bg-transparent placeholder:text-gray-700" +

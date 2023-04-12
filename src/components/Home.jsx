@@ -260,7 +260,7 @@ const Home = () => {
           data-aos="fade-up-right">
           <iframe
             className="aspect-video rounded-lg lg:w-full"
-            src="https://www.youtube.com/watch?v=tZtuf_sxObU"
+            src="https://www.youtube.com/embed/tZtuf_sxObU"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
