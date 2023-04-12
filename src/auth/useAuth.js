@@ -243,7 +243,7 @@ export const useAuth = () => {
         data = JSON.parse(data);
         const productId = isPassport === "true" ? `P` : `E${data.eventId}`;
 
-        const response = await fetch(TRANSACTION_INITIATE_URL, {
+        const response = await fetch("https://anokha.amrita.edu/api/userWeb/transaction/initiateTransaction", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
