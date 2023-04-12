@@ -17,7 +17,7 @@ export const useAuth = () => {
     const [resetToken, setResetToken] = useLocalStorage("resetToken", null);
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
-    const domain = "http://52.66.236.118:3000";
+    const domain = "https://anokha.amrita.edu/api";
 
     const LOGIN_API_URL = `${domain}/userWeb/login`;
     const USER_API_URL = `${domain}/userWeb/getUser`;
