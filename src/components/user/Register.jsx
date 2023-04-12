@@ -44,7 +44,7 @@ export default function Register() {
 
 
   //Regular expression to check amrita mail 
-  const amritaRegex = /@amrita\.edu$/;
+  const amritaRegex = /^*@amrita\.edu$/;
 
   // Check if email is valid
   const isEmailValid = emailRegex.test(email);

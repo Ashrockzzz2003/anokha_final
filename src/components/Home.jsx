@@ -14,7 +14,6 @@ import "aos/dist/aos.css";
 const Home = () => {
   React.useEffect(() => {
     AOS.init({
-      offset: 200,
       duration: 600,
       delay: 100,
     });
@@ -59,7 +58,7 @@ const Home = () => {
       <div
         id="about"
         className="w-full h-full lg:h-screen block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
-        <table className="w-full" data-aos="fade-up-right">
+        <table className="w-full mr-6" data-aos="fade-up-right">
           <tbody>
             <tr>
               <td>
@@ -111,8 +110,8 @@ const Home = () => {
 
       <div
           id="aboutamrita"
-          className="w-full h-full lg:h-screen block items-center justify-center lg:flex lg:justify-around pt-20 pb-10 px-16">
-          <table className="w-full" data-aos="fade-up-right">
+          className="w-full h-full lg:min-h-screenblock items-center justify-center lg:flex lg:justify-around pb-10 px-16">
+          <table className="w-full mr-6 px-6" data-aos="fade-up-right">
             <tbody>
               <tr>
                 <td>
@@ -146,7 +145,7 @@ const Home = () => {
           </table>
           <div
             data-aos="fade-up-left"
-            className="lg:mt-24 mt-24 mb-24 lg:ml-32 lg:w-fit lg:pr-6">
+            className="lg:mt-24 mt-24 mb-24 lg:ml-32 lg:w-fit lg:px-6">
             <Typography
               variant="h1"
               className="mb-2 text-lime-50 font-title text-center lg:text-left">
@@ -202,8 +201,8 @@ const Home = () => {
 
       <div
           id="eventide"
-          className="w-full h-full block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16">
-          <table className="w-full" data-aos="fade-up-right">
+          className="w-full h-full lg:min-h-screen block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16">
+          <table className="w-full mr-6" data-aos="fade-up-right">
             <tbody>
               <tr>
                 <td>
@@ -241,7 +240,7 @@ const Home = () => {
           </table>
           <div
             data-aos="fade-up-left"
-            className="lg:m-16 mt-32 lg:ml-32 lg:w-fit lg:pr-6">
+            className="lg:m-16 mt-32 lg:ml-32 lg:w-fit lg:px-6">
             <Typography
               variant="h1"
               className="mb-2 text-khaki font-title text-center lg:text-left">
@@ -256,42 +255,17 @@ const Home = () => {
       <div
         id="techfair"
         className="w-full h-full lg:h-screen block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
-        <table className="w-full" data-aos="fade-up-right">
-          <tbody>
-            <tr>
-              <td>
-              <div className="wrap">
-                    <img
-                      className="card"
-                      alt="Eventide"
-                      src={require("./utils/AHK/AM 1.jpg")}></img>
-                    <img
-                      className="card"
-                      alt="Eventide"
-                      src={require("./utils/AHK/AM 2.jpg")}></img>
-                    <img
-                      className="card"
-                      alt="Eventide"
-                      src={require("./utils/AHK/AM 3.jpg")}></img>
-                  </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-              <div className="wrap">
-                  <img
-                    className="card"
-                    alt="Eventide"
-                    src={require("./utils/AHK/8.jpg")}></img>
-                  <img
-                    className="card"
-                    alt="Eventide"
-                    src={require("./utils/AHK/9.jpg")}></img>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div
+          className=" flex justify-center lg:w-full"
+          data-aos="fade-up-right">
+          <iframe
+            className="aspect-video rounded-lg lg:w-full"
+            src="https://www.youtube.com/watch?v=tZtuf_sxObU"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen="true"></iframe>
+        </div>
         <div
           data-aos="fade-up-left"
           className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
