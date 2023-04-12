@@ -191,7 +191,7 @@ const NavigationBar = () => {
     );
 
     return (
-      <Navbar className="fixed inset-0 z-10 h-fit max-w-full rounded-none lg:px-16 lg:py-2 bg-black bg-opacity-50 backdrop-blur-xl mb-3 border-b-1 border-t-0 border-r-0 border-l-0 border-cyan-900 ">
+      <Navbar className="fixed inset-0 z-10 h-fit max-w-full rounded-none lg:px-16 lg:py-2 bg-black bg-opacity-50 backdrop-blur-xl mb-3 border-b-1 border-t-0 border-r-0 border-l-0 border-white ">
         <div className="flex items-center justify-between text-blue-black-900">
           <a href="/">
             <img src={logo} alt="Anokha Logo" className="w-36" />
