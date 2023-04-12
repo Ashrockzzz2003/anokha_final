@@ -11,6 +11,8 @@ const EventLanding = () => {
   const { eventId } = useParams();
 
   const [isAmritaCBE, setIsAmritaCBE] = useState(secureLocalStorage.getItem("isAmritaCBE"));
+  const [hasActivePassport, setHasActivePassport] = useState(parseInt(secureLocalStorage.getItem("hasActivePassport")));
+
 
   // Handle Login
   const handleRegsiter = (e) => {
@@ -18,6 +20,11 @@ const EventLanding = () => {
     if (!JSON.parse(secureLocalStorage.getItem("token"))) {
       alert("Please Login to Register for Events.");
       window.location.href = "/login";
+      return;
+    }
+    if (!hasActivePassport) {
+      alert("Please Activate your Passport to Register for Events.");
+      window.location.href = "/amritaPassport";
       return;
     }
     console.log(parseInt())

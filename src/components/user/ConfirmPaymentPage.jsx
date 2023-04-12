@@ -12,7 +12,7 @@ export default function ConfirmPaymentPage() {
 
   const [name] = useState(data.fullName);
   const [email] = useState(data.userEmail);
-  const [phone] = useState("");
+  const [phone] = useState(data.phoneNumber);
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -55,7 +55,7 @@ export default function ConfirmPaymentPage() {
           Enter your details to register.
         </Typography>
       </div>
-      <form className="mt-8 pb-2 w-full flex flex-col justify-center ml-auto mr-auto max-w-screen-lg" onSubmit={handleConfirm} action={"https://test.payu.in/_payment"}>
+      <form className="mt-8 pb-2 w-full flex flex-col justify-center ml-auto mr-auto max-w-screen-lg" onSubmit={handleConfirm}>
         <div className="mb-4 flex text-center flex-col gap-2">
           {/* <label>Order ID</label>
                                 <Input size="lg" label="OrderID" value={orderID} disabled /> */}
@@ -82,7 +82,7 @@ export default function ConfirmPaymentPage() {
                 value={data.phoneNumber}
                 label="Phone Number"
                 type={"number"}
-                
+                disabled
               />
 
           <label htmlFor="address">Address</label>

@@ -62,8 +62,8 @@ export default function Example({
             {title}
           </Typography>
         </div>
-        <Typography color="gray">{description}</Typography>
-        <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
+        {/* <Typography color="gray">{description}</Typography> */}
+        {/* <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
           <Tooltip content="$129 per night">
             <span className="cursor-pointer rounded-full border border-blue-500/5 bg-blue-500/5 p-3 text-blue-500 transition-colors hover:border-blue-500/10 hover:bg-blue-500/10 hover:!opacity-100 group-hover:opacity-70">
               <BanknotesIcon className="h-5 w-5" />
@@ -94,7 +94,7 @@ export default function Example({
               +20
             </span>
           </Tooltip>
-        </div>
+        </div> */}
       </CardBody>
       <CardFooter className="pt-3">
         <a href={linkTo}>
