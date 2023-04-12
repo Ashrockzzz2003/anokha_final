@@ -7,16 +7,29 @@ import { useState } from "react";
 import { useAuth } from "../../auth/useAuth";
 
 import { collegeData } from "../data"
+import { Card, CardBody, CardFooter, CardHeader, Dialog, Input, Typography } from "@material-tailwind/react";
+import { Button } from "react-scroll";
 
 export default function Register() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
+  const [open, setOpen] = React.useState(false);
+  const [otp, setOtp] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [collegeId, setCollegeId] = React.useState(638);
 
   const [colleges] = useState(collegeData);
+  
+  const handleOpen = () => {
+    if (!isEmailValid) {
+      alert("Check your email again!");
+      return;
+    };
+    setOpen((cur) => !cur)
+    
+  };
 
   const { signUp } = useAuth();
 
@@ -69,6 +82,8 @@ export default function Register() {
 
   // Check if confirm password matches password
   const isConfirmPasswordValid = password === confirmPassword;
+  
+  
 
 
   return (
@@ -251,15 +266,50 @@ export default function Register() {
                 </p>
               )}
             </div>
+            </form>
+
             <div className="mt-8 w-full ml-auto mr-auto flex flex-col gap-y-4">
-              <button
+              
+            <React.Fragment>
+                <form>
+                  <Dialog
+                    size="xl"
+                    open={open}
+                    handler={handleOpen}
+                    className="bg-transparent shadow-none">
+                    <Card className="mx-auto w-full max-w-[24rem]">
+                      <CardHeader
+                        variant="gradient"
+                        className="mb-4 grid h-24 place-items-center bg-backgroundColor">
+                        <Typography variant="h3" color="white">
+                          Reset Password
+                        </Typography>
+                      </CardHeader>
+                      <CardBody className="flex flex-col gap-4">
+                        <Input label="OTP" size="lg" type="number" onChange={(e) => setOtp(e.target.value)} />
+                      </CardBody>
+                      <CardFooter className="pt-0">
+                        <Button
+                          variant="fill"
+                          type="submit"
+                          className="bg-backgroundColor"
+                          fullWidth>
+                          Verify OTP
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </Dialog>
+                </form>
+              </React.Fragment>
+              
+              {/* <button
                 type="submit"
                 className={"active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-backgroundColor rounded-xl text-babyPowder font-bold text-lg" + (isEmailValid && isPasswordValid
                   ? "bg-backgroundColor"
                   : "bg-gray-400 cursor-not-allowed")}
                 disabled={!isEmailValid || !isPasswordValid}>
                 Register
-              </button>
+              </button> */}
             </div>
             <div className="mt-8 flex justify-center items-center">
               <p className="font-medium text-base">Already have an account?</p>
@@ -269,7 +319,6 @@ export default function Register() {
                 </button>
               </Link>
             </div>
-          </form>
         </div>
       </div>
     </div>

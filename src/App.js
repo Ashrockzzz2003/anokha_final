@@ -18,6 +18,7 @@ import { PaymentStatus } from './components/user/PaymentStatus';
 import { useEffect } from 'react';
 import ForgotPassword from './components/user/ForgotPassword';
 import ResetPassword from './components/user/ChangePassword';
+import AmritaPassport from './components/events/AmritaPassport';
 
 function App() {
 
@@ -32,6 +33,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        
+        <Route path='/amritaPassport' element={
+          <AmritaPassport />
+        }
+        />
+        
         <Route path="/" element={
           <>
             <NavigationBar />
