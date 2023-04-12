@@ -269,15 +269,9 @@ const NavigationBar = () => {
                     href={hasActivePassport === 1 ? "/profile" : "/amritaPassport"}
                     className="capitalize"
                   >
-                    {hasActivePassport === 1 ? (
-                      <Button
-                        variant="filled"
-                        size="sm"
-                        className="mb-1 capitalize text-black bg-babyPowder"
-                      >
-                        <span>View Passport</span>
-                      </Button>
-                    ) : (
+                    {hasActivePassport === 1 ? 
+                      (null)
+                     : (
                       <Button
                         variant="filled"
                         size="sm"

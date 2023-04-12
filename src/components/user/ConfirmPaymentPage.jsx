@@ -143,7 +143,6 @@ export default function ConfirmPaymentPage() {
           <Button
             variant="text"
             color="red"
-            // onClick={ }
             className="mr-4"
             onClick={() => {
               window.location.href = "/events"
