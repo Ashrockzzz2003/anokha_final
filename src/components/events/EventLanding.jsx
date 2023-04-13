@@ -5,6 +5,7 @@ import { useAuth } from "../../auth/useAuth";
 import { useParams } from 'react-router-dom'
 import secureLocalStorage from "react-secure-storage";
 import 'react-toastify/dist/ReactToastify.css';
+import { MdCurrencyRupee } from "react-icons/md";
 
 const EventLanding = () => {
   const { eventId } = useParams();
@@ -94,12 +95,13 @@ const EventLanding = () => {
                     </div>
                     <div className="m-16 pt-28 lg:pl-24 lg:ml-16 lg:w-1/2">
                       <Typography variant="h1" className="mb-4 font-title uppercase tracking-wider text-khaki text-left">
-                        {event.eventOrWorkshop === 1 ? "Event - " : "Workshop - "}
+                        {event.eventOrWorkshop === 1 ? "Workshop - " : "Event - "}
                          {event.eventName}
                       </Typography>
                       <div className="flex flex-wrap gap-4 pb-4">
-                        <Chip value={"Fees : " + event.fees} className="bg-khaki text-backgroundColor" />
+                        <Chip value={`Fees : ₹ ` + event.fees} className="bg-khaki text-backgroundColor" />
                         <Chip value={"Date : " + event.date} className="bg-khaki text-backgroundColor" />
+                        {event.groupOrIndividual === 1 ? <Chip value={"Group Event"} className="bg-khaki text-backgroundColor" /> : <Chip value={"Individual Event"} className="bg-khaki text-backgroundColor" />}
                         {/* <Chip value={"Time : " + event.eventTime} className="bg-khaki text-backgroundColor" />
                         <Chip value={"Venue : " + event.venue} className="bg-khaki text-backgroundColor" /> */}
                       </div>
