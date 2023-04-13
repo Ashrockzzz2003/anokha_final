@@ -16,17 +16,9 @@ export default function VerifyOTP() {
     };
 
     return (
-        <div className="flex w-screen h-screen align-middle items-center justify-center">
-            <div className="lg:inline-block items-center justify-center m-auto hidden px-16 relative w-1/2">
-                <div className="loader">
-                    <span>
-                        <div className="px-10 py-2 h-full w-full rounded-3xl shadow-xl bg-white bg-opacity-50 backdrop-blur-lg"></div>
-                    </span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div className="lg:inline-block bg-babyPowder w-full h-full flex items-center justify-center lg:w-1/2 ">
+        <div className="flex w-full h-full items-center justify-center">
+            
+            <div className="lg:inline-block bg-babyPowder w-full md:h-[100vh] flex items-center justify-center lg:w-1/2 ">
                 <div className="w-auto px-12 py-12 m-0 bg-babyPowder">
                     <img
                         src={anokha_circle}

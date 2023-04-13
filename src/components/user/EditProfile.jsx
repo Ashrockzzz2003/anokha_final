@@ -56,24 +56,33 @@ export default function Register() {
     // Fetch Data
     const tempData = useState(secureLocalStorage.getItem("userData"));
     const data = JSON.parse(tempData[0])[0];
-
     const [name, setName] = React.useState(data.fullName);
     const [email, setEmail] = React.useState(data.userEmail);
-    const [isAmrita, setIsAmrita] = React.useState(data.isAmritaCBE===1? true : false);
+    const [phone, setPhone] = React.useState("");
+    const [isAmrita, setIsAmrita] = React.useState(data.isAmritaCBE === 1 ? true : false);
 
     // Set isAmrita to true if the checkbox is checked
     const handleAmrita = () => {
         setIsAmrita(!isAmrita);
     };
 
+
+    // Regular expression for name validation
+    const nameRegex = /.*/;
+
+    //Regular expression for phone number validation
+    const phoneRegex = /^[0-9]{10}$/;
+
     // Regular expression for email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
     // Check if email is valid
     const isEmailValid = emailRegex.test(email);
 
-    // Regular expression for name validation
-    const nameRegex = /.*/;
+
+    //check if phone numer is valid
+    const isPhoneValid = phoneRegex.test(phone);
 
     // Check if name is valid
     const isNameValid = nameRegex.test(name);
@@ -85,7 +94,7 @@ export default function Register() {
         e.preventDefault();
         editProfile({
             fullName: name,
-            password: data.password,
+            phoneNumber: phone,
             userEmail: secureLocalStorage.getItem("userEmail"),
         });
     };
@@ -93,15 +102,7 @@ export default function Register() {
 
     return (
         <div className="flex w-screen h-screen items-center justify-center">
-            <div className="lg:inline-block items-center justify-center m-auto hidden px-16 relative w-1/2">
-                <div className="loader">
-                    <span>
-                        <div className="px-10 py-2 h-full w-full rounded-3xl shadow-xl bg-white bg-opacity-50 backdrop-blur-lg"></div>
-                    </span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+
             <div className="lg:inline-block bg-babyPowder w-full h-full flex items-center justify-center lg:w-1/2 ">
                 <div className="w-auto px-12 py-12 m-0 bg-babyPowder">
                     <img
@@ -114,34 +115,8 @@ export default function Register() {
                         Update your details here.
                     </p>
                     <form className="mt-8" onSubmit={handleEditProfile}>
-                        <div className="flex flex-col items-center mt-4">
-                            <Checkbox
-                                disabled
-                                required
-                                defaultChecked={isAmrita}
-                                onChange={handleAmrita}
-                                label={
-                                    <Typography
-                                        variant="small"
-                                        color="gray"
-                                        className="flex items-center font-normal">
-                                        Amrita Student
-                                    </Typography>
-                                }
-                                value={isAmrita}
-                                containerProps={{ className: "-ml-2.5" }}
-                            />
-                        </div>
-                        {!isAmrita ? (
-                            <div className="flex flex-col mt-4">
-                                <label className="text-lg text-center font-medium">
-                                    Select Your College
-                                </label>
-                                <div className="text-center">
-                                    <CollegeList />
-                                </div>
-                            </div>
-                        ) : null}
+
+
                         <div className="flex flex-col mt-4">
                             <label className="text-lg text-center font-medium">Name</label>
                             <input
@@ -160,6 +135,29 @@ export default function Register() {
                                 </p>
                             )}
                         </div>
+
+                        <div className="flex text-center flex-col mt-4">
+                            <label className="text-lg text-center font-medium">Phone Number</label>
+                            <input
+                                required
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                                className={
+                                    "w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                                    (isPhoneValid || !phone
+                                        ? "border-gray-400"
+                                        : "border-red-500")
+                                } text-center placeholder="Enter Phone Number"
+                                type={"number"}
+                                maxLength={10}
+                            />
+                            {!isPhoneValid && phone && (
+                                <p className="mt-2 text-sm text-center text-red-500">
+                                    Enter a valid phone number.
+                                </p>
+                            )}
+                        </div>
+
                         <div className="flex text-center flex-col mt-4">
                             {isAmrita ? (
                                 <label className="text-lg font-medium">Amrita Email ID</label>
@@ -202,7 +200,7 @@ export default function Register() {
                         <div className="mt-8 w-full ml-auto mr-auto flex flex-col gap-y-4">
                             <button
                                 type="submit"
-                                className={"active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-backgroundColor rounded-xl text-babyPowder font-bold text-lg" }>
+                                className={"active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-backgroundColor rounded-xl text-babyPowder font-bold text-lg"}>
                                 Update
                             </button>
                         </div>

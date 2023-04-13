@@ -10,7 +10,7 @@ const Profile = () => {
 
   return (
     <div className='flex flex-col justify-center items-center pt-32'>
-      <ProfileCard userEmail={tempData.userEmail} fullName={tempData.fullName} passportId={tempData.passportId} qrlink={`http://52.66.236.118:3000/adminApp/verifyUser/${tempData.userEmail}`}/>
+      <ProfileCard userEmail={tempData.userEmail} fullName={tempData.fullName} passportId={tempData.passportId} qrlink={`https://anokha.amrita.edu/api/adminApp/verifyUser/${tempData.userEmail}`}/>
       <EventsRegistered />
     </div>
   )
