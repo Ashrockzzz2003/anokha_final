@@ -37,7 +37,7 @@ export default function Example({
       <CardHeader floated={false} color="blue-gray">
         <img src={imageUrl} alt="ui/ux review check" />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
-        {isBookmarked ? 
+        {/* {isBookmarked ? 
         <IconButton
         onClick={handleBookmarkClick}
         size="sm"
@@ -54,7 +54,7 @@ export default function Example({
           variant="text"
           className="!absolute top-4 right-4 duration-0 border-none">
           <HeartIcon className="h-6 w-6" />
-        </IconButton>}
+        </IconButton>} */}
       </CardHeader>
       <CardBody>
         <div className="mb-3 flex items-center justify-between">

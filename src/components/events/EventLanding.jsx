@@ -66,7 +66,7 @@ const EventLanding = () => {
   const isGroupEvent = event[0].groupOrIndividual === 1;
 
   return (
-    <div className="w-full block items-center justify-center lg:flex lg:justify-center pb-32 pt-32">
+    <div className="w-full block items-center justify-center lg:flex lg:justify-center pb-32 pt-40">
       <div className="w-auto lg:pr-12">
         <img src={event[0].url} className="w-72 rounded-lg ml-auto mr-auto" alt="Event Pix" />
         {isGroupEvent ?
@@ -74,20 +74,21 @@ const EventLanding = () => {
             <RegisterMembers membercount={4} amount={500} buttonLabel={"Register with Members"} />
           </div>
           :
-          <div className="mt-4 w-fit ml-auto mr-auto">
+          <div className="mt-4 w-fit pt-4 ml-auto mr-auto">
             <Button
               variant="filled"
               className="bg-khaki text-backgroundColor"
+              size="lg"
               onClick={handleRegsiter}
             >
-              <span>Register</span>
+              <span className="text-lg">Register</span>
             </Button>
           </div>
         }
 
       </div>
       <div className="m-16 mt-24 lg:pl-24 lg:ml-16 lg:w-1/2">
-        <Typography variant="h1" className="mb-4 text-khaki text-left">
+        <Typography variant="h1" className="mb-4 font-title uppercase tracking-wider text-khaki text-left">
           {event[0].eventName}
         </Typography>
         {/* <Typography variant="h4" className="mb-16 text-khaki text-left">

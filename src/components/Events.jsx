@@ -7,14 +7,23 @@ import { useAuth } from "../auth/useAuth";
 import  secureLocalStorage  from  "react-secure-storage";
 
 const Events = () => {
-  const { fetchEvents } = useAuth();
-  useEffect(() => {
-    window.addEventListener("load", async () => {
-      await fetchEvents();
-    })
-  }, [fetchEvents])
+    
+  // const { fetchEvents } = useAuth();
+  // useEffect(() => {
+  //   window.addEventListener("load", async () => {
+  //     await fetchEvents();
+  //   })
+  // }, [fetchEvents])
+  
+  const [events, setEvents] = useState([]);
 
-  const [events] = useState(JSON.parse(secureLocalStorage.getItem("events")));
+  useEffect(() => {
+    fetch('https://anokha.amrita.edu/api/userWeb/events/all')
+      .then(response => response.json())
+      .then(data => setEvents(data));
+  }, []); 
+
+  // const [events] = useState(JSON.parse(secureLocalStorage.getItem("events")));
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredEvents, setFilteredEvents] = useState(events);
 
@@ -30,28 +39,12 @@ const Events = () => {
     }
   }, [events, searchTerm]);
 
-  // return (
-  //   <div className="mt-16">
-  //     <Typography
-  //       variant="h1"
-  //       className="mb-2 pt-8 text-4xl md:text-6xl  lg:text-8xl text-lime-50 text-center"
-  //     >
-  //       Events & Workshops
-  //     </Typography>
-  //     <div className="flex justify-center">
-  //       <br />
-  //       <Typography
-  //           variant="h6"
-  //           className="mb-2 pt-8 text-lime-50 text-center"
-  //         >
-  //           Events to be updated soon
-  //         </Typography>
-  //     </div>
-  //   </div>
-  // );
   
-  console.log(events);
-
+  //fetch events from https://anokha.amrita.edu/api/userWeb/events/all api
+  // https://anokha.amrita.edu/api/userWeb/events/all
+  
+  
+  // if filteredEvents is empty, then show the message "No events found"
   return (
     <div className="mt-16">
       <Typography
@@ -68,11 +61,10 @@ const Events = () => {
           <br />
           <div className="block justify-center border-2 border-khaki lg:flex bg-babyPowder rounded-xl w-fit ml-auto mr-auto p-4">
             <SelectBox label={"Day"} options={["Day 1", "Day 2", "Day 3"]} />
-            <SelectBox label={"Tags"} options={["IOT", "Hacking", "Drone"]} />
           </div>
           <br />
           <div className="flex flex-wrap justify-center gap-8 items-center pt-5">
-            {filteredEvents.map((event) => (
+            {filteredEvents.length ? filteredEvents.map((event) => (
               <Card
                 key={event.eventId}
                 title={event.eventName}
@@ -82,7 +74,12 @@ const Events = () => {
                 buttonLabel={"Register"}
                 linkTo={`/events/${event.eventId}/about`}
               />
-            ))}
+            )) : <Typography
+              variant="h6"
+              className="mb-2 pt-8 text-lime-50 text-center"
+            >
+              No events found
+            </Typography>}
           </div>
         </div>
       </div>
@@ -90,3 +87,4 @@ const Events = () => {
   );
 }
 export default Events;
+  
