@@ -95,7 +95,7 @@ export const useAuth = () => {
 
     const editProfile = async (data) => {
         const fullName = data.fullName;
-        const password = data.password;
+        const phoneNumber = data.phoneNumber;
         
 
         const response = await fetch(USER_EDIT_API_URL, {
@@ -106,7 +106,7 @@ export const useAuth = () => {
             },
             body: JSON.stringify({
                 "fullName": fullName,
-                "password": password
+                "phoneNumber": phoneNumber
             }),
         }).catch((error) => {
             console.error(error);

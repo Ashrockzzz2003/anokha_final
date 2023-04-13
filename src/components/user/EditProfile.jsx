@@ -6,55 +6,13 @@ import { useEffect } from "react";
 import { useAuth } from "../../auth/useAuth";
 import secureLocalStorage from "react-secure-storage";
 
-function CollegeList() {
-    /*
-          "collegeId": 1,
-          "collegeName": "Aazad College of Education (Id: C-39230)",
-          "district": "Prakasam",
-          "state": "Andhra Pradesh",
-          "country": "INDIA" 
-    */
-
-    const API_URL =
-        "http://52.66.236.118:3000/userWeb/getAllColleges";
-    const [colleges, setColleges] = useState([]);
-
-    const fetchCollegeData = async () => {
-        await
-            fetch(`${API_URL}`)
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    setColleges(data);
-                });
-    };
-
-    useEffect(() => {
-        fetchCollegeData();
-    }, []);
-
-    return (
-        <select className="w-full border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700">
-            <option default selected disabled className="text-center">Select your College</option>
-            {colleges.map((college) => {
-                return (
-                    <option key={college.collegeId} value={college.collegeId}>
-                        {college.collegeName}
-                    </option>
-                );
-            })}
-        </select>
-    );
-}
-
 export default function Register() {
     // Fetch Data
     const tempData = useState(secureLocalStorage.getItem("userData"));
     const data = JSON.parse(tempData[0])[0];
     const [name, setName] = React.useState(data.fullName);
     const [email, setEmail] = React.useState(data.userEmail);
-    const [phone, setPhone] = React.useState("");
+    const [phone, setPhone] = React.useState(data.phoneNumber);
     const [isAmrita, setIsAmrita] = React.useState(data.isAmritaCBE === 1 ? true : false);
 
     // Set isAmrita to true if the checkbox is checked
