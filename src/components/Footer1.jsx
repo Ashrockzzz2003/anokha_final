@@ -50,7 +50,7 @@ export default function Footer1() {
         <span className="copyright_text">Copyright &copy; Anokha 2023</span>
         <span>Made with <RiHeartFill color='red' className='inline' /> by WMD</span>
         <span className="policy_terms">
-          <a href="#">Terms & Condition</a>
+          <a href="#">Terms & Conditions</a>
         </span>
       </div>
     </div>

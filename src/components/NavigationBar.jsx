@@ -24,6 +24,7 @@ import { Link } from 'react-scroll';
 import { useAuth } from "../auth/useAuth";
 import secureLocalStorage from "react-secure-storage";
 import { MD5 } from "crypto-js";
+import "./styles/button.css";
 
 // profile menu component
 const profileMenuItems = [
@@ -133,65 +134,65 @@ const NavigationBar = () => {
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row items-center lg:gap-6">
       <Link to="about" smooth={true}>
-        <Button
+        <button
           variant="text"
-          className="text-gray-50 ml-auto mr-auto"
+          className="custom-button text-gray-50 ml-auto mr-auto"
         >
           <Typography className="flex items-center text-xl capitalize">
             About
           </Typography>
-        </Button>
+        </button>
       </Link>
       <Link to="eventide" smooth={true}>
-        <Button
+        <button
           variant="text"
-          className="text-gray-50 ml-auto mr-auto"
+          className="text-gray-50 custom-button ml-auto mr-auto"
         >
           <Typography className="flex items-center text-xl capitalize">
             Eventide
           </Typography>
-        </Button>
+        </button>
       </Link>
       <Link to="techfair" smooth={true}>
-        <Button
+        <button
           variant="text"
-          className="text-gray-50 ml-auto mr-auto"
+          className="text-gray-50 custom-button ml-auto mr-auto"
         >
           <Typography className="flex items-center text-xl capitalize">
             TechFair
           </Typography>
-        </Button>
+        </button>
       </Link>
       <Link to="gallery" smooth={true}>
-        <Button
+        <button
           variant="text"
-          className="text-gray-50 ml-auto mr-auto"
+          className="text-gray-50 custom-button ml-auto mr-auto"
         >
           <Typography className="flex items-center text-xl capitalize">
             Gallery
           </Typography>
-        </Button>
+        </button>
       </Link>
       <Link to="footer" smooth={true}>
-        <Button
+        <button
           variant="text"
-          className="text-gray-50 ml-auto mr-auto"
+          className="text-gray-50 custom-button ml-auto mr-auto"
         >
           <Typography className="flex items-center text-xl capitalize">
 
             Contact Us
           </Typography>
-        </Button>
+        </button>
       </Link>
       <a href="/events" >
-        <Button
+        <button
           variant="text"
-          className="text-gray-50 ml-auto mr-auto"
+          className="text-gray-50 custom-button ml-auto mr-auto"
         >
           <Typography className="flex items-center text-xl capitalize">
             Events & Workshops
           </Typography>
-        </Button>
+        </button>
       </a>
     </ul>
   );
