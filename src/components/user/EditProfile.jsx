@@ -1,10 +1,6 @@
 import * as React from "react";
 import anokha_circle from "../utils/anokha_circle.svg";
 import "../styles/form.css";
-import {
-    Checkbox,
-    Typography,
-} from "@material-tailwind/react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useAuth } from "../../auth/useAuth";

@@ -5,20 +5,9 @@ import {
   CardFooter,
   Typography,
   Button,
-  Tooltip,
-  IconButton,
 } from "@material-tailwind/react";
-import {
-  BanknotesIcon,
-  HeartIcon,
-  WifiIcon,
-  HomeIcon,
-  TvIcon,
-  FireIcon,
-} from "@heroicons/react/24/solid";
-import { useState } from "react";
 
-export default function Example({
+export default function Cards({
   key,
   title,
   imageUrl,

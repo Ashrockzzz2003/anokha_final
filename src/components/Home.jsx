@@ -108,8 +108,8 @@ const Home = () => {
           className="lg:m-16 mt-24 lg:ml-32 lg:w-fit lg:pr-6">
           <Typography
             variant="h1"
-            className="mb-2 text-black font-title text-center lg:text-left">
-            ABOUT
+            className="mb-2 text-black uppercase font-title text-center lg:text-left">
+            ABOUT ANOKHA
           </Typography>
           <Typography className="text-black text-xl text-center lg:text-justify">
           Anokha, the national techfest of Amrita Vishwa Vidyapeetham Coimbatore, is a 3-day congregation of some of the brightest minds in India. Founded in 2010, Anokha has grown by leaps and bounds and has progressed to become one of the leading techfests in India. Anokha has successfully completed eight editions and boasts an average annual participation of over 10,000 outstanding students from top-ranking engineering institutions in India like IITs, BITS, NITs and IIITs as well as partner universities in USA and Europe namely University of New Mexico, EVRY France and Uppsala University-Sweden.
@@ -157,7 +157,7 @@ const Home = () => {
             className="lg:mt-24 mt-24 mb-24 lg:ml-32 lg:w-fit lg:px-6">
             <Typography
               variant="h1"
-              className="mb-2 text-lime-50 font-title text-center lg:text-left">
+              className="mb-2 text-lime-50 uppercase font-title text-center lg:text-left">
               ABOUT Amrita
             </Typography>
             <Typography className="text-lime-50 text-xl text-center lg:text-justify">

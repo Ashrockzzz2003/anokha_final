@@ -1,4 +1,4 @@
-import { Typography, Button } from "@material-tailwind/react";
+import { Typography, Button, Chip } from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
 import RegisterMembers from "../events/RegisterMembers";
 import { useAuth } from "../../auth/useAuth";
@@ -61,15 +61,10 @@ const EventLanding = () => {
   // "timeStamp": "2023-04-04T10:51:47.000Z",
   // "refundable": 0,
   // "departmentAbbr": "DEP0"
+  // ? fees date time venue
 
   return (
     <div className="mt-16">
-      <Typography
-        variant="h1"
-        className="mb-2 pt-8 text-4xl md:text-6xl  lg:text-8xl text-lime-50 text-center"
-      >
-        About the Event
-      </Typography>
       <div className="flex justify-center">
         <div className="w-4/5">
           <div className="flex flex-wrap justify-center gap-8 items-center pt-5">
@@ -97,10 +92,17 @@ const EventLanding = () => {
                       }
 
                     </div>
-                    <div className="m-16 mt-24 lg:pl-24 lg:ml-16 lg:w-1/2">
+                    <div className="m-16 pt-28 lg:pl-24 lg:ml-16 lg:w-1/2">
                       <Typography variant="h1" className="mb-4 font-title uppercase tracking-wider text-khaki text-left">
-                        {event.eventName}
+                        {event.eventOrWorkshop === 1 ? "Event - " : "Workshop - "}
+                         {event.eventName}
                       </Typography>
+                      <div className="flex flex-wrap gap-4 pb-4">
+                        <Chip value={"Fees : " + event.fees} className="bg-khaki text-backgroundColor" />
+                        <Chip value={"Date : " + event.date} className="bg-khaki text-backgroundColor" />
+                        {/* <Chip value={"Time : " + event.eventTime} className="bg-khaki text-backgroundColor" />
+                        <Chip value={"Venue : " + event.venue} className="bg-khaki text-backgroundColor" /> */}
+                      </div>
                       {/* <Typography variant="h4" className="mb-16 text-khaki text-left">
                   Tagline
                 </Typography> */}
