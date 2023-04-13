@@ -39,6 +39,8 @@ const Events = () => {
     }
   }, [events, searchTerm]);
 
+  // store events in secureLocalStorage
+  secureLocalStorage.setItem("events", JSON.stringify(events));
   
   //fetch events from https://anokha.amrita.edu/api/userWeb/events/all api
   // https://anokha.amrita.edu/api/userWeb/events/all
