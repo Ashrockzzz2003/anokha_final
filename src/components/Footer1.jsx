@@ -47,10 +47,10 @@ export default function Footer1() {
     </div>
     <div className="bottom-details">
       <div className="bottom_text">
-        <span className="copyright_text">Copyright &copy; 2023 <a href="#">ASE.</a></span>
+        <span className="copyright_text">Copyright &copy; Anokha 2023</span>
         <span>Made with <RiHeartFill color='red' className='inline' /> by WMD</span>
         <span className="policy_terms">
-          <a href="#">Terms & condition</a>
+          <a href="#">Terms & Condition</a>
         </span>
       </div>
     </div>
