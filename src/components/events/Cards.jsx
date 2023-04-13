@@ -27,10 +27,10 @@ export default function Example({
   buttonLabel,
   linkTo,
 }) {
-  const [isBookmarked, setIsBookmarked] = useState(false);
-  const handleBookmarkClick = () => {
-    setIsBookmarked(!isBookmarked);
-  };
+  // const [isBookmarked, setIsBookmarked] = useState(false);
+  // const handleBookmarkClick = () => {
+  //   setIsBookmarked(!isBookmarked);
+  // };
 
   return (
     <Card className="w-full max-w-[26rem] shadow-lg">

@@ -17,7 +17,7 @@ export default function Footer1() {
           <a target="_blank" rel="noreferrer" href="https://www.instagram.com/anokhatechfest/"><RiInstagramFill size={50} /></a>
           <a target="_blank" rel="noreferrer" href="https://www.facebook.com/anokha.amrita/"><RiFacebookBoxFill size={50} /></a>
           <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/school/anokha-amrita/"><RiLinkedinBoxFill size={50} /></a>
-          <a target="_blank" rel="noreferrer" href="https://twitter.com/anokha_techfest"><FaTwitterSquare size={49} /></a>
+          <a target="_blank" rel="noreferrer" href="https://twitter.com/anokha_avvp_cbe"><FaTwitterSquare size={49} /></a>
           <a target="_blank" rel="noreferrer" href="https://www.youtube.com/@AnokhaTechfest"><RiYoutubeFill size={50} /></a>
         </div>
       </div>

@@ -107,7 +107,7 @@ export default function Register() {
                     <img
                         src={anokha_circle}
                         alt="Anokha circle"
-                        className="animate-spin h-24 mr-auto ml-auto mb-4"
+                        className="h-24 mr-auto ml-auto mb-4"
                     />
                     <h1 className="text-5xl font-semibold text-center">Edit Profile</h1>
                     <p className="font-medium text-lg text-gray-900 mt-4 text-center">

@@ -13,6 +13,8 @@ import React from "react";
 import anokha_circle from "../utils/anokha_circle.svg";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../auth/useAuth";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ForgotPassword() {
   const [email, setEmail] = React.useState("");
@@ -24,7 +26,7 @@ export default function ForgotPassword() {
 
   const handleOpen = () => {
     if (!isEmailValid) {
-      alert("Check your email again!");
+      toast.error("Invalid Email Entered!");
       return;
     };
     setOpen((cur) => !cur)
@@ -69,7 +71,7 @@ export default function ForgotPassword() {
           <img
             src={anokha_circle}
             alt="Anokha circle"
-            className="animate-spin h-24 mr-auto ml-auto mb-4"
+            className="h-24 mr-auto ml-auto mb-4"
           />
           <h1 className="text-5xl font-semibold text-center">
             Forgot Password
