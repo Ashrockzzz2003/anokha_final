@@ -21,6 +21,7 @@ export const PaymentStatus = () => {
                 <AiFillCheckCircle color="green" size={160} />
               </div>
               <Typography variant="h2" className="text-center justify-center">Payment Successful!</Typography>
+              <Typography>Please allow up to 15 minutes to receive confirmation of your payment! </Typography>
             </>
             :
             <>
@@ -33,7 +34,7 @@ export const PaymentStatus = () => {
 
 
 
-        <Link to={"/"}>
+        <Link to={"/"} className="flex justify-center">
           <Button
             className="rounded px-6 py-4"
             style={{ backgroundColor: "#00223a", color: "white", marginTop: "1rem" }}>
