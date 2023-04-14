@@ -175,7 +175,7 @@ export const useAuth = () => {
             window.location.href = `/verifyOtp/${responseData.SECRET_TOKEN}`;
         } catch (error) {
             if(error.response.status === 409) {
-                alert("User with this EmailID already exists. Try again.");
+                alert("User with this EmailID/ Phone Number already exists. Try again.");
                 return;
             }
             alert("Something went wrong. Please try again later.");
