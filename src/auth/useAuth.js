@@ -174,7 +174,10 @@ export const useAuth = () => {
 
             window.location.href = `/verifyOtp/${responseData.SECRET_TOKEN}`;
         } catch (error) {
-            console.error(error);
+            if(error.response.status === 409) {
+                alert("User with this EmailID already exists. Try again.");
+                return;
+            }
             alert("Something went wrong. Please try again later.");
         }
     }
@@ -204,7 +207,6 @@ export const useAuth = () => {
             alert("Invalid OTP. Try again.");
             return;
         }
-
         // secureLocalStorage.setItem("registerData", null);
         alert("Registration Successful. Proceed to Login.");
 

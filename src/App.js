@@ -19,6 +19,7 @@ import { useEffect } from 'react';
 import ForgotPassword from './components/user/ForgotPassword';
 import ResetPassword from './components/user/ChangePassword';
 import AmritaPassport from './components/events/AmritaPassport';
+import NotFoundPage from './components/404';
 
 function App() {
 
@@ -122,6 +123,9 @@ function App() {
           <NoAuth>
             <ResetPassword />
           </NoAuth>
+        } />
+        <Route path='*' element={
+          <NotFoundPage />
         } />
       </Routes>
     </BrowserRouter>
