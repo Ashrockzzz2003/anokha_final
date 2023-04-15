@@ -7,6 +7,9 @@ import secureLocalStorage from "react-secure-storage";
 import 'react-toastify/dist/ReactToastify.css';
 import { MdCurrencyRupee } from "react-icons/md";
 
+import ReactMarkdown from "react-markdown";
+import "../styles/markdown.css";
+
 const EventLanding = () => {
   const { eventId } = useParams();
 
@@ -68,59 +71,91 @@ const EventLanding = () => {
     <div className="mt-16">
       <div className="flex justify-center">
         <div className="w-4/5">
-          <div className="flex flex-wrap justify-center gap-8 items-center pt-5">
-            {events.length ? events.map((event) => (
-              <div>
-                {event.eventId === parseInt(eventId) ?
-                  <div className="w-full block items-center justify-center lg:flex lg:justify-center pb-32 pt-8">
-                    <div className="w-auto lg:pr-12">
-                      <img src={event.url} className="w-72 rounded-lg ml-auto mr-auto" alt="Event Pix" />
-                      {event.groupOrIndividual === 1 ?
-                        <div className="mt-4 w-fit ml-auto mr-auto">
-                          <RegisterMembers membercount={4} amount={500} buttonLabel={"Register with Members"} />
-                        </div>
-                        :
-                        <div className="mt-4 w-fit pt-4 ml-auto mr-auto">
-                          <Button
-                            variant="filled"
-                            className="bg-khaki text-backgroundColor"
-                            size="lg"
-                            onClick={handleRegsiter}
-                          >
-                            <span className="text-lg">Register</span>
-                          </Button>
-                        </div>
-                      }
-
-                    </div>
-                    <div className="m-16 pt-28 lg:pl-24 lg:ml-16 lg:w-1/2">
-                      <Typography variant="h1" className="mb-4 font-title uppercase tracking-wider text-khaki text-left">
-                        {event.eventOrWorkshop === 1 ? "Workshop - " : "Event - "}
-                         {event.eventName}
-                      </Typography>
-                      <div className="flex flex-wrap gap-4 pb-4">
-                        <Chip value={`Fees : ₹ ` + event.fees} className="bg-khaki text-backgroundColor" />
-                        <Chip value={"Date : " + event.date} className="bg-khaki text-backgroundColor" />
-                        {event.groupOrIndividual === 1 ? <Chip value={"Group Event"} className="bg-khaki text-backgroundColor" /> : <Chip value={"Individual Event"} className="bg-khaki text-backgroundColor" />}
-                        {/* <Chip value={"Time : " + event.eventTime} className="bg-khaki text-backgroundColor" />
-                        <Chip value={"Venue : " + event.venue} className="bg-khaki text-backgroundColor" /> */}
+          <div className="flex flex-wrap items-center justify-center gap-8 pt-5">
+            {events.length ? (
+              events.map((event) => (
+                <div>
+                  {event.eventId === parseInt(eventId) ? (
+                    <div className="items-center justify-center block w-full pt-8 pb-32 lg:flex lg:justify-center">
+                      <div className="w-auto lg:pr-12">
+                        <img
+                          src={event.url}
+                          className="ml-auto mr-auto rounded-lg w-72"
+                          alt="Event Pix"
+                        />
+                        {event.groupOrIndividual === 1 ? (
+                          <div className="mt-4 ml-auto mr-auto w-fit">
+                            <RegisterMembers
+                              membercount={4}
+                              amount={500}
+                              buttonLabel={"Register with Members"}
+                            />
+                          </div>
+                        ) : (
+                          <div className="pt-4 mt-4 ml-auto mr-auto w-fit">
+                            <Button
+                              variant="filled"
+                              className="bg-khaki text-backgroundColor"
+                              size="lg"
+                              onClick={handleRegsiter}
+                            >
+                              <span className="text-lg">Register</span>
+                            </Button>
+                          </div>
+                        )}
                       </div>
-                      {/* <Typography variant="h4" className="mb-16 text-khaki text-left">
+                      <div className="m-16 pt-28 lg:pl-24 lg:ml-16 lg:w-1/2">
+                        <Typography
+                          variant="h1"
+                          className="mb-4 tracking-wider text-left uppercase font-title text-khaki"
+                        >
+                          {event.eventOrWorkshop === 1
+                            ? "Workshop - "
+                            : "Event - "}
+                          {event.eventName}
+                        </Typography>
+                        <div className="flex flex-wrap gap-4 pb-4">
+                          <Chip
+                            value={`Fees : ₹ ` + event.fees}
+                            className="bg-khaki text-backgroundColor"
+                          />
+                          <Chip
+                            value={"Date : " + event.date}
+                            className="bg-khaki text-backgroundColor"
+                          />
+                          {event.groupOrIndividual === 1 ? (
+                            <Chip
+                              value={"Group Event"}
+                              className="bg-khaki text-backgroundColor"
+                            />
+                          ) : (
+                            <Chip
+                              value={"Individual Event"}
+                              className="bg-khaki text-backgroundColor"
+                            />
+                          )}
+                          {/* <Chip value={"Time : " + event.eventTime} className="bg-khaki text-backgroundColor" />
+                        <Chip value={"Venue : " + event.venue} className="bg-khaki text-backgroundColor" /> */}
+                        </div>
+                        {/* <Typography variant="h4" className="mb-16 text-left text-khaki">
                   Tagline
                 </Typography> */}
-                      <Typography className="mb-16 text-babyPowder text-left">
-                        {event.description}
-                      </Typography>
+                        <ReactMarkdown className="mb-16 text-left my-markdown text-babyPowder">
+                          {event.description}
+                        </ReactMarkdown>
+                      </div>
                     </div>
-                  </div>
-                  : null}
-              </div>
-            )) : <Typography
-              variant="h6"
-              className="mb-2 pt-8 text-lime-50 text-center"
-            >
-              No events found
-            </Typography>}
+                  ) : null}
+                </div>
+              ))
+            ) : (
+              <Typography
+                variant="h6"
+                className="pt-8 mb-2 text-center text-lime-50"
+              >
+                No events found
+              </Typography>
+            )}
           </div>
         </div>
       </div>
