@@ -65,7 +65,7 @@ const Home = () => {
       </div>
 
       <div
-        id="about"
+        id={"about"}
         className="w-full h-full lg:h-screen block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
         <table className="w-full mr-6" data-aos="fade-up-right">
           <tbody>
@@ -118,7 +118,7 @@ const Home = () => {
       </div>
 
       <div
-          id="aboutamrita"
+          id={"aboutamrita"}
           className="w-full h-full lg:min-h-screen block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16">
           <table className="w-full mr-6 px-6" data-aos="fade-up-right">
             <tbody>
@@ -181,7 +181,7 @@ const Home = () => {
         </div>
 
       <div
-        id="c20g20"
+        id={"c20g20"}
         className="w-full h-full lg:h-screen block bg-babyPowder items-center justify-center lg:flex lg:justify-around py-10 px-16">
         <div
           className=" flex justify-center lg:w-full"
@@ -209,7 +209,7 @@ const Home = () => {
       </div>
 
       <div
-          id="eventide"
+          id={"eventide"}
           className="w-full h-full lg:min-h-screen block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16">
           <table className="w-full mr-6" data-aos="fade-up-right">
             <tbody>
@@ -262,7 +262,7 @@ const Home = () => {
         </div>
 
       <div
-        id="techfair"
+        id={"techfair"}
         className="w-full h-full lg:h-screen block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16">
         <div
           className=" flex justify-center lg:w-full"
@@ -299,7 +299,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="container w-full lg:h-screen overflow-y-auto  no-scrollbar ml-auto mr-auto mt-24">
+      <div className="container w-full lg:h-screen overflow-y-auto  no-scrollbar ml-auto mr-auto mt-24" id="gallery">
           <Typography
             variant="h1"
             className="mb-16 text-khaki text-center font-title">
