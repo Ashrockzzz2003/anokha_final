@@ -16,6 +16,10 @@ const EventsRegistered = () => {
           description={event.description}
           tags={[event.fees, event.totalNumberOfSeats]}
           buttonLabel={"View Event"}
+          linkTo={`/events/${event.eventId}/about`}
+          fees={event.fees}
+          date={event.date}
+          departmentAbbr={event.departmentAbbr}
         />
       ))}
     </div>

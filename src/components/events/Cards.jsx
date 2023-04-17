@@ -5,6 +5,7 @@ import {
   CardFooter,
   Typography,
   Button,
+  Chip,
 } from "@material-tailwind/react";
 
 export default function Cards({
@@ -15,6 +16,10 @@ export default function Cards({
   tags,
   buttonLabel,
   linkTo,
+  fees,
+  date,
+  groupOrIndividual,
+  departmentAbbr
 }) {
   // const [isBookmarked, setIsBookmarked] = useState(false);
   // const handleBookmarkClick = () => {
@@ -50,6 +55,22 @@ export default function Cards({
           <Typography variant="h5" color="blue-gray" className="font-medium">
             {title}
           </Typography>
+        </div>
+        <div className="flex flex-wrap gap-4 pb-4">
+          <Chip
+            value={`Fees : ₹ ` + fees}
+            className="bg-khaki text-backgroundColor"
+          />
+          <Chip
+            value={date}
+            className="bg-khaki text-backgroundColor"
+          />
+          <Chip
+            value={departmentAbbr}
+            className="bg-khaki text-backgroundColor"
+          />
+          {/* <Chip value={"Time : " + event.eventTime} className="bg-khaki text-backgroundColor" />
+                        <Chip value={"Venue : " + event.venue} className="bg-khaki text-backgroundColor" /> */}
         </div>
         {/* <Typography color="gray">{description}</Typography> */}
         {/* <div className="group mt-8 inline-flex flex-wrap items-center gap-3">

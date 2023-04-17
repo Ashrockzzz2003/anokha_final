@@ -4,7 +4,6 @@ import { useAuth } from "../../auth/useAuth";
 import { useParams } from 'react-router-dom'
 import secureLocalStorage from "react-secure-storage";
 import 'react-toastify/dist/ReactToastify.css';
-import { MdCurrencyRupee } from "react-icons/md";
 
 import ReactMarkdown from "react-markdown";
 import "../styles/markdown.css";
@@ -66,6 +65,21 @@ const EventLanding = () => {
   // "departmentAbbr": "DEP0"
   // ? fees date time venue
 
+  const tempData = useState(secureLocalStorage.getItem("userEvents"));
+  const [data] = useState(JSON.parse(tempData[0]));
+  const [registered, setRegistered] = useState(false);
+
+  useEffect(() => {
+    if(data) {
+      data.forEach((event) => {
+        if (event.eventId === parseInt(eventId)) {
+          setRegistered(true);
+        }
+      })
+    }
+  })
+
+
   return (
     <div className="mt-16">
       <div className="flex justify-center">
@@ -82,17 +96,28 @@ const EventLanding = () => {
                           className="ml-auto mr-auto rounded-lg w-72"
                           alt="Event Pix"
                         />
-                          <div className="pt-4 mt-4 ml-auto mr-auto w-fit">
-                            <Button
+                        <div className="pt-4 mt-4 ml-auto mr-auto w-fit">
+                          {
+                            registered === true ? (<Button
                               variant="filled"
                               className="bg-khaki text-backgroundColor"
                               size="lg"
-                              onClick={handleRegsiter}
+                              disabled
                             >
-                              <span className="text-lg">Register</span>
-                            </Button>
-                          </div>
-                        
+                              <span className="text-lg">Registered</span>
+                            </Button>) : (
+                              <Button
+                                variant="filled"
+                                className="bg-khaki text-backgroundColor"
+                                size="lg"
+                                onClick={handleRegsiter}
+                              >
+                                <span className="text-lg">Register</span>
+                              </Button>
+                            )
+                          }
+                        </div>
+
                       </div>
                       <div className="m-16 pt-28 lg:pl-24 lg:ml-16 lg:w-1/2">
                         <Typography
@@ -148,8 +173,8 @@ const EventLanding = () => {
             )}
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
