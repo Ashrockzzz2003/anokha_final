@@ -21,8 +21,9 @@ export default function Register() {
     };
 
 
-    // Regular expression for name validation
-    const nameRegex = /.*/;
+    // Regular expression for name validation max 25 chars
+    const nameRegex = /^[a-zA-Z ]{1,25}$/;
+ 
 
     //Regular expression for phone number validation
     const phoneRegex = /^[0-9]{10}$/;

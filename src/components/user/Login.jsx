@@ -145,6 +145,13 @@ export default function Login() {
                 </Link>
               </p>
             </div>
+            <div className="mt-1 flex justify-center items-center">
+            <Link to="/">
+              <button className="ml-2 font-medium text-base text-backgroundColor">
+                Back To Home
+              </button>
+            </Link>
+          </div>
           </div>
         </div>
       </div>

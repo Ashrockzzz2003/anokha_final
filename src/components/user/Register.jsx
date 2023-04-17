@@ -42,7 +42,6 @@ export default function Register() {
   // Regular expression for password validation
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
-
   //Regular expression to check amrita mail 
   const amritaRegex = /^[a-zA-Z0-9._%+-]+@(cb\.students\.amrita\.edu|cb\.amrita\.edu)$/;
 
@@ -52,8 +51,8 @@ export default function Register() {
   //check if amrita mail or not
   const isAmritaMail = amritaRegex.test(email);
 
-  // Regular expression for name validation
-  const nameRegex = /^[a-zA-Z ]+$/;
+  // Regular expression for name validation max 25 chars
+  const nameRegex = /^[a-zA-Z ]{1,25}$/;
 
   // Check if password is valid
   const isPasswordValid = passwordRegex.test(password);
@@ -287,6 +286,13 @@ export default function Register() {
             <Link to="/login">
               <button className="ml-2 font-medium text-base text-backgroundColor underline">
                 Login
+              </button>
+            </Link>
+          </div>
+          <div className="mt-1 flex justify-center items-center">
+            <Link to="/">
+              <button className="ml-2 font-medium text-base text-backgroundColor underline">
+                Back To Home
               </button>
             </Link>
           </div>
