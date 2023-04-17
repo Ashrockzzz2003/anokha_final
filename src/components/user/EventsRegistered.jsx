@@ -20,6 +20,7 @@ const EventsRegistered = () => {
           fees={event.fees}
           date={event.date}
           departmentAbbr={event.departmentAbbr}
+          eventOrWorkshop={event.eventOrWorkshop}
         />
       ))}
     </div>

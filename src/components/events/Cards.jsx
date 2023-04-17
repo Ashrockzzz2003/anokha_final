@@ -19,7 +19,8 @@ export default function Cards({
   fees,
   date,
   groupOrIndividual,
-  departmentAbbr
+  departmentAbbr,
+  eventOrWorkshop
 }) {
   // const [isBookmarked, setIsBookmarked] = useState(false);
   // const handleBookmarkClick = () => {
@@ -56,21 +57,30 @@ export default function Cards({
             {title}
           </Typography>
         </div>
-        <div className="flex flex-wrap gap-4 pb-4">
+        <div className="flex flex-wrap gap-2 pb-4">
           <Chip
             value={`Fees : ₹ ` + fees}
-            className="bg-khaki text-backgroundColor"
+            className="bg-khaki text-backgroundColor hover:scale-105 hover:rounded-xl"
           />
+          {
+            eventOrWorkshop === 0? (<Chip
+              value={"EVENT"}
+              className="bg-khaki text-backgroundColor hover:scale-105 hover:rounded-xl"
+            />): (<Chip
+              value={"WORKSHOP"}
+              className="bg-khaki text-backgroundColor hover:scale-105 hover:rounded-xl"
+            />)
+          }
           <Chip
             value={date}
-            className="bg-khaki text-backgroundColor"
+            className="bg-khaki text-backgroundColor hover:scale-105 hover:rounded-xl"
           />
           <Chip
             value={departmentAbbr}
-            className="bg-khaki text-backgroundColor"
+            className="bg-khaki text-backgroundColor hover:scale-105 hover:rounded-xl"
           />
-          {/* <Chip value={"Time : " + event.eventTime} className="bg-khaki text-backgroundColor" />
-                        <Chip value={"Venue : " + event.venue} className="bg-khaki text-backgroundColor" /> */}
+          {/* <Chip value={"Time : " + event.eventTime} className="bg-khaki text-backgroundColor hover:scale-105 hover:rounded-xl" />
+                        <Chip value={"Venue : " + event.venue} className="bg-khaki text-backgroundColor hover:scale-105 hover:rounded-xl" /> */}
         </div>
         {/* <Typography color="gray">{description}</Typography> */}
         {/* <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
