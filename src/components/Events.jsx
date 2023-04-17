@@ -31,8 +31,53 @@ const Events = () => {
 
   const [filteredEvents, setFilteredEvents] = useState(events);
 
+  const departmentList = [
+    "All",
+    "Electrical and Electronics Engineering",
+    "Mechanical Engineering",
+    "Cyber Security",
+    "Mathematics",
+    "Electronics and Communication Engineering",
+    "Computer Science and Engineering",
+    "Social Work",
+    "Civil Engineering",
+    "Agriculture",
+    "English",
+    "Chemical Engineering",
+    "Aerospace Engineering",
+    "Computer Engineering and Networking",
+    "Team Media - Club",
+    "Amrita Centre for Entrepreneurship",
+    "Amrita School of Physical Sciences",
+    "Nivesha - Club",
+    "Amrita School of Communication"
+  ]
+
+  const departmentMap = {
+    "All": "All",
+    "Electrical and Electronics Engineering": "EEE",
+    "Mechanical Engineering": "MEE",
+    "Cyber Security": "CYS",
+    "Mathematics": "MATH",
+    "Electronics and Communication Engineering": "ECE",
+    "Computer Science and Engineering": "CSE",
+    "Social Work": "MSW",
+    "Civil Engineering": "CIE",
+    "Agriculture": "AGRI",
+    "English": "ENG",
+    "Chemical Engineering": "CHE",
+    "Aerospace Engineering": "AEE",
+    "Computer Engineering and Networking": "CEN",
+    "Team Media": "TM",
+    "Amrita Centre for Entrepreneurship": "ACE",
+    "Amrita School of Physical Sciences": "ASPS",
+    "Nivesha": "NIV",
+    "Amrita School of Communication": "ASCOM"
+  };
+
   useEffect(() => {
     if (events.length) {
+      console.log(events);
       setFilteredEvents(
         events.filter((event) =>
           (event.eventName
@@ -93,8 +138,8 @@ const Events = () => {
                 setGroupOrIndividual(value);
               }
             }} />
-            <SelectBox label={"Department"} options={["All", "EEE", "MEE", "CYS", "MATH", "ECE", "CSE", "MSW", "CIE", "AGRI", "ENG", "CHE", "AEE", "CEN", "TM", "ACE", "ASPS", "NIV", "ASCOM"]} onChange={(value) => {
-              setDepartmentAbbr(value);
+            <SelectBox label={"Department"} options={departmentList} onChange={(value) => {
+              setDepartmentAbbr(departmentMap[value]);
             }} />
           </div>
           <br />
