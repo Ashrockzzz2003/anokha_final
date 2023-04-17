@@ -3,7 +3,6 @@ import Searchbar from "./events/Searchbar";
 import Card from "./events/Cards";
 import { Typography } from "@material-tailwind/react";
 import SelectBox from "./events/Select";
-import { useAuth } from "../auth/useAuth";
 import secureLocalStorage from "react-secure-storage";
 
 const Events = () => {
@@ -70,7 +69,7 @@ const Events = () => {
             setSearchTerm(value);
           }} />
           <br />
-          <div className="block justify-center border-2 border-khaki lg:flex bg-babyPowder rounded-xl w-fit ml-auto mr-auto p-4">
+          <div className="block justify-center border-2 border-khaki lg:flex bg-babyPowder rounded-xl w-fit ml-auto mr-auto p-0 lg:p-4">
             <SelectBox label={"Starting Day"} options={["All", "27-APR-2023", "28-APR-2023", "29-APR-2023"]} onChange={(value) => {
               setSelectedOption(value)
             }} />
