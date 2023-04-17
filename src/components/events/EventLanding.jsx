@@ -1,6 +1,5 @@
 import { Typography, Button, Chip } from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
-import RegisterMembers from "../events/RegisterMembers";
 import { useAuth } from "../../auth/useAuth";
 import { useParams } from 'react-router-dom'
 import secureLocalStorage from "react-secure-storage";
@@ -83,15 +82,6 @@ const EventLanding = () => {
                           className="ml-auto mr-auto rounded-lg w-72"
                           alt="Event Pix"
                         />
-                        {event.groupOrIndividual === 1 ? (
-                          <div className="mt-4 ml-auto mr-auto w-fit">
-                            <RegisterMembers
-                              membercount={4}
-                              amount={500}
-                              buttonLabel={"Register with Members"}
-                            />
-                          </div>
-                        ) : (
                           <div className="pt-4 mt-4 ml-auto mr-auto w-fit">
                             <Button
                               variant="filled"
@@ -102,7 +92,7 @@ const EventLanding = () => {
                               <span className="text-lg">Register</span>
                             </Button>
                           </div>
-                        )}
+                        
                       </div>
                       <div className="m-16 pt-28 lg:pl-24 lg:ml-16 lg:w-1/2">
                         <Typography
