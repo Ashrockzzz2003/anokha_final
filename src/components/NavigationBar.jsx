@@ -126,69 +126,50 @@ const NavigationBar = () => {
   useEffect(() => {
     window.addEventListener(
       "resize",
-      () => window.innerWidth >= 1264 && setOpenNav(false)
+      () => window.innerWidth >= 1024 && setOpenNav(false)
     );
   }, []);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row items-center lg:gap-6">
+    <ul className="mb-4 mt-2 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row items-center">
       <a href="/#about">
-        <Button
-          variant="text"
-          className=" text-gray-50 ml-auto mr-auto"
-        >
-          <Typography className="flex items-center text-xl capitalize">
+        <Button variant="text" className=" text-gray-50 ml-auto mr-auto">
+          <Typography className="flex items-center capitalize">
             About
           </Typography>
         </Button>
       </a>
       <a href="/#eventide">
-        <Button
-          variant="text"
-          className="text-gray-50 ml-auto mr-auto"
-        >
-          <Typography className="flex items-center text-xl capitalize">
+        <Button variant="text" className="text-gray-50 ml-auto mr-auto">
+          <Typography className="flex items-center capitalize">
             Eventide
           </Typography>
         </Button>
       </a>
       <a href="/#techfair">
-        <Button
-          variant="text"
-          className="text-gray-50 ml-auto mr-auto"
-        >
-          <Typography className="flex items-center text-xl capitalize">
+        <Button variant="text" className="text-gray-50 ml-auto mr-auto">
+          <Typography className="flex items-center capitalize">
             TechFair
           </Typography>
         </Button>
       </a>
       <a href="/#gallery">
-        <Button
-          variant="text"
-          className="text-gray-50 ml-auto mr-auto"
-        >
-          <Typography className="flex items-center text-xl capitalize">
+        <Button variant="text" className="text-gray-50 ml-auto mr-auto">
+          <Typography className="flex items-center capitalize">
             Gallery
           </Typography>
         </Button>
       </a>
       <a href="/#footer">
-        <Button
-          variant="text"
-          className="text-gray-50 ml-auto mr-auto"
-        >
-          <Typography className="flex items-center text-xl capitalize">
-
+        <Button variant="text" className="text-gray-50 ml-auto mr-auto">
+          <Typography className="flex items-center capitalize">
             Contact Us
           </Typography>
         </Button>
       </a>
-      <a href="/events" >
-        <Button
-          variant="text"
-          className="text-gray-50 ml-auto mr-auto"
-        >
-          <Typography className="flex items-center text-xl capitalize">
+      <a href="/events">
+        <Button variant="text" className="text-gray-50 ml-auto mr-auto">
+          <Typography className="flex items-center capitalize">
             Events & Workshops
           </Typography>
         </Button>
@@ -200,7 +181,7 @@ const NavigationBar = () => {
     <Navbar className="fixed inset-0 z-10 h-fit max-w-full rounded-none lg:px-16 lg:py-2 bg-black bg-opacity-50 backdrop-blur-xl mb-3 border-b-1 border-t-0 border-r-0 border-l-0 border-none">
       <div className="flex items-center justify-between text-blue-black-900">
         <a href="/">
-          <img src={logo} alt="Anokha Logo" className="w-36" />
+          <img src={logo} alt="Anokha Logo" className="w-36 h-auto" />
         </a>
         <div className="flex items-center gap-4 md:gap-1">
           <div className="mr-4 hidden lg:block">{navList}</div>
