@@ -119,22 +119,6 @@ export default function Register() {
             Welcome! Please enter you details.
           </p>
           <form className="mt-8" onSubmit={handleSignUp}>
-            <div className="flex flex-col items-center mt-4">
-              <Checkbox
-                defaultChecked={isAmrita}
-                onChange={handleAmrita}
-                label={
-                  <Typography
-                    variant="small"
-                    color="gray"
-                    className="flex items-center font-normal">
-                    Amrita Coimbatore/Amaravati Student
-                  </Typography>
-                }
-                value={isAmrita}
-                containerProps={{ className: "-ml-2.5" }}
-              />
-            </div>
             <div className="flex flex-col mt-4">
               <label className="text-lg text-center font-medium">Name</label>
               <input
@@ -153,6 +137,22 @@ export default function Register() {
                   Invalid Name
                 </p>
               )}
+            </div>
+            <div className="flex flex-col items-center mt-4">
+              <Checkbox
+                defaultChecked={isAmrita}
+                onChange={handleAmrita}
+                label={
+                  <Typography
+                    variant="medium"
+                    color="black"
+                    className="flex items-center font-bold">
+                    Amrita Coimbatore/Amaravati Student
+                  </Typography>
+                }
+                value={isAmrita}
+                containerProps={{ className: "-ml-2.5" }}
+              />
             </div>
             <div className="flex flex-col mt-4">
               <label className="text-lg text-center font-medium">College Name</label>
