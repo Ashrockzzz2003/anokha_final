@@ -3,28 +3,40 @@ import anokha_circle from "../utils/anokha_circle.svg";
 import "../styles/form.css";
 
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useAuth } from "../../auth/useAuth";
-
-import { collegeData } from "../data"
+import { Checkbox, Typography } from "@material-tailwind/react";
 
 export default function Register() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
-  const [otp, setOtp] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
-  const [collegeId, setCollegeId] = React.useState(638);
-  const [colleges] = useState(collegeData);
+  const [collegeName, setCollegeName] = React.useState("Amrita Vishwa Vidyapeetham, Coimbatore");
+  const [isAmrita, setisAmrita] = React.useState(true);
 
   const { signUp } = useAuth();
 
   const handleSignUp = (e) => {
     e.preventDefault();
+    if(collegeName.includes("Amrita Vishwa Vidyapeetham, Coimbatore") && !isAmrita) {
+      alert("Please check the checkbox if you are an Amrita Coimbatore student");
+      return;
+    }
+    
+    if(collegeName.includes("Amrita Vishwa Vidyapeetham, Coimbatore") && !isAmritaMail) {
+      alert("Please enter your Amrita Coimbatore email");
+      return;
+    }
+
+    if(!collegeName.includes("Amrita Vishwa Vidyapeetham, Coimbatore") && isAmrita) {
+      alert("Please uncheck the checkbox if you are not an Amrita Coimbatore student");
+      return;
+    }
+
     signUp({
       "userEmail": email,
-      "collegeId": collegeId,
+      "collegeName": collegeName,
       "phoneNumber": phone,
       "fullName": name,
       "password": password
@@ -32,9 +44,15 @@ export default function Register() {
   };
 
   // Set isAmrita to true if the checkbox is checked
-  const handleSelect = (e) => {
-    setCollegeId(e.target.value);
-  }
+  const handleAmrita = (e) => {
+    setisAmrita(e.target.checked);
+    if(e.target.checked) {
+      setCollegeName("Amrita Vishwa Vidyapeetham, Coimbatore");
+    }
+    else {
+      setCollegeName("");
+    }
+  };
 
   // Regular expression for email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -54,6 +72,9 @@ export default function Register() {
   // Regular expression for name validation max 25 chars
   const nameRegex = /^[a-zA-Z ]{1,25}$/;
 
+  // Regular expression for college name validation max 100 chars
+  const collegeNameRegex = /^[a-zA-Z ,-]{1,100}$/;
+
   // Check if password is valid
   const isPasswordValid = passwordRegex.test(password);
 
@@ -68,6 +89,9 @@ export default function Register() {
 
   // Check if confirm password matches password
   const isConfirmPasswordValid = password === confirmPassword;
+
+  // Check if college name is valid
+  const isCollegeNameValid = collegeNameRegex.test(collegeName);
 
 
 
@@ -95,6 +119,23 @@ export default function Register() {
             Welcome! Please enter you details.
           </p>
           <form className="mt-8" onSubmit={handleSignUp}>
+          <div className="flex flex-col items-center mt-4">
+              <Checkbox
+                required
+                defaultChecked={isAmrita}
+                onChange={handleAmrita}
+                label={
+                  <Typography
+                    variant="small"
+                    color="gray"
+                    className="flex items-center font-normal">
+                    Amrita Coimbatore Student
+                  </Typography>
+                }
+                value={isAmrita}
+                containerProps={{ className: "-ml-2.5" }}
+              />
+            </div>
             <div className="flex flex-col">
               <label className="text-lg text-center font-medium">Name</label>
               <input
@@ -114,39 +155,32 @@ export default function Register() {
                 </p>
               )}
             </div>
-            {<div className="flex flex-col mt-4">
-              <label className="text-lg text-center font-medium">
-                Select Your College
-              </label>
-              <div className="text-center">
-                <select className="w-full border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" onChange={handleSelect}>
-                  <option default selected disabled className="text-center">Select your College</option>
-                  {colleges.map((college) => {
-                    if (college.collegeId === collegeId) {
-                      return (
-                        <option key={college.collegeId} value={college.collegeId} selected>
-                          {college.collegeName}
-                        </option>
-                      );
-                    }
-                    else {
-                      return (
-                        <option key={college.collegeId} value={college.collegeId}>
-                          {college.collegeName}
-                        </option>
-                      );
-                    }
-                  })}
-                </select>
-              </div>
-            </div>}
+            <div className="flex flex-col mt-4">
+              <label className="text-lg text-center font-medium">College Name</label>
+              <input
+                value={collegeName}
+                autoCapitalize="none"
+                onChange={(e) => setCollegeName(e.target.value)}
+                className={"w-full justify-center ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700"
+                  + (isCollegeNameValid || !collegeName
+                    ? "border-gray-400"
+                    : "border-red-500")}
+                text-center placeholder="Enter your Full Name"
+                required
+              />
+              {!isCollegeNameValid && collegeName && (
+                <p className="mt-2 text-sm text-red-500 text-center">
+                  Invalid College Name. Only letters, commas and hiphens are allowed.
+                </p>
+              )}
+            </div>
             <div className="flex text-center flex-col mt-4">
-              {[633, 638, 641, 645].includes(collegeId) ? (
+              {isAmrita ? (
                 <label className="text-lg font-medium">Amrita Email ID</label>
               ) : (
                 <label className="text-lg font-medium">Email</label>
               )}
-              {[633, 638, 641, 645].includes(collegeId) ? (
+              {isAmrita ? (
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -172,7 +206,7 @@ export default function Register() {
                 />
               )}
 
-              {[633, 638, 641, 645].includes(collegeId) ? (
+              {isAmrita ? (
                 !isAmritaMail && email && (
                   <p className="mt-2 text-sm text-red-500">
                     Invalid Amrita Email Address
@@ -255,7 +289,7 @@ export default function Register() {
             </div>
             <div className="mt-4 text-center">
               {
-                [633, 638, 641, 645].includes(collegeId) ? (
+                isAmrita ? (
                   <button
                     type="submit"
                     className={
@@ -281,6 +315,13 @@ export default function Register() {
               }
             </div>
           </form>
+          <div className="mt-8 flex text-center justify-center items-center">
+          <Link to="/AccommodationInfo">
+            <button className="ml-2 font-medium text-base text-center text-backgroundColor underline">
+              Click here to read about accommodation
+            </button>
+          </Link>
+          </div>
           <div className="mt-8 flex justify-center items-center">
             <p className="font-medium text-base">Already have an account?</p>
             <Link to="/login">

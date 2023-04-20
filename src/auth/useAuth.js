@@ -137,7 +137,7 @@ export const useAuth = () => {
         const password = data.password;
         const phone = data.phoneNumber;
         const fullName = data.fullName;
-        const collegeId = data.collegeId;
+        const collegeName = data.collegeName;
 
         const hashedPassword = SHA512(`${password}`).toString();
         
@@ -149,7 +149,7 @@ export const useAuth = () => {
 
         const userData = {
             "userEmail": userEmail,
-            "collegeId": collegeId,
+            "collegeName": collegeName,
             "phoneNumber": phone,
             "fullName": fullName,
             "password": hashedPassword,
