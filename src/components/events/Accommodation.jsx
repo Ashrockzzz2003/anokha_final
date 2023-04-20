@@ -7,7 +7,7 @@ const markdownContent = `
 
 * Accommodation for participants is available in the hostels, but there is limited availability.
 * Accommodation with minium facilities will be provided on a first-come, first-serve basis.
-* The accommodation charge is Rs. 200 per day.
+* The accommodation charge is **Rs. 200** per day.
 * Payment for accommodation must be made in cash at the registration counter.
 * Participants should ensure they receive a receipt for their payment.
 * The receipt should be presented at the designated hostels to secure accommodation.
