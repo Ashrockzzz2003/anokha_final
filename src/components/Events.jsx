@@ -112,60 +112,80 @@ const Events = () => {
       </Typography>
       <div className="flex justify-center">
         <div className="w-4/5 m-10">
-          <Searchbar onChange={(value) => {
-            setSearchTerm(value);
-          }} />
+          <Searchbar
+            onChange={(value) => {
+              setSearchTerm(value);
+            }}
+          />
           <br />
-          <div className="block justify-center border-2 border-khaki lg:flex bg-babyPowder rounded-xl w-fit ml-auto mr-auto p-0 lg:p-4">
-            <SelectBox label={"Starting Day"} options={["All", "27-APR-2023", "28-APR-2023", "29-APR-2023"]} onChange={(value) => {
-              setSelectedOption(value)
-            }} />
-            <SelectBox label={"Event/Workshop"} options={["All", "Event", "Workshop"]} onChange={(value) => {
-              if (value === "Event") {
-                setEventOrWorkshop(0);
-              } else if (value === "Workshop") {
-                setEventOrWorkshop(1);
-              }
-              else {
-                setEventOrWorkshop(value);
-              }
-            }} />
-            <SelectBox label={"Group/Individual"} options={["All", "Group", "Individual"]} onChange={(value) => {
-              if (value === "Group") {
-                setGroupOrIndividual(1);
-              } else if (value === "Individual") {
-                setGroupOrIndividual(0);
-              }
-              else {
-                setGroupOrIndividual(value);
-              }
-            }} />
-            <SelectBox label={"Department"} options={departmentList} onChange={(value) => {
-              setDepartmentAbbr(departmentMap[value]);
-            }} />
+          <div className="block justify-center border-2 border-khaki lg:flex bg-background rounded-xl w-fit ml-auto mr-auto p-0 lg:p-4">
+            <SelectBox
+              label={"Starting Day"}
+              options={["All", "27-APR-2023", "28-APR-2023", "29-APR-2023"]}
+              onChange={(value) => {
+                setSelectedOption(value);
+              }}
+            />
+            <SelectBox
+              label={"Event/Workshop"}
+              options={["All", "Event", "Workshop"]}
+              onChange={(value) => {
+                if (value === "Event") {
+                  setEventOrWorkshop(0);
+                } else if (value === "Workshop") {
+                  setEventOrWorkshop(1);
+                } else {
+                  setEventOrWorkshop(value);
+                }
+              }}
+            />
+            <SelectBox
+              label={"Group/Individual"}
+              options={["All", "Group", "Individual"]}
+              onChange={(value) => {
+                if (value === "Group") {
+                  setGroupOrIndividual(1);
+                } else if (value === "Individual") {
+                  setGroupOrIndividual(0);
+                } else {
+                  setGroupOrIndividual(value);
+                }
+              }}
+            />
+            <SelectBox
+              label={"Department"}
+              options={departmentList}
+              onChange={(value) => {
+                setDepartmentAbbr(departmentMap[value]);
+              }}
+            />
           </div>
           <br />
           <div className="flex flex-wrap justify-center gap-8 items-center pt-5">
-            {filteredEvents.length ? filteredEvents.map((event) => (
-              <Card
-                key={event.eventId}
-                title={event.eventName}
-                imageUrl={event.url}
-                description={event.description}
-                tags={[event.departmentAbbr, event.fees]}
-                fees={event.fees}
-                date={event.date}
-                departmentAbbr = {event.departmentAbbr}
-                eventOrWorkshop = {event.eventOrWorkshop}
-                buttonLabel={"Register"}
-                linkTo={`/events/${event.eventId}/about`}
-              />
-            )) : <Typography
-              variant="h6"
-              className="mb-2 pt-8 text-lime-50 text-center"
-            >
-              No events/workshops found
-            </Typography>}
+            {filteredEvents.length ? (
+              filteredEvents.map((event) => (
+                <Card
+                  key={event.eventId}
+                  title={event.eventName}
+                  imageUrl={event.url}
+                  description={event.description}
+                  tags={[event.departmentAbbr, event.fees]}
+                  fees={event.fees}
+                  date={event.date}
+                  departmentAbbr={event.departmentAbbr}
+                  eventOrWorkshop={event.eventOrWorkshop}
+                  buttonLabel={"Register"}
+                  linkTo={`/events/${event.eventId}/about`}
+                />
+              ))
+            ) : (
+              <Typography
+                variant="h6"
+                className="mb-2 pt-8 text-lime-50 text-center"
+              >
+                No events/workshops found
+              </Typography>
+            )}
           </div>
         </div>
       </div>

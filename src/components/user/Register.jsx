@@ -93,7 +93,7 @@ export default function Register() {
           />
           <h1 className="text-5xl font-semibold text-center">Register</h1>
           <p className="font-medium text-lg text-gray-900 mt-4 text-center">
-            Welcome! Please enter you details.
+            Welcome! Please enter your details.
           </p>
           <form className="mt-8" onSubmit={handleSignUp}>
             <div className="flex flex-col">
@@ -154,12 +154,12 @@ export default function Register() {
               </div>
             }
             <div className="flex text-center flex-col mt-4">
-              {[633, 638, 641, 645].includes(collegeId) ? (
-                <label className="text-lg font-medium">Amrita Email ID</label>
+              {[633, 638, 639, 641, 645].includes(collegeId) ? (
+                <label className="text-lg font-medium">Email (Amrita students use college email)</label>
               ) : (
-                <label className="text-lg font-medium">Email</label>
+                <label className="text-lg font-medium">Email (Amrita students use college email)</label>
               )}
-              {[633, 638, 641, 645].includes(collegeId) ? (
+              {[633, 638, 639, 641, 645].includes(collegeId) ? (
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
