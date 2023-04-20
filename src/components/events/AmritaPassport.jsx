@@ -40,7 +40,7 @@ const AmritaPassport = () => {
       </div>
       <div className="m-16 mt-24 lg:pl-24 lg:ml-16 lg:w-1/2">
         <Typography variant="h1" className="mb-4 font-title text-khaki text-left">
-          Passport - Your Visa into Anokha
+          Anokha Passport
         </Typography>
         
         <Typography

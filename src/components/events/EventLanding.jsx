@@ -93,7 +93,7 @@ const EventLanding = () => {
                       <div className="w-auto lg:pr-12">
                         <img
                           src={event.url}
-                          className="ml-auto mr-auto rounded-lg w-72"
+                          className="ml-auto mr-auto rounded-lg w-96"
                           alt="Event Pix"
                         />
                         <div className="pt-4 mt-4 ml-auto mr-auto w-fit">
