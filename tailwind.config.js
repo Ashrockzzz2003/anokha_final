@@ -13,6 +13,7 @@ module.exports = withMT({
       "chipBg" : "#9ff7b8",
       "chipText" : "#014012",
       "marqeeOrange": "#F79D1B",
+      "marqueeBg" : "#FFF1D0",
     },
     fontFamily: {
       sans: ["DM Sans", "sans-serif"],
@@ -24,6 +25,7 @@ module.exports = withMT({
         'khaki': '#beb7a4ff',
         'orange-wheel': '#ff7f11ff',
         'coquelicot': '#ff3f00ff'
+        
         }
       },
     },
