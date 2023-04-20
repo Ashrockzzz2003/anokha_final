@@ -46,7 +46,7 @@ export default function ConfirmPaymentPage() {
   };
 
   return (
-    <div className="md:h-screen h-full bg-babyPowder w-screen flex flex-col items-center justify-center px-4 py-12">
+    <div className="md:h-full h-full bg-babyPowder w-screen flex flex-col items-center justify-center px-4 py-12">
       <div className="flex  flex-col">
         <Typography variant="h2" className="text-center">
           Register for {isPassport === "true" ? "Passport" : "Event"}
@@ -55,70 +55,97 @@ export default function ConfirmPaymentPage() {
           Enter your details to register.
         </Typography>
       </div>
-      <form className="mt-8 pb-2 w-full flex flex-col justify-center ml-auto mr-auto max-w-screen-lg" onSubmit={handleConfirm}>
-        <div className="mb-4 flex text-center flex-col gap-2">
+      <form
+        className="mt-8 pb-2 w-full flex flex-col justify-center ml-auto mr-auto max-w-screen-lg"
+        onSubmit={handleConfirm}
+      >
+        <div className="mb-4 flex text-left flex-col gap-6">
           {/* <label>Order ID</label>
                                 <Input size="lg" label="OrderID" value={orderID} disabled /> */}
-          <label htmlFor="name">Name</label>
-          <Input
-            size="lg"
-            label="Full Name"
-            value={data.fullName}
-            disabled
-          />
+          <div>
+            <label htmlFor="name">Name</label>
+            <Input size="lg" label="Full Name" value={data.fullName} disabled />
+          </div>
 
-          <label htmlFor="email">Email ID</label>
-          <Input
-            size="lg"
-            label="Email"
-            type={"email"}
-            value={data.userEmail}
-            disabled
-          />
+          <div>
+            <label htmlFor="email">Email ID</label>
+            <Input
+              size="lg"
+              label="Email"
+              type={"email"}
+              value={data.userEmail}
+              disabled
+            />
+          </div>
+          <div>
+            <label htmlFor="phone">Phone Number</label>
+            <Input
+              
+              value={data.phoneNumber}
+              label="Phone Number"
+              type={"number"}
+              disabled
+            />
+          </div>
 
-          <label htmlFor="phone">Phone Number</label>
-          <Input
-                required
-                value={data.phoneNumber}
-                label="Phone Number"
-                type={"number"}
-                disabled
-              />
+          <div>
+            <label htmlFor="address">Address</label>
+            <Input
+              size="lg"
+              label="Address"
+              type={"text"}
+              onChange={(e) => setAddress(e.target.value)}
+              
+            />
+          </div>
 
-          <label htmlFor="address">Address</label>
-          <Input
-            size="lg"
-            label="Address"
-            type={"text"}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          />
+          <div>
+            <label htmlFor="city">City</label>
+            <Input
+              size="lg"
+              id="city"
+              label="City"
+              type={"text"}
+              onChange={(e) => setCity(e.target.value)}
+              
+            />
+          </div>
 
-          <label htmlFor="city">City</label>
-          <Input size="lg" id="city" label="City" type={"text"} onChange={(e) => setCity(e.target.value)} required />
+          <div>
+            <label htmlFor="state">State</label>
+            <Input
+              size="lg"
+              id="state"
+              label="State"
+              type={"text"}
+              onChange={(e) => setState(e.target.value)}
+              
+            />
+          </div>
 
-          <label htmlFor="state">State</label>
-          <Input size="lg" id="state" label="State" type={"text"} onChange={(e) => setState(e.target.value)} required />
+          <div>
+            <label htmlFor="country">Country</label>
+            <Input
+              size="lg"
+              label="Country"
+              type={"text"}
+              onChange={(e) => setCountry(e.target.value)}
+            
+            />
+          </div>
 
-          <label htmlFor="country">Country</label>
-          <Input
-            size="lg"
-            label="Country"
-            type={"text"}
-            onChange={(e) => setCountry(e.target.value)}
-            required
-          />
-
-          <label htmlFor="country">ZipCode</label>
-          <Input
-            size="lg"
-            label="ZipCode"
-            type={"number"}
-            maxLength="6"
-            minLength={"6"}
-            onChange={(e) => setZipCode(e.target.value)}
-            required
-          />
+          <div>
+            <label htmlFor="country">ZipCode</label>
+            <Input
+              size="lg"
+              label="ZipCode"
+              type={"number"}
+              maxLength="6"
+              minLength={"6"}
+              onChange={(e) => setZipCode(e.target.value)}
+         
+            />
+          </div>
         </div>
         <div className="w-fit ml-auto mr-auto">
           <Checkbox
@@ -127,11 +154,13 @@ export default function ConfirmPaymentPage() {
               <Typography
                 variant="small"
                 color="gray"
-                className="flex items-center font-normal">
+                className="flex items-center font-normal"
+              >
                 I agree the
                 <a
                   href="/terms-and-conditions"
-                  className="font-medium transition-colors hover:text-blue-500">
+                  className="font-medium transition-colors hover:text-blue-500"
+                >
                   &nbsp;Terms and Conditions
                 </a>
               </Typography>
@@ -145,7 +174,7 @@ export default function ConfirmPaymentPage() {
             color="red"
             className="mr-4"
             onClick={() => {
-              window.location.href = "/events"
+              window.location.href = "/events";
             }}
           >
             <span>Cancel</span>

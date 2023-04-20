@@ -50,8 +50,9 @@ const Events = () => {
     "Amrita Centre for Entrepreneurship",
     "Amrita School of Physical Sciences",
     "Nivesha - Club",
-    "Amrita School of Communication"
-  ]
+    "Department of Mass Communication",
+    "Elite Club - Club",
+  ];
 
   const departmentMap = {
     "All": "All",
@@ -72,7 +73,8 @@ const Events = () => {
     "Amrita Centre for Entrepreneurship": "ACE",
     "Amrita School of Physical Sciences": "ASPS",
     "Nivesha": "NIV",
-    "Amrita School of Communication": "ASCOM"
+    "Department of Mass Communication": "ASCOM",
+    "Elite Club": "ELITE",
   };
 
   useEffect(() => {

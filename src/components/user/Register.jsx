@@ -43,7 +43,8 @@ export default function Register() {
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
   //Regular expression to check amrita mail 
-  const amritaRegex = /^[a-zA-Z0-9._%+-]+@(cb\.students\.amrita\.edu|cb\.amrita\.edu)$/;
+  const amritaRegex =
+    /^[a-zA-Z0-9._%+-]+@(cb\.students\.amrita\.edu|cb\.amrita\.edu|av\.students\.amrita\.edu|av\.amrita\.edu)$/;
 
   // Check if email is valid
   const isEmailValid = emailRegex.test(email);
@@ -51,8 +52,8 @@ export default function Register() {
   //check if amrita mail or not
   const isAmritaMail = amritaRegex.test(email);
 
-  // Regular expression for name validation max 25 chars
-  const nameRegex = /^[a-zA-Z ]{1,25}$/;
+  // Regular expression for name validation max 50 chars
+  const nameRegex = /^[a-zA-Z ]{1,50}$/;
 
   // Check if password is valid
   const isPasswordValid = passwordRegex.test(password);
@@ -101,45 +102,57 @@ export default function Register() {
                 value={name}
                 autoCapitalize="none"
                 onChange={(e) => setName(e.target.value)}
-                className={"w-full justify-center ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700"
-                  + (isNameValid || !name
-                    ? "border-gray-400"
-                    : "border-red-500")}
-                text-center placeholder="Enter your Full Name"
+                className={
+                  "w-full justify-center ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                  (isNameValid || !name ? "border-gray-400" : "border-red-500")
+                }
+                text-center
+                placeholder="Enter your Full Name"
                 required
               />
               {!isNameValid && name && (
-                <p className="mt-2 text-sm text-red-500">
-                  Invalid Name
-                </p>
+                <p className="mt-2 text-sm text-red-500">Invalid Name</p>
               )}
             </div>
-            {<div className="flex flex-col mt-4">
-              <label className="text-lg text-center font-medium">
-                Select Your College
-              </label>
-              <div className="text-center">
-                <select className="w-full border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" onChange={handleSelect}>
-                  <option default selected disabled className="text-center">Select your College</option>
-                  {colleges.map((college) => {
-                    if (college.collegeId === collegeId) {
-                      return (
-                        <option key={college.collegeId} value={college.collegeId} selected>
-                          {college.collegeName}
-                        </option>
-                      );
-                    }
-                    else {
-                      return (
-                        <option key={college.collegeId} value={college.collegeId}>
-                          {college.collegeName}
-                        </option>
-                      );
-                    }
-                  })}
-                </select>
+            {
+              <div className="flex flex-col mt-4">
+                <label className="text-lg text-center font-medium">
+                  Select Your College
+                </label>
+                <div className="text-center">
+                  <select
+                    className="w-full border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700"
+                    onChange={handleSelect}
+                  >
+                    <option default selected disabled className="text-center">
+                      Select your College
+                    </option>
+                    {colleges.map((college) => {
+                      if (college.collegeId === collegeId) {
+                        return (
+                          <option
+                            key={college.collegeId}
+                            value={college.collegeId}
+                            selected
+                          >
+                            {college.collegeName}
+                          </option>
+                        );
+                      } else {
+                        return (
+                          <option
+                            key={college.collegeId}
+                            value={college.collegeId}
+                          >
+                            {college.collegeName}
+                          </option>
+                        );
+                      }
+                    })}
+                  </select>
+                </div>
               </div>
-            </div>}
+            }
             <div className="flex text-center flex-col mt-4">
               {[633, 638, 641, 645].includes(collegeId) ? (
                 <label className="text-lg font-medium">Amrita Email ID</label>
@@ -155,7 +168,9 @@ export default function Register() {
                     (isAmritaMail || !email
                       ? "border-gray-400"
                       : "border-red-500")
-                  } text-center placeholder="Enter your Amrita college Email-ID."
+                  }
+                  text-center
+                  placeholder="Enter your Amrita college Email-ID."
                   required
                 />
               ) : (
@@ -167,29 +182,32 @@ export default function Register() {
                     (isEmailValid || !email
                       ? "border-gray-400"
                       : "border-red-500")
-                  } text-center placeholder="Enter your college Email-ID."
+                  }
+                  text-center
+                  placeholder="Enter your college Email-ID."
                   required
                 />
               )}
 
-              {[633, 638, 641, 645].includes(collegeId) ? (
-                !isAmritaMail && email && (
-                  <p className="mt-2 text-sm text-red-500">
-                    Invalid Amrita Email Address
-                  </p>
-                )
-              ) : (
-                !isEmailValid && email && (
-                  <p className="mt-2 text-sm text-red-500">
-                    Invalid Email Address
-                  </p>
-                )
-              )}
-
+              {[633, 638, 639, 641, 645].includes(collegeId)
+                ? !isAmritaMail &&
+                  email && (
+                    <p className="mt-2 text-sm text-red-500">
+                      Invalid Amrita Email Address
+                    </p>
+                  )
+                : !isEmailValid &&
+                  email && (
+                    <p className="mt-2 text-sm text-red-500">
+                      Invalid Email Address
+                    </p>
+                  )}
             </div>
 
             <div className="flex text-center flex-col mt-4">
-              <label className="text-lg text-center font-medium">Phone Number</label>
+              <label className="text-lg text-center font-medium">
+                Phone Number
+              </label>
               <input
                 required
                 value={phone}
@@ -199,7 +217,9 @@ export default function Register() {
                   (isPhoneValid || !phone
                     ? "border-gray-400"
                     : "border-red-500")
-                } text-center placeholder="Enter Phone Number"
+                }
+                text-center
+                placeholder="Enter Phone Number"
                 type={"number"}
                 maxLength={10}
               />
@@ -210,9 +230,10 @@ export default function Register() {
               )}
             </div>
 
-
             <div className="flex flex-col mt-4">
-              <label className="text-lg text-center font-medium">Password</label>
+              <label className="text-lg text-center font-medium">
+                Password
+              </label>
               <input
                 required
                 value={password}
@@ -222,7 +243,9 @@ export default function Register() {
                   (isPasswordValid || !password
                     ? "border-gray-400"
                     : "border-red-500")
-                } text-center placeholder="Enter Password"
+                }
+                text-center
+                placeholder="Enter Password"
                 type={"password"}
               />
               {!isPasswordValid && password && (
@@ -234,17 +257,21 @@ export default function Register() {
               )}
             </div>
             <div className="flex flex-col mt-4">
-              <label className="text-lg text-center font-medium">Confirm Password</label>
+              <label className="text-lg text-center font-medium">
+                Confirm Password
+              </label>
               <input
                 required
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className={"w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
+                className={
+                  "w-full ml-auto mr-auto border-2 border-gray-700 rounded-xl p-4 mt-1 bg-transparent text-center placeholder:text-gray-700" +
                   (isConfirmPasswordValid || !confirmPassword
                     ? "border-gray-400"
                     : "border-red-500")
                 }
-                text-center placeholder="Enter Password again"
+                text-center
+                placeholder="Enter Password again"
                 type={"password"}
               />
               {!isConfirmPasswordValid && confirmPassword && (
@@ -254,20 +281,21 @@ export default function Register() {
               )}
             </div>
             <div className="mt-4 text-center">
-              {
-                [633, 638, 641, 645].includes(collegeId) ? (
-                  <button
-                    type="submit"
-                    className={
-                      "py-4 w-full rounded-md text-white font-medium " +
-                      (isAmritaMail && isPasswordValid
-                        ? "bg-backgroundColor"
-                        : "bg-gray-400 cursor-not-allowed")
-                    }
-                    disabled={!isAmritaMail || !isPasswordValid}>
-                    Register
-                  </button>
-                ) : (<button
+              {[633, 638, 641, 645].includes(collegeId) ? (
+                <button
+                  type="submit"
+                  className={
+                    "py-4 w-full rounded-md text-white font-medium " +
+                    (isAmritaMail && isPasswordValid
+                      ? "bg-backgroundColor"
+                      : "bg-gray-400 cursor-not-allowed")
+                  }
+                  disabled={!isAmritaMail || !isPasswordValid}
+                >
+                  Register
+                </button>
+              ) : (
+                <button
                   type="submit"
                   className={
                     "py-4 w-full rounded-md text-white font-medium " +
@@ -275,12 +303,20 @@ export default function Register() {
                       ? "bg-backgroundColor"
                       : "bg-gray-400 cursor-not-allowed")
                   }
-                  disabled={!isEmailValid || !isPasswordValid}>
+                  disabled={!isEmailValid || !isPasswordValid}
+                >
                   Register
-                </button>)
-              }
+                </button>
+              )}
             </div>
           </form>
+          <div className="mt-8 flex text-center justify-center items-center">
+          <Link to="/AccommodationInfo">
+            <button className="ml-2 font-medium text-base text-center text-backgroundColor underline">
+              Click here to read about accommodation
+            </button>
+          </Link>
+          </div>
           <div className="mt-8 flex justify-center items-center">
             <p className="font-medium text-base">Already have an account?</p>
             <Link to="/login">

@@ -161,7 +161,7 @@ const Home = () => {
               ABOUT Amrita
             </Typography>
             <Typography className="text-lime-50 text-xl text-center lg:text-justify">
-              Amrita Vishwa Vidyapeetham University's Coimbatore campus is a
+              Amrita Vishwa Vidyapeetham Coimbatore campus is a
               picturesque and serene educational institution located in the
               foothills of the Western Ghats. With state-of-the-art facilities
               and a commitment to academic excellence, the university offers a

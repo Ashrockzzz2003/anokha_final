@@ -57,7 +57,7 @@ export default function Cards({
             {title}
           </Typography>
         </div>
-        <div className="flex flex-wrap gap-2 pb-4">
+        <div className="flex flex-wrap gap-2 pb-2">
           <Chip
             value={`Fees : ₹ ` + fees}
             className="bg-khaki text-backgroundColor hover:scale-105 hover:rounded-xl"
@@ -116,7 +116,7 @@ export default function Cards({
           </Tooltip>
         </div> */}
       </CardBody>
-      <CardFooter className="pt-3">
+      <CardFooter className="pt-1">
         <a href={linkTo}>
           <Button size="lg" fullWidth={true}>
             {buttonLabel}
