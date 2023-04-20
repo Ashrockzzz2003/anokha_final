@@ -198,7 +198,7 @@ const Home = () => {
         id={"aboutamrita"}
         className="w-full h-full lg:min-h-screen block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16"
       >
-        <table className="w-full mr-6 px-6" data-aos="fade-up-right">
+        <table className="w-full mr-6" data-aos="fade-up-right">
           <tbody>
             <tr>
               <td>
@@ -228,6 +228,11 @@ const Home = () => {
                     className="card"
                     alt="Eventide"
                     src={require("./utils/AHK/AM 4.jpg")}
+                  ></img>
+                  <img
+                    className="card"
+                    alt="Eventide"
+                    src={require("./utils/AHK/AM 6.jpg")}
                   ></img>
                 </div>
               </td>

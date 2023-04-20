@@ -51,7 +51,7 @@ const Events = () => {
     "Amrita School of Physical Sciences",
     "Nivesha - Club",
     "Department of Mass Communication",
-    "Elite Club - Club",
+    "Elite Club",
   ];
 
   const departmentMap = {
@@ -69,10 +69,10 @@ const Events = () => {
     "Chemical Engineering": "CHE",
     "Aerospace Engineering": "AEE",
     "Computer Engineering and Networking": "CEN",
-    "Team Media": "TM",
+    "Team Media - Club": "TM",
     "Amrita Centre for Entrepreneurship": "ACE",
     "Amrita School of Physical Sciences": "ASPS",
-    "Nivesha": "NIV",
+    "Nivesha - Club": "NIV",
     "Department of Mass Communication": "ASCOM",
     "Elite Club": "ELITE",
   };

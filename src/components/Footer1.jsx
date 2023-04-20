@@ -1,5 +1,5 @@
 import React from 'react'
-import anokha_home_logo from './utils/anokha_home_logo.png'
+import anokha_home_logo from "./utils/amrita-c20-logo-white.png";
 import "./styles/footer.css"
 import { RiFacebookBoxFill, RiHeartFill, RiInstagramFill, RiLinkedinBoxFill, RiYoutubeFill, } from 'react-icons/ri'
 import { FaTwitterSquare } from 'react-icons/fa'
@@ -11,7 +11,7 @@ export default function Footer1() {
         <div className="top">
           <div className="logo-details">
             <i className="fab fa-slack"></i>
-            <img src={anokha_home_logo} className="max-w-xs" alt="logo"></img>
+            <img src={anokha_home_logo} className="max-w-[30rem]" alt="logo"></img>
           </div>
           <div className="media-icons">
             <a
