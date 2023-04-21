@@ -46,7 +46,7 @@ export default function ConfirmPaymentPage() {
   };
 
   return (
-      <div className="h-screen min-h-full overflow-auto bg-babyPowder w-screen flex flex-col items-center justify-center px-4 py-12">
+      <div className="bg-babyPowder w-screen h-auto flex flex-col items-center justify-center px-4 py-12">
         <div className="flex  flex-col">
           <Typography variant="h2" className="text-center">
             Register for {isPassport === "true" ? "Passport" : "Event"}
