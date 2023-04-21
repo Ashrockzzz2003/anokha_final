@@ -97,27 +97,35 @@ const EventLanding = () => {
                           alt="Event Pix"
                         />
                         <div className="pt-4 mt-4 ml-auto mr-auto w-fit">
-                          {
-                            registered === true ? (<Button
+                          {registered === true ? (
+                            <Button
                               variant="filled"
                               className="bg-khaki text-backgroundColor"
                               size="lg"
                               disabled
                             >
                               <span className="text-lg">Registered</span>
-                            </Button>) : (
-                              <Button
-                                variant="filled"
-                                className="bg-khaki text-backgroundColor"
-                                size="lg"
-                                onClick={handleRegsiter}
-                              >
-                                <span className="text-lg">Register</span>
-                              </Button>
-                            )
-                          }
+                            </Button>
+                          ) : (
+                            <Button
+                              variant="filled"
+                              className="bg-khaki text-backgroundColor"
+                              size="lg"
+                              onClick={handleRegsiter}
+                              disabled={
+                                event.noOfRegistrations >=
+                                event.totalNumberOfSeats
+                              }
+                            >
+                              <span className="text-lg">
+                                {event.noOfRegistrations >=
+                                event.totalNumberOfSeats
+                                  ? "Seats Full"
+                                  : "Register"}
+                              </span>
+                            </Button>
+                          )}
                         </div>
-
                       </div>
                       <div className="m-16 pt-28 lg:pl-24 lg:ml-16 lg:w-1/2">
                         <Typography
@@ -177,8 +185,8 @@ const EventLanding = () => {
             )}
           </div>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 };
 
