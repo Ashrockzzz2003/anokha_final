@@ -51,7 +51,9 @@ const Events = () => {
     "Amrita School of Physical Sciences",
     "Nivesha - Club",
     "Department of Mass Communication",
-    "Elite Club",
+    "Elite - Club",
+    "Department of Sciences",
+    "Corporate and Industry Relations"
   ];
 
   const departmentMap = {
@@ -74,12 +76,14 @@ const Events = () => {
     "Amrita School of Physical Sciences": "ASPS",
     "Nivesha - Club": "NIV",
     "Department of Mass Communication": "ASCOM",
-    "Elite Club": "ELITE",
+    "Elite - Club": "ELITE",
+    "Department of Sciences": "SCI",
+    "Corporate and Industry Relations": "CIR",
   };
 
   useEffect(() => {
     if (events.length) {
-      console.log(events);
+      // console.log(events);
       setFilteredEvents(
         events.filter((event) =>
           (event.eventName

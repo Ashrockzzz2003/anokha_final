@@ -131,11 +131,15 @@ const EventLanding = () => {
                         </Typography>
                         <div className="flex flex-wrap gap-4 pb-4">
                           <Chip
-                            value={`Fees : ₹ ` + event.fees}
+                            value={`Fees: ₹ ` + event.fees}
                             className="bg-khaki text-backgroundColor"
                           />
                           <Chip
-                            value={"Date : " + event.date}
+                            value={"Date: " + event.date}
+                            className="bg-khaki text-backgroundColor"
+                          />
+                          <Chip
+                            value={"Dept: " + event.departmentAbbr}
                             className="bg-khaki text-backgroundColor"
                           />
                           {event.groupOrIndividual === 1 ? (

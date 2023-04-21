@@ -118,7 +118,7 @@ export default function Cards({
       </CardBody>
       <CardFooter className="pt-1">
         <a href={linkTo}>
-          <Button size="lg" fullWidth={true}>
+          <Button size="lg" fullWidth={true} className="bg-backgroundColor">
             {buttonLabel}
           </Button>
         </a>
