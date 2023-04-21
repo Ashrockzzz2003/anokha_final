@@ -13,6 +13,11 @@ const markdownContent = `
 * The receipt should be presented at the designated hostels to secure accommodation.
 * Students from other Amrita campuses who are already availing hostel facilities in those campuses are exempt from paying the accommodation charge. The exemption will be verified through their college ID card.
 * Mess facility will not be available in the hostels. Participants can pay for their meals at the canteen or the food stalls available on campus.
+
+# Fill the form to book your accommodation:
+
+[Accomodation Details - Microsoft Forms](https://forms.office.com/r/PuZQbFEife)
+
 `;
 
 const Accommodation = () => {

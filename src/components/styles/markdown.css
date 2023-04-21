@@ -38,6 +38,12 @@
     margin-bottom: 0.5rem;
 }
 
+.my-markdown a{
+    color: yellow;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 /* table {
     border-collapse: collapse;
     width: 100%;
