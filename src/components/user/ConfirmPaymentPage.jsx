@@ -92,7 +92,7 @@ export default function ConfirmPaymentPage() {
             <label htmlFor="address">Address</label>
             <Input
               size="lg"
-              label="Address"
+              //label="Address"
               type={"text"}
               onChange={(e) => setAddress(e.target.value)}
               
@@ -104,7 +104,7 @@ export default function ConfirmPaymentPage() {
             <Input
               size="lg"
               id="city"
-              label="City"
+              //label="City"
               type={"text"}
               onChange={(e) => setCity(e.target.value)}
               
@@ -116,7 +116,7 @@ export default function ConfirmPaymentPage() {
             <Input
               size="lg"
               id="state"
-              label="State"
+              //label="State"
               type={"text"}
               onChange={(e) => setState(e.target.value)}
               
@@ -127,7 +127,7 @@ export default function ConfirmPaymentPage() {
             <label htmlFor="country">Country</label>
             <Input
               size="lg"
-              label="Country"
+              //label="Country"
               type={"text"}
               onChange={(e) => setCountry(e.target.value)}
             
@@ -138,7 +138,7 @@ export default function ConfirmPaymentPage() {
             <label htmlFor="country">ZipCode</label>
             <Input
               size="lg"
-              label="ZipCode"
+              //label="ZipCode"
               type={"number"}
               maxLength="6"
               minLength={"6"}
