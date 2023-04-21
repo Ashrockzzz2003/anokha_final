@@ -187,7 +187,7 @@ const Events = () => {
                 variant="h6"
                 className="mb-2 pt-8 text-lime-50 text-center"
               >
-                No events/workshops found
+                Loading...
               </Typography>
             )}
           </div>
