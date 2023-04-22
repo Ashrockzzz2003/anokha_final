@@ -7,7 +7,7 @@ import "../components/styles/home.css";
 import "../components/styles/gallery.css";
 import ab1 from "../components/utils/cbe campus.svg";
 import {Typography} from "@material-tailwind/react";
-import anokha_text from "../components/utils/anokha_text.svg";
+import anokha_text from "../components/utils/Anokha web hero.png";
 import Marquee from "react-fast-marquee";
 import AOS from "aos";
 import "aos/dist/aos.css";
