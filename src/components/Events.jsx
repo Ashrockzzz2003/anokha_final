@@ -59,17 +59,17 @@ useEffect(() => {
   ];
 
   const departmentMap = {
-    All: "All",
+    "All": "All",
     "Electrical and Electronics Engineering": "EEE",
     "Mechanical Engineering": "MEE",
     "Cyber Security": "CYS",
-    Mathematics: "MATH",
+    "Mathematics": "MATH",
     "Electronics and Communication Engineering": "ECE",
     "Computer Science and Engineering": "CSE",
     "Social Work": "MSW",
     "Civil Engineering": "CIE",
-    Agriculture: "AGRI",
-    English: "ENG",
+    "Agriculture": "AGRI",
+    "English": "ENG",
     "Chemical Engineering": "CHE",
     "Aerospace Engineering": "AEE",
     "Computer Engineering and Networking": "CEN",
