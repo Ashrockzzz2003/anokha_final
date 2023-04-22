@@ -16,11 +16,12 @@ const Events = () => {
 
   const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    fetch('https://anokha.amrita.edu/api/userWeb/events/all')
-      .then(response => response.json())
-      .then(data => setEvents(data));
-  }, []);
+useEffect(() => {
+  fetch("https://anokha.amrita.edu/api/userWeb/events/all")
+    .then((response) => response.json())
+    .then((data) => setEvents(data.reverse()));
+}, []);
+
 
   // const [events] = useState(JSON.parse(secureLocalStorage.getItem("events")));
   const [searchTerm, setSearchTerm] = useState("");
