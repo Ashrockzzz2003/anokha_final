@@ -72,7 +72,7 @@ const Events = () => {
     "Computer Engineering and Networking": "CEN",
     "Team Media - Club": "TM",
     "Amrita Centre for Entrepreneurship": "ACE",
-    "Department of Science": "ASPS",
+    "Department Of Science": "ASPS",
     "Nivesha - Club": "NIV",
     "Department of Mass Communication": "ASCOM",
     "Elite - Club": "ELITE",
