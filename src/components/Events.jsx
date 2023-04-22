@@ -52,7 +52,6 @@ const Events = () => {
     "Nivesha - Club",
     "Department of Mass Communication",
     "Elite - Club",
-    "Department of Sciences",
     "Corporate and Industry Relations"
   ];
 
@@ -77,7 +76,6 @@ const Events = () => {
     "Nivesha - Club": "NIV",
     "Department of Mass Communication": "ASCOM",
     "Elite - Club": "ELITE",
-    "Department of Sciences": "SCI",
     "Corporate and Industry Relations": "CIR",
   };
 
