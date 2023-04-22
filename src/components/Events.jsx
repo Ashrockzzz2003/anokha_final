@@ -81,7 +81,7 @@ useEffect(() => {
     "Elite - Club": "ELITE",
     "Corporate and Industry Relations": "CIR",
     "Eventide": "EVN",
-    "ATC": "Toastmasters - Club",
+    "Toastmasters - Club": "ATC",
   };
 
   useEffect(() => {
