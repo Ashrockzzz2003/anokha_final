@@ -53,7 +53,8 @@ useEffect(() => {
     "Nivesha - Club",
     "Department of Mass Communication",
     "Elite - Club",
-    "Corporate and Industry Relations"
+    "Corporate and Industry Relations",
+    "Eventide"
   ];
 
   const departmentMap = {
@@ -78,6 +79,7 @@ useEffect(() => {
     "Department of Mass Communication": "ASCOM",
     "Elite - Club": "ELITE",
     "Corporate and Industry Relations": "CIR",
+    "Eventide" : "EVN",
   };
 
   useEffect(() => {
