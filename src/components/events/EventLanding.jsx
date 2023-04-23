@@ -147,7 +147,11 @@ const EventLanding = () => {
                             className="bg-khaki text-backgroundColor"
                           />
                           <Chip
-                            value={"Dept: " + event.departmentAbbr}
+                            value={"Time: " + event.eventTime}
+                            className="bg-khaki text-backgroundColor"
+                          />
+                          <Chip
+                            value={"Venue: " + event.venue}
                             className="bg-khaki text-backgroundColor"
                           />
                           {event.groupOrIndividual === 1 ? (
