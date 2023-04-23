@@ -99,7 +99,7 @@ export default function Footer1() {
             Made with <RiHeartFill color="red" className="inline" /> by WMD
           </span>
           <span className="policy_terms">
-            <a href="#">Terms & Conditions</a>
+            <a href="/#">Terms & Conditions</a>
           </span>
         </div>
       </div>

@@ -109,9 +109,17 @@ export const useAuth = () => {
                 "phoneNumber": phoneNumber
             }),
         }).catch((error) => {
-            console.error(error);
+            if(error.response.status === 409) {
+                alert("User with this Phone Number already exists. Try again.");
+                return;
+            }
             alert("Something went wrong. Please try again later.");
-        });;
+        });
+
+        if(response.status === 409) {
+            alert("User with this Phone Number already exists. Try again.");
+            return;
+        }
 
         if (response.status === 401) {
             alert("Session Expired. Logging you out. Try again.");

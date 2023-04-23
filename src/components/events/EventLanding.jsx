@@ -180,7 +180,7 @@ const EventLanding = () => {
                 variant="h6"
                 className="pt-8 mb-2 text-center text-lime-50"
               >
-                No events found
+                Loading...
               </Typography>
             )}
           </div>
