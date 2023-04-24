@@ -120,7 +120,7 @@ const EventLanding = () => {
                               <span className="text-lg">
                                 {event.noOfRegistrations >=
                                 event.totalNumberOfSeats
-                                  ? "Seats Full"
+                                  ? "Registrations Closed"
                                   : "Register"}
                               </span>
                             </Button>
