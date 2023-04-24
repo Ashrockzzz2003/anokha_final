@@ -11,7 +11,11 @@ export default function Footer1() {
         <div className="top">
           <div className="logo-details">
             <i className="fab fa-slack"></i>
-            <img src={anokha_home_logo} className="max-w-[30rem]" alt="logo"></img>
+            <img
+              src={anokha_home_logo}
+              className="max-w-[30rem]"
+              alt="logo"
+            ></img>
           </div>
           <div className="media-icons">
             <a
@@ -88,6 +92,10 @@ export default function Footer1() {
             <li className="link_name">Contact Us</li>
             <li>
               <a href="mailto:anokhapr@cb.amrita.edu">anokhapr@cb.amrita.edu</a>
+              <br />
+              <a href="mailto:anokhasupport@cb.amrita.edu">
+                anokhasupport@cb.amrita.edu
+              </a>
             </li>
           </ul>
         </div>
