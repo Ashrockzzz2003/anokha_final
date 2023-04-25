@@ -312,7 +312,7 @@ const Home = () => {
         id={"eventide"}
         className="w-full h-full lg:min-h-screen block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16"
       >
-        
+
         <table className="w-full mr-6" data-aos="fade-up-right">
           <tbody>
             <tr>
@@ -412,17 +412,7 @@ const Home = () => {
             TECHFAIR
           </Typography>
           <Typography className="text-lg font-normal text-backgroundColor text-center lg:text-justify">
-            Anokha, the national engineering techfest of Amrita School of
-            Engineering, Coimbatore, is a 3-day congregation of some of the
-            brightest minds in India. Founded in 2010, Anokha has grown by leaps
-            and bounds and has progressed to become one of the most popular and
-            top techfests in India. Having successfully completed eight
-            editions, Anokha has had an average annual participation of over
-            10,000 of the best undergraduate engineering students from
-            top-ranking engineering institutions in India like IITs, BITS, NITs
-            and IIITs participating as well as partner universities in USA and
-            Europe like University of New Mexico, EVRY France and Uppsala
-            University-Sweden.
+            Techfair brings students from different universities across the country and gives them an opportunity to showcase their novelty to industrialists and resource persons. One of the best platforms to exhibit talent and innovation, this extravagant showcase brought together under a single roof not only helps students showcase their talent, but also acts as a fantastic opportunity to learn & grow.
           </Typography>
         </div>
       </div>
@@ -501,9 +491,9 @@ const Home = () => {
             Anokha'23 App
           </Typography>
           <Typography className="text-xl font-normal text-backgroundColor text-center lg:text-justify pt-8 pb-8">
-          The team behind Anokha'23 is beyond thrilled to unveil our official app, a seamless platform to access all the information you need in just a few taps.
-          The app will act as a one-stop shop for anything and everything Anokha. Stay up-to-date with all the latest information about the fest, including the schedule, venue, and event details. You can also register for various events and receive real-time notifications and updates.
-          So don't miss out! Download the Anokha app now and get ready to unlock a world of tech and innovation!
+            The team behind Anokha'23 is beyond thrilled to unveil our official app, a seamless platform to access all the information you need in just a few taps.
+            The app will act as a one-stop shop for anything and everything Anokha. Stay up-to-date with all the latest information about the fest, including the schedule, venue, and event details. You can also register for various events and receive real-time notifications and updates.
+            So don't miss out! Download the Anokha app now and get ready to unlock a world of tech and innovation!
           </Typography>
           <div className="w-fit ml-auto mr-auto">
             <a href='https://play.google.com/store/apps/details?id=com.vaisakhkrishnank.anokha_home&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target={"_blank"} rel={"noreferrer"}><img alt='Get it on Google Play' className="w-64" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
