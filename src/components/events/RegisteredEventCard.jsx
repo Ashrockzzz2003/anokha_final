@@ -22,7 +22,7 @@ export default function RCard({
     return (
         <Card className="w-full max-w-[26rem] shadow-lg">
             <CardHeader floated={false} color="blue-gray">
-                <QRCode title="Passport QR" value={qrlink} size={50} level="L" className="w-full h-full" />
+                <QRCode title={`${title} QR Code`} value={qrlink} size={50} level="L" className="w-full h-full" />
             </CardHeader>
             <CardBody>
                 <div className="mb-3 flex items-center justify-between">

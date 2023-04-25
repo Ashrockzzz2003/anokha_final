@@ -22,7 +22,7 @@ const Profile = () => {
         variant="h6"
         className="mb-2 text-red-100 text-center"
       >
-        Show the QRCode for the event for entry.
+        Show the QRCode of the respective event for entry.
       </Typography>
       <EventsRegistered userEmail={tempData.userEmail} />
     </div>
