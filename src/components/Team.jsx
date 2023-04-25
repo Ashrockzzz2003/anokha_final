@@ -3,25 +3,9 @@ import {
     Card,
     CardBody,
 } from "@material-tailwind/react";
+import { useEffect, useState } from "react";
 import dallas from "./utils/circle_selected.svg";
 
-const TeamData = [
-    {
-        "teamName": "Web Multimedia Documentation",
-        "member": [
-            {
-                "crewEmail": "kvaisakhkrishnan@gmail.com",
-                "name": "Vaisakh",
-                "departmentabbr": "CSE",
-                "role": "DEV",
-                "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTknXbkLYB2g6Mc2VYyimli0ZfWD8pbB1DpTA&usqp=CAU",
-                "departmentname": "Computer Science and Engineering",
-                "teamId": 1,
-                "teamName": "Web Multimedia Documentation"
-            }
-        ]
-    }
-]
 
 function TeamCard({ image_url, name, role, departmentname }) {
     return (
@@ -43,6 +27,14 @@ function TeamCard({ image_url, name, role, departmentname }) {
 }
 
 export default function Team() {
+    const [TeamData, setTeamData] = useState([]);
+
+    useEffect(() => {
+        fetch("https://anokha.amrita.edu/api/userWeb/getCrew")
+            .then((response) => response.json())
+            .then((data) => setTeamData(data));
+    }, []);
+
     return (
         <div className="mt-16">
             <Typography
@@ -53,8 +45,7 @@ export default function Team() {
             </Typography>
             <div className="block justify-center">
                 {
-                    TeamData.map((team) => {
-                        console.log(team)
+                    TeamData.length ? (TeamData.map((team) => {
                         return (
                             <div className="flex flex-col items-center">
                                 <div className="flex flex-row gap-3">
@@ -72,7 +63,7 @@ export default function Team() {
                                                 key={teamMember.crewEmail}
                                                 image_url={teamMember.url}
                                                 name={teamMember.name}
-                                                departmentname = {teamMember.departmentname}
+                                                departmentname={teamMember.departmentname}
                                                 role={teamMember.role}
                                             />
                                         ))
@@ -80,7 +71,14 @@ export default function Team() {
                                 </div>
                             </div>
                         )
-                    })
+                    })) : (
+                        <Typography
+                            variant="h6"
+                            className="mb-2 text-red-100 text-center"
+                        >
+                            Coming soon...
+                        </Typography>
+                    )
                 }
             </div>
         </div>
