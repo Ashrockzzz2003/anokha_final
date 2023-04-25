@@ -490,24 +490,24 @@ const Home = () => {
         className="w-full h-full block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16"
         id="app"
       >
+        <div className="lg:w-1/2 mt-4" data-aos="fade-up">
+          <img src={anokha_app} className="w-[280px] ml-auto mr-auto" alt="App Anokha" />
+        </div>
         <div className="lg:w-1/2" data-aos="fade-up">
           <Typography
             variant="h1"
-            className="mb-8 text-backgroundColor text-center font-title"
+            className="mb-8 text-backgroundColor text-center lg:text-left font-title"
           >
             Anokha'23 App
           </Typography>
           <Typography className="text-xl font-normal text-backgroundColor text-center lg:text-justify pt-8 pb-8">
-          The team behind Anokha'23 is beyond thrilled to unveil our official app, a seamless platform to access all the information you need in just a few taps.<br /><br />
-          The app will act as a one-stop shop for anything and everything Anokha. Stay up-to-date with all the latest information about the fest, including the schedule, venue, and event details. You can also register for various events and receive real-time notifications and updates. <br /><br />
+          The team behind Anokha'23 is beyond thrilled to unveil our official app, a seamless platform to access all the information you need in just a few taps.
+          The app will act as a one-stop shop for anything and everything Anokha. Stay up-to-date with all the latest information about the fest, including the schedule, venue, and event details. You can also register for various events and receive real-time notifications and updates.
           So don't miss out! Download the Anokha app now and get ready to unlock a world of tech and innovation!
           </Typography>
           <div className="w-fit ml-auto mr-auto">
             <a href='https://play.google.com/store/apps/details?id=com.vaisakhkrishnank.anokha_home&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target={"_blank"} rel={"noreferrer"}><img alt='Get it on Google Play' className="w-64" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
           </div>
-        </div>
-        <div className="lg:w-1/2 mt-4" data-aos="fade-up">
-          <img src={anokha_app} className="w-[280px] ml-auto mr-auto" alt="App Anokha" />
         </div>
       </div>
     </div>
