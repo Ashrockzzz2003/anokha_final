@@ -95,7 +95,7 @@ useEffect(() => {
           && (event.date.toUpperCase() === selectedOption?.toString().toUpperCase() || selectedOption === "All" || selectedOption === "")
           && (event.eventOrWorkshop === eventOrWorkshop || eventOrWorkshop === "All" || eventOrWorkshop === "")
           && (event.groupOrIndividual === groupOrIndividual || groupOrIndividual === "All" || groupOrIndividual === "")
-          && (event.departmentAbbr.toUpperCase() === departmentAbbr?.toString().toUpperCase() || departmentAbbr === "All" || departmentAbbr === "")
+          && (event.departmentAbbr.toUpperCase() === departmentAbbr?.toString().toUpperCase() || departmentAbbr === "All" || departmentAbbr === "") && (event.totalNumberOfSeats - event.noOfRegistrations > 0)
         )
       );
     }

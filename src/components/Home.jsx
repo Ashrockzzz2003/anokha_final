@@ -6,7 +6,7 @@ import jaj from "../components/utils/jaj.jpg";
 import "../components/styles/home.css";
 import "../components/styles/gallery.css";
 import ab1 from "../components/utils/cbe campus.svg";
-import {Typography} from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
 import anokha_text from "../components/utils/Anokha web hero.png";
 import Marquee from "react-fast-marquee";
 import AOS from "aos";
@@ -20,6 +20,7 @@ import photo6 from "./utils/AHK/Gallery/6.jpeg";
 import photo7 from "./utils/AHK/Gallery/7.jpeg";
 import photo8 from "./utils/AHK/Gallery/8.jpeg";
 import photo9 from "./utils/AHK/Gallery/9.jpeg";
+import anokha_app from "./utils/anokha_app.png";
 
 const Home = () => {
   React.useEffect(() => {
@@ -311,6 +312,7 @@ const Home = () => {
         id={"eventide"}
         className="w-full h-full lg:min-h-screen block items-center justify-center lg:flex lg:justify-evenly pt-10 pb-10 mb-32 px-16"
       >
+        
         <table className="w-full mr-6" data-aos="fade-up-right">
           <tbody>
             <tr>
@@ -481,6 +483,29 @@ const Home = () => {
               <img src={photo9} alt="gallery" />
             </figure>
           </div>
+        </div>
+      </div>
+
+      <div
+        className="w-full h-full block bg-babyPowder items-center justify-center lg:flex lg:justify-around pt-10 pb-10 px-16"
+        id="app"
+      >
+        <div className="lg:w-1/2">
+          <Typography
+            variant="h1"
+            className="mb-8 text-backgroundColor text-center font-title"
+          >
+            Anokha'23 App
+          </Typography>
+          <Typography className="text-xl font-normal text-backgroundColor text-center lg:text-justify pt-8 pb-8">
+            Elevate your Anokha experience with the <b>Anokha'23</b> App! Stay connected, register for events, and receive updates all in one place. Download now from the Play Store to elevate your experience and make the most of this exciting event.
+          </Typography>
+          <div className="w-fit ml-auto mr-auto">
+            <a href='https://play.google.com/store/apps/details?id=com.vaisakhkrishnank.anokha_home&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target={"_blank"} rel={"noreferrer"}><img alt='Get it on Google Play' className="w-64" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
+          </div>
+        </div>
+        <div className="lg:w-1/2 mt-4">
+          <img src={anokha_app} className="w-[280px] ml-auto mr-auto" alt="App Anokha" />
         </div>
       </div>
     </div>
