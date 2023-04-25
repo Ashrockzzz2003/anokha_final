@@ -22,6 +22,7 @@ import AmritaPassport from "./components/events/AmritaPassport";
 import NotFoundPage from "./components/404";
 import Accommodation from "./components/events/Accommodation";
 import TermsAndCond from "./components/events/TermsAndCond";
+// import Team from "./components/Team";
 
 function App() {
   const { fetchEvents } = useAuth();
@@ -167,29 +168,29 @@ function App() {
           path="/AccommodationInfo"
           element={
             <>
-                <NavigationBar />
-                <br></br>
-                <br></br>
-                <br></br>
-                <Accommodation />
-                <Footer1 />
+              <NavigationBar />
+              <br></br>
+              <br></br>
+              <br></br>
+              <Accommodation />
+              <Footer1 />
             </>
           }
         />
-                <Route
+        <Route
           path="/Terms"
           element={
             <NoAuth>
-                <NavigationBar />
-                <br></br>
-                <br></br>
-                <br></br>
-                <TermsAndCond />
-                <Footer1 />
+              <NavigationBar />
+              <br></br>
+              <br></br>
+              <br></br>
+              <TermsAndCond />
+              <Footer1 />
             </NoAuth>
           }
         />
-
+        {/* <Route path="/team" element={<Team />} /> */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

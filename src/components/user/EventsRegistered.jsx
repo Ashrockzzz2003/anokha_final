@@ -1,9 +1,9 @@
 import { Typography } from "@material-tailwind/react";
 import React, { useState } from "react";
 import secureLocalStorage from "react-secure-storage";
-import Card from "../events/Cards";
+import RCard from "../events/RegisteredEventCard";
 
-const EventsRegistered = () => {
+const EventsRegistered = ({userEmail}) => {
   const tempData = useState(secureLocalStorage.getItem("userEvents"));
   const [data] = useState(JSON.parse(tempData[0]));
 
@@ -12,7 +12,7 @@ const EventsRegistered = () => {
       {
         data.length ? (
           data.map((event) => (
-            <Card
+            <RCard
               key={event.eventId}
               title={event.eventName}
               imageUrl={event.url}
@@ -24,6 +24,7 @@ const EventsRegistered = () => {
               date={event.date}
               departmentAbbr={event.departmentAbbr}
               eventOrWorkshop={event.eventOrWorkshop}
+              qrlink={`http://${userEmail}/${event.eventId}`}
             />
           ))
         ) : (
