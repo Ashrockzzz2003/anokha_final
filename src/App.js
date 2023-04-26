@@ -190,7 +190,13 @@ function App() {
             </NoAuth>
           }
         />
-        {/* <Route path="/team" element={<Team />} /> */}
+        {/* <Route path="/team" element={
+          <>
+            <NavigationBar />
+            <Team />
+            <Footer1 />
+          </>
+        } /> */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

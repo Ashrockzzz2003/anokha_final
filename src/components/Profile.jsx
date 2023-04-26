@@ -22,7 +22,8 @@ const Profile = () => {
         variant="h6"
         className="mb-2 text-red-100 text-center"
       >
-        Show the QRCode of the respective event for entry.
+        Show the QRCode of the respective event for entry.<br />
+        If you have registered for an event and it's not shown here, please logout and login again after 5 minutes to see the event here.
       </Typography>
       <EventsRegistered userEmail={tempData.userEmail} />
     </div>

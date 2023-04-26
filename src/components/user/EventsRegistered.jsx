@@ -8,7 +8,7 @@ const EventsRegistered = ({userEmail}) => {
   const [data] = useState(JSON.parse(tempData[0]));
 
   return (
-    <div className="flex flex-wrap justify-center items-start gap-8 py-8">
+    <div className="flex justify-center gap-8 items-center pt-5">
       {
         data.length ? (
           data.map((event) => (
@@ -32,8 +32,7 @@ const EventsRegistered = ({userEmail}) => {
                 variant="h6"
                 className="mb-2 text-red-100 text-center"
               >
-                You have not registered for any events yet.<br />
-                If you have registered for an event and it's not shown here, please logout and login again after 5 minutes to see the event here.
+                You have not registered for any events yet.
               </Typography>
         )
       }
