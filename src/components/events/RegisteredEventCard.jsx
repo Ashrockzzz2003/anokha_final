@@ -20,7 +20,7 @@ export default function RCard({
     eventOrWorkshop
 }) {
     return (
-        <Card className="w-full max-w-[26rem] shadow-lg">
+        <Card className="w-full max-w-[24rem] shadow-lg mr-2 ml-2">
             <CardHeader floated={false} color="blue-gray">
                 <QRCode title={`${title} QR Code`} value={qrlink} size={50} level="L" className="w-full h-full" />
             </CardHeader>

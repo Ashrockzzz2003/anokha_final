@@ -8,7 +8,7 @@ const EventsRegistered = ({userEmail}) => {
   const [data] = useState(JSON.parse(tempData[0]));
 
   return (
-    <div className="flex justify-center gap-8 items-center pt-5">
+    <div className="flex flex-wrap justify-center gap-4 items-center pt-5">
       {
         data.length ? (
           data.map((event) => (
@@ -24,7 +24,7 @@ const EventsRegistered = ({userEmail}) => {
               date={event.date}
               departmentAbbr={event.departmentAbbr}
               eventOrWorkshop={event.eventOrWorkshop}
-              qrlink={`http://${userEmail}/${event.eventId}`}
+              qrlink={`${userEmail}/${event.eventId}`}
             />
           ))
         ) : (
