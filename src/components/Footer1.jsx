@@ -77,7 +77,7 @@ export default function Footer1() {
               <a href="#eventide">Eventide</a>
             </li>
             <li>
-              <a href="/profile">My Profile</a>
+              <a href="/team">Crew</a>
             </li>
           </ul>
           <ul className="box">

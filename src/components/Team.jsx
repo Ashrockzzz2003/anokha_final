@@ -9,10 +9,10 @@ import dallas from "./utils/circle_selected.svg";
 
 function TeamCard({ image_url, name, role, departmentname }) {
     return (
-        <Card className="w-48">
+        <Card className="w-56">
             <img src={image_url} alt="profile" className="max-h-2/3 h-2/3 rounded-t-xl" />
             <CardBody className="text-center p-2">
-                <Typography variant="h4" className="text-backgroundColor">
+                <Typography variant="h5" className="text-backgroundColor">
                     {name}
                 </Typography>
                 <Typography className=" font-extralight text-backgroundColor" textGradient>
@@ -41,7 +41,7 @@ export default function Team() {
                 variant="h1"
                 className="mb-2 pt-8 text-2xl md:text-4xl  lg:text-6xl text-lime-50 text-center"
             >
-                The Team
+                Crew Members
             </Typography>
             <div className="block justify-center">
                 {
@@ -76,7 +76,7 @@ export default function Team() {
                             variant="h6"
                             className="mb-2 text-red-100 text-center"
                         >
-                            Coming soon...
+                            Loading...
                         </Typography>
                     )
                 }

@@ -153,10 +153,17 @@ const NavigationBar = () => {
           </Typography>
         </Button>
       </a>
-      <a href="/#gallery">
+      <a href="/events">
         <Button variant="text" className="text-gray-50 ml-auto mr-auto">
           <Typography className="flex items-center capitalize">
-            Gallery
+            Events & Workshops
+          </Typography>
+        </Button>
+      </a>
+      <a href="/team">
+        <Button variant="text" className="text-gray-50 ml-auto mr-auto">
+          <Typography className="flex items-center capitalize">
+            Crew
           </Typography>
         </Button>
       </a>
@@ -164,13 +171,6 @@ const NavigationBar = () => {
         <Button variant="text" className="text-gray-50 ml-auto mr-auto">
           <Typography className="flex items-center capitalize">
             Contact Us
-          </Typography>
-        </Button>
-      </a>
-      <a href="/events">
-        <Button variant="text" className="text-gray-50 ml-auto mr-auto">
-          <Typography className="flex items-center capitalize">
-            Events & Workshops
           </Typography>
         </Button>
       </a>

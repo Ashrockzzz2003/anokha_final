@@ -22,7 +22,7 @@ import AmritaPassport from "./components/events/AmritaPassport";
 import NotFoundPage from "./components/404";
 import Accommodation from "./components/events/Accommodation";
 import TermsAndCond from "./components/events/TermsAndCond";
-// import Team from "./components/Team";
+import Team from "./components/Team";
 
 function App() {
   const { fetchEvents } = useAuth();
@@ -190,13 +190,13 @@ function App() {
             </NoAuth>
           }
         />
-        {/* <Route path="/team" element={
+        <Route path="/team" element={
           <>
             <NavigationBar />
             <Team />
             <Footer1 />
           </>
-        } /> */}
+        } />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
