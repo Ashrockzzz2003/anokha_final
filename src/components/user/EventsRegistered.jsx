@@ -24,7 +24,7 @@ const EventsRegistered = ({userEmail}) => {
               date={event.date}
               departmentAbbr={event.departmentAbbr}
               eventOrWorkshop={event.eventOrWorkshop}
-              qrlink={event.eventId === 111? `${userEmail}`: `${userEmail}/${event.eventId}`}
+              qrlink={parseInt(event.eventId) === 111? `${userEmail}`: `${userEmail}/${event.eventId}`}
             />
           ))
         ) : (
