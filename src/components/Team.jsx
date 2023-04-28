@@ -9,9 +9,9 @@ import dallas from "./utils/circle_selected.svg";
 
 function TeamCard({ image_url, name, role, departmentname }) {
     return (
-        <Card className="w-56 h-fit">
-            <img src={image_url} alt="profile" className="max-h-2/3 h-2/3 rounded-t-xl" />
-            <CardBody className="text-center p-2">
+        <Card className="w-64">
+            <img src={image_url} alt="profile" className="aspect-square rounded-t-xl" />
+            <CardBody className="text-center p-2 m-auto">
                 <Typography variant="h5" className="text-backgroundColor">
                     {name}
                 </Typography>
