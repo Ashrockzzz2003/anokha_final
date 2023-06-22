@@ -2,6 +2,7 @@
   "name": "anokha_final",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ashrockzzz2003.github.io/anokha_final/build",
   "dependencies": {
     "@heroicons/react": "^2.0.17",
     "@material-tailwind/react": "^1.4.2",
@@ -12,7 +13,6 @@
     "axios": "^1.3.5",
     "crypto-js": "^4.1.1",
     "form-urlencoded": "^6.1.0",
-    "gh-pages": "^5.0.0",
     "qrcode": "^1.5.1",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",
@@ -59,7 +59,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "tailwindcss": "^3.3.1"
-  },
-  "homepage": "https://ashrockzzz2003.github.io/anokha_final/"
+  }
 }
