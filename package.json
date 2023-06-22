@@ -2,7 +2,7 @@
   "name": "anokha_final",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ashrockzzz2003.github.io/anokha_final/build",
+  "homepage": "https://ashrockzzz2003.github.io",
   "dependencies": {
     "@heroicons/react": "^2.0.17",
     "@material-tailwind/react": "^1.4.2",
